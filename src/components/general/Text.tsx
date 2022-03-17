@@ -20,6 +20,7 @@ export interface TextProps {
     daydream?: boolean;
     JDCode?: boolean;
     LadyRadical?: boolean;
+    VerminVibes?: boolean;
     link?: boolean;
 }
 
@@ -41,6 +42,7 @@ const Text: React.FC<TextProps> = (props) => {
         daydream,
         JDCode,
         LadyRadical,
+        VerminVibes,
         link,
     } = props;
 
@@ -62,6 +64,7 @@ const Text: React.FC<TextProps> = (props) => {
         daydream && { fontFamily: 'daydream' },
         JDCode && { fontFamily: 'JDCode' },
         LadyRadical && { fontFamily: 'LadyRadical' },
+        VerminVibes && { fontFamily: 'VerminVibes' },
         link && styles.link,
         props.style
     );

@@ -75,8 +75,8 @@ export const styles: StyleSheetCSS = {
         linear-gradient(-45deg, black 25%, transparent 25%),
         linear-gradient(45deg, transparent 75%, black 75%),
         linear-gradient(-45deg, transparent 75%, black 75%)`,
-        backgroundSize: `2px 2px`,
-        backgroundPosition: `0 0, 0 1px, 1px -1px, -1px 0px`,
+        backgroundSize: `4px 4px`,
+        backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
     },
 };
 

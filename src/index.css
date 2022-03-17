@@ -29,3 +29,13 @@ code {
     font-family: LadyRadical;
     src: url(./assets/fonts/LadyRadical.ttf);
 }
+
+/* 12px */
+@font-face {
+    font-family: 'VerminVibes';
+    src: url('./assets/fonts/Vermin-Vibes-1989.woff2') format('woff2'),
+        url('./assets/fonts/Vermin-Vibes-1989.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

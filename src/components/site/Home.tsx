@@ -1,7 +1,5 @@
 import React from 'react';
 import { Text } from '../general';
-// import WelcomeImage from '../../assets/pictures/youngAtComputer.png';
-// import Button from '../os/Button';
 
 export interface HomeProps {}
 
@@ -9,7 +7,7 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <Text daydream size={21}>
+                <Text VerminVibes size={48}>
                     Henry Heffernan
                 </Text>
                 <Text MS size={24}>

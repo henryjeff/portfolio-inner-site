@@ -20,13 +20,14 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const resizeRef = useRef<any>(null);
 
-    const [top, setTop] = useState(16);
-    const [left, setLeft] = useState(16);
+    const [top, setTop] = useState(200);
+    const [left, setLeft] = useState(200);
 
     const [width, setWidth] = useState(600);
     const [height, setHeight] = useState(600);
 
-    const startResize = () => {
+    const startResize = (event: any) => {
+        event.preventDefault();
         window.addEventListener('mousemove', onResize, false);
         window.addEventListener('mouseup', stopResize, false);
     };
@@ -34,8 +35,8 @@ const Window: React.FC<WindowProps> = (props) => {
     const onResize = ({ clientX, clientY }: any) => {
         const curWidth = clientX - left;
         const curHeight = clientY - top;
-        if (curWidth > 200) resizeRef.current.style.width = `${curWidth}px`;
-        if (curHeight > 100) resizeRef.current.style.height = `${curHeight}px`;
+        if (curWidth > 520) resizeRef.current.style.width = `${curWidth}px`;
+        if (curHeight > 220) resizeRef.current.style.height = `${curHeight}px`;
         resizeRef.current.style.opacity = 1;
     };
 
@@ -49,9 +50,9 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const startDrag = (event: any) => {
         const { clientX, clientY } = event;
-
+        event.preventDefault();
         dragProps.current = {
-            dragStartX: clientX - 88 - 88,
+            dragStartX: clientX,
             dragStartY: clientY,
         };
         window.addEventListener('mousemove', onDrag, false);
@@ -62,6 +63,15 @@ const Window: React.FC<WindowProps> = (props) => {
         let { x, y } = getXYFromDragProps(clientX, clientY);
         dragRef.current.style.transform = `translate(${x}px, ${y}px)`;
         dragRef.current.style.opacity = 1;
+    };
+
+    const stopDrag = ({ clientX, clientY }: any) => {
+        dragRef.current.style.opacity = 0;
+        const { x, y } = getXYFromDragProps(clientX, clientY);
+        setTop(y);
+        setLeft(x);
+        window.removeEventListener('mousemove', onDrag, false);
+        window.removeEventListener('mouseup', stopDrag, false);
     };
 
     const getXYFromDragProps = (
@@ -75,15 +85,6 @@ const Window: React.FC<WindowProps> = (props) => {
         const y = clientY - dragStartY + top;
 
         return { x, y };
-    };
-
-    const stopDrag = ({ clientX, clientY }: any) => {
-        dragRef.current.style.opacity = 0;
-        const { x, y } = getXYFromDragProps(clientX, clientY);
-        setTop(y);
-        setLeft(x);
-        window.removeEventListener('mousemove', onDrag, false);
-        window.removeEventListener('mouseup', stopDrag, false);
     };
 
     return (
@@ -152,6 +153,9 @@ const Window: React.FC<WindowProps> = (props) => {
                             >
                                 <div
                                     onMouseDown={startResize}
+                                    style={styles.resizeArea}
+                                />
+                                <div
                                     style={{
                                         display: 'flex',
                                         alignItems: 'flex-end',
@@ -198,6 +202,13 @@ const styles: StyleSheetCSS = {
         // maxWidth:
         display: 'flex',
         flexDirection: 'column',
+    },
+    resizeArea: {
+        right: -16,
+        bottom: -16,
+        width: 64,
+        height: 64,
+        position: 'absolute',
     },
     topBar: {
         backgroundColor: Colors.blue,
