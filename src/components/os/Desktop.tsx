@@ -1,9 +1,7 @@
 import React from 'react';
 import Colors from '../../constants/colors';
-import { Text } from '../general';
 import Home from '../site/Home';
 import Window from './Window';
-// import { FontStyle, FontWeights } from "../../constants/Styles";
 
 export interface DesktopProps {}
 
