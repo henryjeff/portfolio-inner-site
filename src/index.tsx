@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-window.parent.postMessage('hello from the iframe', '*');
+// window.parent.postMessage('hello from the iframe', '*');
 
 ReactDOM.render(
     <React.StrictMode>
