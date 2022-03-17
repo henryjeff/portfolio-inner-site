@@ -28,7 +28,7 @@
     window.onload = () => {
 
       console.log(window.parent)
-      window.parent.sendMessage('hello from the iframe', '*');
+      window.parent.postMessage('hello from the iframe', '*');
     }
   </script>
 </head>
