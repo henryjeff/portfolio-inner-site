@@ -51,7 +51,7 @@ const Window: React.FC<WindowProps> = (props) => {
         const { clientX, clientY } = event;
 
         dragProps.current = {
-            dragStartX: clientX,
+            dragStartX: clientX - 88 - 88,
             dragStartY: clientY,
         };
         window.addEventListener('mousemove', onDrag, false);
