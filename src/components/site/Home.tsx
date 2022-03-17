@@ -1,7 +1,7 @@
 import React from 'react';
-import { Colors, Text } from '../general';
-import WelcomeImage from '../../assets/pictures/youngAtComputer.png';
-import Button from '../os/Button';
+import { Text } from '../general';
+// import WelcomeImage from '../../assets/pictures/youngAtComputer.png';
+// import Button from '../os/Button';
 
 export interface HomeProps {}
 
