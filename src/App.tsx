@@ -24,7 +24,10 @@ function App() {
     //     '_blank'
     // );
 
-    window.postMessage('Hello from the other side!', '*');
+    window.postMessage(
+        'Hello from the other side!',
+        'http://192.168.0.19:8080/'
+    );
     // site.sendMessage('Hello from the app!', 'http://localhost:8080/');
 
     return (
