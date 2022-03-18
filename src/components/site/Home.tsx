@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from '../general';
+import { Link } from '../general';
 
 export interface HomeProps {}
 
@@ -15,18 +16,14 @@ const Home: React.FC<HomeProps> = (props) => {
                 </Text>
 
                 <div style={styles.buttons}>
-                    <Text style={styles.link} link>
-                        About me
-                    </Text>
-                    <Text style={styles.link} link>
-                        Work Experience
-                    </Text>
-                    <Text style={styles.link} link>
-                        Projects
-                    </Text>
-                    <Text style={styles.link} link>
-                        Contact
-                    </Text>
+                    <Link to="about" text="About me" horizontalPadding />
+                    <Link
+                        to="experience"
+                        text="Work Experience"
+                        horizontalPadding
+                    />
+                    <Link to="projects" text="Projects" horizontalPadding />
+                    <Link to="contact" text="Contact me" horizontalPadding />
                 </div>
             </div>
         </div>

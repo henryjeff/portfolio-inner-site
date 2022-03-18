@@ -7,7 +7,13 @@ import Button from './Button';
 import DragIndicator from './DragIndicator';
 import ResizeIndicator from './ResizeIndicator';
 
-export interface WindowProps {}
+export interface WindowProps {
+    closeWindow: () => void;
+    width: number;
+    height: number;
+    top: number;
+    left: number;
+}
 
 const Window: React.FC<WindowProps> = (props) => {
     const windowRef = useRef<any>(null);
@@ -20,11 +26,19 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const resizeRef = useRef<any>(null);
 
-    const [top, setTop] = useState(200);
-    const [left, setLeft] = useState(200);
+    const [top, setTop] = useState(props.top);
+    const [left, setLeft] = useState(props.left);
 
-    const [width, setWidth] = useState(600);
-    const [height, setHeight] = useState(600);
+    const [width, setWidth] = useState(props.width);
+    const [height, setHeight] = useState(props.height);
+
+    const [isMaximized, setIsMaximized] = useState(false);
+    const [preMaxSize, setPreMaxSize] = useState({
+        width,
+        height,
+        top,
+        left,
+    });
 
     const startResize = (event: any) => {
         event.preventDefault();
@@ -87,6 +101,28 @@ const Window: React.FC<WindowProps> = (props) => {
         return { x, y };
     };
 
+    const maximize = () => {
+        if (isMaximized) {
+            setWidth(preMaxSize.width);
+            setHeight(preMaxSize.height);
+            setTop(preMaxSize.top);
+            setLeft(preMaxSize.left);
+            setIsMaximized(false);
+        } else {
+            setPreMaxSize({
+                width,
+                height,
+                top,
+                left,
+            });
+            setWidth(window.innerWidth);
+            setHeight(window.innerHeight);
+            setTop(0);
+            setLeft(0);
+            setIsMaximized(true);
+        }
+    };
+
     return (
         <div style={styles.container}>
             <div
@@ -111,9 +147,12 @@ const Window: React.FC<WindowProps> = (props) => {
                             </div>
                             <div style={styles.windowTopButtons}>
                                 <Button icon="minimize" />
-                                <Button icon="maximize" />
+                                <Button icon="maximize" onClick={maximize} />
                                 <div style={{ paddingLeft: 2 }}>
-                                    <Button icon="close" />
+                                    <Button
+                                        icon="close"
+                                        onClick={props.closeWindow}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -199,7 +238,6 @@ const styles: StyleSheetCSS = {
         borderLeftColor: colors.white,
         flex: 1,
         padding: 2,
-        // maxWidth:
         display: 'flex',
         flexDirection: 'column',
     },
@@ -209,6 +247,7 @@ const styles: StyleSheetCSS = {
         width: 64,
         height: 64,
         position: 'absolute',
+        cursor: 'nwse-resize',
     },
     topBar: {
         backgroundColor: Colors.blue,
@@ -218,6 +257,7 @@ const styles: StyleSheetCSS = {
         alignItems: 'center',
         paddingLeft: 12,
         paddingRight: 2,
+        cursor: 'move',
         boxSizing: 'border-box',
     },
     contentOuter: {

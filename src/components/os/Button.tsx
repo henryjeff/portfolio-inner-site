@@ -6,9 +6,10 @@ import { Text, Icon } from '../general';
 export interface ButtonProps {
     icon?: IconName;
     text?: string;
+    onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ icon, text }) => {
+const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
     const outerBorderStyle = Object.assign(
         {},
         styles.outerBorder,
@@ -22,8 +23,13 @@ const Button: React.FC<ButtonProps> = ({ icon, text }) => {
         text && { padding: 4 }
     );
 
+    const click = (e: any) => {
+        e.preventDefault();
+        onClick && onClick();
+    };
+
     return (
-        <div style={outerBorderStyle}>
+        <div style={outerBorderStyle} onMouseDown={click}>
             <div style={innerBorderStyle}>
                 {icon && <Icon icon={icon} style={styles.icon} />}
                 {text && (
