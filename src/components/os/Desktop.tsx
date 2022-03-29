@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Colors from '../../constants/colors';
 import Home from '../site/Home';
+import About from '../site/About';
 import Toolbar from './Toolbar';
 import Window from './Window';
 
@@ -12,15 +13,15 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         <div style={styles.desktop}>
             <Window
                 top={70}
-                left={200}
-                width={800}
-                height={600}
+                left={100}
+                width={1000}
+                height={800}
                 closeWindow={() => {}}
             >
                 <Router>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<div>About</div>} />
+                        <Route path="/about" element={<About />} />
                     </Routes>
                 </Router>
             </Window>

@@ -32,10 +32,37 @@ code {
 
 /* 12px */
 @font-face {
-    font-family: 'VerminVibes';
+    font-family: VerminVibes;
     src: url('./assets/fonts/Vermin-Vibes-1989.woff2') format('woff2'),
         url('./assets/fonts/Vermin-Vibes-1989.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+}
+
+p {
+    font-family: MSSerif;
+    font-size: 12px;
+}
+
+p b {
+    font-family: lores-15-bold-alt-oakland;
+    font-size: 15px;
+}
+
+h3 {
+    font-family: MSSerif;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+h4 {
+    font-family: MSSerif;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-family: VerminVibes;
+    font-size: 61px;
 }

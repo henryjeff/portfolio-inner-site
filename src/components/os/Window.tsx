@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import colors from '../../constants/colors';
 import Colors from '../../constants/colors';
 import Icon from '../general/Icon';
-import Text from '../general/Text';
 import Button from './Button';
 import DragIndicator from './DragIndicator';
 import ResizeIndicator from './ResizeIndicator';
@@ -141,9 +140,9 @@ const Window: React.FC<WindowProps> = (props) => {
                                 onMouseDown={startDrag}
                                 style={styles.windowHeader}
                             >
-                                <Text white noSelect>
-                                    Showcase Explorer
-                                </Text>
+                                <p className="white">
+                                    <b>Showcase Explorer</b>
+                                </p>
                             </div>
                             <div style={styles.windowTopButtons}>
                                 <Button icon="minimize" />

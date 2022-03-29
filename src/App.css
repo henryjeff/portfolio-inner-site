@@ -3,6 +3,7 @@
     /* width: 1280px; */
     width: 100%;
     /* min-height: 100%; */
+    image-rendering: pixelated;
 }
 
 html,
@@ -13,4 +14,8 @@ body {
 
 #root {
     height: 100%;
+}
+
+.white {
+    color: #fff;
 }

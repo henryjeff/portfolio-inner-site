@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconName } from '../../assets/icons';
 import Colors from '../../constants/colors';
-import { Text, Icon } from '../general';
+import { Icon } from '../general';
 
 export interface ButtonProps {
     icon?: IconName;
@@ -33,9 +33,10 @@ const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
             <div style={innerBorderStyle}>
                 {icon && <Icon icon={icon} style={styles.icon} />}
                 {text && (
-                    <Text noSelect style={styles.text}>
-                        {text}
-                    </Text>
+                    // <Text noSelect style={styles.text}>
+                    //     {text}
+                    // </Text>
+                    <p>{text}</p>
                 )}
             </div>
         </div>

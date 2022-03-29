@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
-import { Text } from '../general';
+// import { } from '../general';
 // import Home from '../site/Home';
 // import Window from './Window';
 
@@ -19,14 +19,25 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
         return strTime;
     };
 
+    const [time, setTime] = useState(getTime());
+
+    const updateTime = () => {
+        setTime(getTime());
+        setTimeout(() => {
+            updateTime();
+        }, 5000);
+    };
+
+    useEffect(() => {
+        updateTime();
+    });
+
     return (
         <div style={styles.toolbarOuter}>
             <div style={styles.toolbarInner}>
                 <div style={styles.toolbar}></div>
                 <div style={styles.time}>
-                    <Text MS size={10}>
-                        {getTime()}
-                    </Text>
+                    <p style={styles.timeText}>{time}</p>
                 </div>
             </div>
         </div>
@@ -66,6 +77,9 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         alignItems: 'center',
         borderLeftColor: Colors.darkGray,
+    },
+    timeText: {
+        fontSize: 10,
     },
 };
 

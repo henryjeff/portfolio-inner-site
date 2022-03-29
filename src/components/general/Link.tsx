@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Text } from '../general';
-import { TextProps } from './Text';
 
-export interface LinkProps extends TextProps {
+export interface LinkProps {
     text: string;
     to: string;
 }
@@ -11,13 +9,17 @@ export interface LinkProps extends TextProps {
 const Link: React.FC<LinkProps> = (props) => {
     return (
         <RouterLink to={props.to}>
-            <Text style={styles.link} {...props} link>
-                {props.text}
-            </Text>
+            <h3 style={styles.link} {...props}>
+                <b>{props.text}</b>
+            </h3>
         </RouterLink>
     );
 };
 
-const styles: StyleSheetCSS = {};
+const styles: StyleSheetCSS = {
+    link: {
+        cursor: 'pointer',
+    },
+};
 
 export default Link;

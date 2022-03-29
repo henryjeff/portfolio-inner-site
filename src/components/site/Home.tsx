@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text } from '../general';
 import { Link } from '../general';
+
+import henny from '../../assets/pictures/henryheffernan.jpg';
 
 export interface HomeProps {}
 
@@ -8,23 +9,14 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <Text VerminVibes size={48}>
-                    Henry Heffernan
-                </Text>
-                <Text MS size={24}>
-                    Software Engineer
-                </Text>
-
-                <div style={styles.buttons}>
-                    <Link to="about" text="About me" horizontalPadding />
-                    <Link
-                        to="experience"
-                        text="Work Experience"
-                        horizontalPadding
-                    />
-                    <Link to="projects" text="Projects" horizontalPadding />
-                    <Link to="contact" text="Contact me" horizontalPadding />
-                </div>
+                <img src={henny}></img>
+                <h3>SOFTWARE ENGINEER</h3>
+                {/* <div style={styles.buttons}>
+                    <Link to="about" text="About me" />
+                    <Link to="experience" text="Work Experience" />
+                    <Link to="projects" text="Projects" />
+                    <Link to="contact" text="Contact me" />
+                </div> */}
             </div>
         </div>
     );
@@ -50,7 +42,7 @@ const styles: StyleSheetCSS = {
     },
     buttons: {
         display: 'flex',
-        // width: 200,
+        width: 400,
         justifyContent: 'space-between',
         // background: 'red',
         marginTop: 32,
