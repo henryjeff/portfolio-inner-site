@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import colors from '../../constants/colors';
 import Colors from '../../constants/colors';
 import Icon from '../general/Icon';
@@ -39,8 +39,12 @@ const Window: React.FC<WindowProps> = (props) => {
         left,
     });
 
+    const [isDragging, setIsDragging] = useState(false);
+    const [isResizing, setIsResizing] = useState(false);
+
     const startResize = (event: any) => {
         event.preventDefault();
+        setIsResizing(true);
         window.addEventListener('mousemove', onResize, false);
         window.addEventListener('mouseup', stopResize, false);
     };
@@ -54,6 +58,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     const stopResize = () => {
+        setIsResizing(false);
         setWidth(resizeRef.current.style.width);
         setHeight(resizeRef.current.style.height);
         resizeRef.current.style.opacity = 0;
@@ -63,6 +68,7 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const startDrag = (event: any) => {
         const { clientX, clientY } = event;
+        setIsDragging(true);
         event.preventDefault();
         dragProps.current = {
             dragStartX: clientX,
@@ -79,6 +85,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     const stopDrag = ({ clientX, clientY }: any) => {
+        setIsDragging(false);
         dragRef.current.style.opacity = 0;
         const { x, y } = getXYFromDragProps(clientX, clientY);
         setTop(y);
@@ -99,6 +106,10 @@ const Window: React.FC<WindowProps> = (props) => {
 
         return { x, y };
     };
+
+    useEffect(() => {
+        dragRef.current.style.transform = `translate(${left}px, ${top}px)`;
+    }, []);
 
     const maximize = () => {
         if (isMaximized) {
@@ -136,12 +147,9 @@ const Window: React.FC<WindowProps> = (props) => {
                 <div style={styles.windowBorderOuter}>
                     <div style={styles.windowBorderInner}>
                         <div style={styles.topBar}>
-                            <div
-                                onMouseDown={startDrag}
-                                style={styles.windowHeader}
-                            >
-                                <p className="white">
-                                    <b>Showcase Explorer</b>
+                            <div style={styles.windowHeader}>
+                                <p className="showcase-header">
+                                    Showcase Explorer
                                 </p>
                             </div>
                             <div style={styles.windowTopButtons}>
@@ -155,7 +163,11 @@ const Window: React.FC<WindowProps> = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div style={styles.contentOuter}>
+                        <div
+                            style={Object.assign({}, styles.contentOuter, {
+                                zIndex: isDragging || isResizing ? 0 : 100,
+                            })}
+                        >
                             <div style={styles.contentInner}>
                                 <div style={styles.content}>
                                     {props.children}
@@ -190,10 +202,6 @@ const Window: React.FC<WindowProps> = (props) => {
                                 )}
                             >
                                 <div
-                                    onMouseDown={startResize}
-                                    style={styles.resizeArea}
-                                />
-                                <div
                                     style={{
                                         display: 'flex',
                                         alignItems: 'flex-end',
@@ -206,13 +214,21 @@ const Window: React.FC<WindowProps> = (props) => {
                     </div>
                 </div>
             </div>
-            <DragIndicator width={width} height={height} dragRef={dragRef} />
+
             <ResizeIndicator
                 top={top}
                 left={left}
                 width={width}
                 height={height}
+                startResize={startResize}
                 resizeRef={resizeRef}
+            />
+
+            <DragIndicator
+                startDrag={startDrag}
+                width={width}
+                height={height}
+                dragRef={dragRef}
             />
         </div>
     );
@@ -246,7 +262,6 @@ const styles: StyleSheetCSS = {
         width: 64,
         height: 64,
         position: 'absolute',
-        cursor: 'nwse-resize',
     },
     topBar: {
         backgroundColor: Colors.blue,
@@ -256,7 +271,6 @@ const styles: StyleSheetCSS = {
         alignItems: 'center',
         paddingLeft: 12,
         paddingRight: 2,
-        cursor: 'move',
         boxSizing: 'border-box',
     },
     contentOuter: {
@@ -279,6 +293,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
         display: 'flex',
         position: 'relative',
+        overflow: 'scroll',
         backgroundColor: Colors.white,
     },
     bottomBar: {
@@ -305,11 +320,14 @@ const styles: StyleSheetCSS = {
         marginLeft: 2,
     },
     windowTopButtons: {
+        zIndex: 10000,
         display: 'flex',
         alignItems: 'center',
     },
     windowHeader: {
         flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 };
 

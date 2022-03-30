@@ -5,6 +5,9 @@ import Home from '../site/Home';
 import About from '../site/About';
 import Toolbar from './Toolbar';
 import Window from './Window';
+import Experience from '../site/Experience';
+import Projects from '../site/Projects';
+import Contact from '../site/Contact';
 
 export interface DesktopProps {}
 
@@ -22,6 +25,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/experience" element={<Experience />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </Router>
             </Window>
@@ -33,6 +39,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 const styles: StyleSheetCSS = {
     desktop: {
         minHeight: '100%',
+        display: 'flex',
         backgroundColor: Colors.turquoise,
     },
 };

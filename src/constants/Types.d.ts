@@ -1,3 +1,3 @@
 declare interface StyleSheetCSS {
-  [key: string]: React.CSSProperties;
+    [key: string]: React.CSSProperties;
 }

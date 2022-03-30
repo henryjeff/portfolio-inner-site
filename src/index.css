@@ -30,6 +30,11 @@ code {
     src: url(./assets/fonts/LadyRadical.ttf);
 }
 
+@font-face {
+    font-family: terminal;
+    src: url(./assets/fonts/terminal.ttf);
+}
+
 /* 12px */
 @font-face {
     font-family: VerminVibes;
@@ -40,29 +45,70 @@ code {
     font-display: swap;
 }
 
-p {
-    font-family: MSSerif;
-    font-size: 12px;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }
 
-p b {
+p {
+    font-family: terminal;
+    font-size: 24px;
+}
+
+.showcase-header {
     font-family: lores-15-bold-alt-oakland;
     font-size: 15px;
+    color: white;
 }
 
 h3 {
-    font-family: MSSerif;
-    font-size: 24px;
-    letter-spacing: 1px;
+    font-family: terminal;
+    font-size: 42px;
+    letter-spacing: 0px;
+}
+
+h2 {
+    font-family: terminal;
+    font-size: 54px;
+    letter-spacing: 0px;
 }
 
 h4 {
-    font-family: MSSerif;
-    font-size: 16px;
-    letter-spacing: 1px;
+    font-family: terminal;
+    font-size: 26px;
+    letter-spacing: 0px;
 }
 
 h1 {
-    font-family: VerminVibes;
-    font-size: 61px;
+    font-size: 72px;
+}
+
+.site-page {
+    display: flex;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+}
+
+.site-page-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 300px;
+    padding: 64px;
+    padding-left: 32px;
+    overflow-y: scroll;
+}
+
+.router-link:visited {
+    color: purple;
 }

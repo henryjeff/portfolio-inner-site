@@ -1,31 +1,25 @@
 import React from 'react';
 import { Link } from '../general';
-
-import henny from '../../assets/pictures/henryheffernan.jpg';
+import logo from '../../assets/pictures/henryheffernanLogo.jpg';
 import forhire from '../../assets/pictures/forHireGif.gif';
 import { useNavigate } from 'react-router';
 
-export interface HomeProps {}
+export interface VerticalNavbarProps {}
 
-const Home: React.FC<HomeProps> = (props) => {
+const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     const navigate = useNavigate();
-
     const goToContact = () => {
         navigate('/contact');
     };
 
     return (
-        <div style={styles.page}>
+        <div style={styles.navbar}>
             <div style={styles.header}>
-                <img
-                    src={henny}
-                    style={styles.image}
-                    alt="HENRY HEFFERNAN"
-                ></img>
-                <h3>SOFTWARE ENGINEER</h3>
+                <img src={logo} style={styles.logo} alt="" />
+                <p>2022 SHOWCASE</p>
             </div>
-            <h4> WELCOME TO MY WEBSITE:</h4>
-            <div style={styles.buttons}>
+            <div style={styles.links}>
+                <Link containerStyle={styles.link} to="" text="HOME" />
                 <Link containerStyle={styles.link} to="about" text="ABOUT" />
                 <Link
                     containerStyle={styles.link}
@@ -43,58 +37,54 @@ const Home: React.FC<HomeProps> = (props) => {
                     text="CONTACT"
                 />
             </div>
+            <div style={styles.spacer} />
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                <img src={forhire} alt="" />
+                <img src={forhire} style={styles.image} alt="" />
             </div>
         </div>
     );
 };
 
 const styles: StyleSheetCSS = {
-    page: {
+    navbar: {
         display: 'flex',
-        left: 0,
-        right: 0,
-        top: 0,
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
+        width: 300,
         height: '100%',
+        flexDirection: 'column',
+        padding: 48,
+        boxSizing: 'border-box',
+        position: 'fixed',
+        overflow: 'hidden',
     },
     header: {
-        // flex: 1,
-        marginBottom: 64,
-        marginTop: 64,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
+        marginBottom: 64,
     },
-    buttons: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        // background: 'red',
-        // marginTop: 64,
-    },
-    image: {
-        width: 800,
+    logo: {
+        width: '100%',
+        marginBottom: 8,
     },
     link: {
-        padding: 16,
+        marginBottom: 32,
     },
-    nowHiring: {
-        backgroundColor: 'red',
-        padding: 16,
+    links: {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        justifyContent: 'center',
+    },
+    image: {
+        width: '80%',
+    },
+    spacer: {
+        flex: 1,
     },
     forHireContainer: {
-        marginTop: 64,
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
         cursor: 'pointer',
+        display: 'flex',
+        width: '100%',
     },
 };
 
-export default Home;
+export default VerticalNavbar;
