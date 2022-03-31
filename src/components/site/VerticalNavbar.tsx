@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from '../general';
-import logo from '../../assets/pictures/henryheffernanLogo.jpg';
 import forhire from '../../assets/pictures/forHireGif.gif';
 import { useNavigate } from 'react-router';
 
@@ -15,8 +14,9 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     return (
         <div style={styles.navbar}>
             <div style={styles.header}>
-                <img src={logo} style={styles.logo} alt="" />
-                <p>2022 SHOWCASE</p>
+                <h2 style={styles.headerText}>Henry</h2>
+                <h2 style={styles.headerText}>Heffernan</h2>
+                <p style={styles.headerShowcase}>SHOWCASE 22'</p>
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="HOME" />
@@ -60,6 +60,13 @@ const styles: StyleSheetCSS = {
         display: 'flex',
         flexDirection: 'column',
         marginBottom: 64,
+    },
+    headerText: {
+        lineHeight: 1,
+    },
+    headerShowcase: {
+        fontSize: 32,
+        marginTop: 8,
     },
     logo: {
         width: '100%',

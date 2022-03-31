@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from '../general';
 
-import henny from '../../assets/pictures/henryheffernan.jpg';
 import forhire from '../../assets/pictures/forHireGif.gif';
 import { useNavigate } from 'react-router';
 
@@ -17,14 +16,10 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <img
-                    src={henny}
-                    style={styles.image}
-                    alt="HENRY HEFFERNAN"
-                ></img>
+                <h1>Henry Heffernan</h1>
                 <h3>SOFTWARE ENGINEER</h3>
             </div>
-            <h4> WELCOME TO MY WEBSITE:</h4>
+            {/* <h4> WELCOME TO MY WEBSITE:</h4> */}
             <div style={styles.buttons}>
                 <Link containerStyle={styles.link} to="about" text="ABOUT" />
                 <Link

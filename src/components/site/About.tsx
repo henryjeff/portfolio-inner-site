@@ -9,7 +9,8 @@ const About: React.FC<AboutProps> = (props) => {
         <div className="site-page">
             <VerticalNavbar />
             <div className="site-page-content">
-                <h2>WELCOME,</h2>
+                {/* <img src={me} style={styles.topImage} alt="" /> */}
+                <h1>Welcome</h1>
                 <div className="text-block">
                     <p>
                         I'm Henry, an aspiring Software Engineer. I’m a recent
@@ -24,7 +25,7 @@ const About: React.FC<AboutProps> = (props) => {
                         comments, feel free to contact me.
                     </p>
                 </div>
-                <h3>A BIT MORE ABOUT ME...</h3>
+                <h3>MORE ABOUT ME...</h3>
                 <div className="text-block">
                     <p>
                         On January 13th, 2000, I was born in sunny Southern
@@ -70,10 +71,17 @@ const styles: StyleSheetCSS = {
         height: 'auto',
         width: '100%',
     },
+    topImage: {
+        height: 'auto',
+        width: '100%',
+        marginBottom: 32,
+    },
     captionedImage: {
         alignSelf: 'center',
         width: '80%',
         display: 'flex',
+        alignItems: 'center',
+        marginBottom: 32,
         flexDirection: 'column',
     },
 };

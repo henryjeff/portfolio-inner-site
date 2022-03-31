@@ -35,6 +35,17 @@ code {
     src: url(./assets/fonts/terminal.ttf);
 }
 
+/* 16px */
+@font-face {
+    font-family: Credits;
+    src: url(./assets/fonts/2Credits.ttf);
+}
+
+@font-face {
+    font-family: Cavalhatriz;
+    src: url(./assets/fonts/Cavalhatriz.ttf);
+}
+
 /* 12px */
 @font-face {
     font-family: VerminVibes;
@@ -72,10 +83,15 @@ h3 {
     letter-spacing: 0px;
 }
 
+h1 {
+    font-family: gastromond, sans-serif;
+    font-size: 72px;
+}
+
 h2 {
-    font-family: terminal;
-    font-size: 54px;
-    letter-spacing: 0px;
+    font-family: gastromond, sans-serif;
+    font-size: 38px;
+    /* letter-spacing: -1px; */
 }
 
 h4 {
@@ -84,13 +100,13 @@ h4 {
     letter-spacing: 0px;
 }
 
-h1 {
-    font-size: 72px;
+li {
+    margin-bottom: 16px;
 }
 
 .text-block {
-    margin-top: 32px;
-    margin-bottom: 64px;
+    margin-top: 16px;
+    margin-bottom: 48px;
     display: flex;
     flex-direction: column;
 }
@@ -112,7 +128,8 @@ h1 {
     flex-direction: column;
     margin-left: 300px;
     padding: 64px;
-    padding-left: 32px;
+    padding-top: 32px;
+    padding-left: 16px;
     overflow-y: scroll;
 }
 
