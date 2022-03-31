@@ -14,7 +14,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         <h1>Hover</h1>
                         <h3>FRONTEND ENGINEER</h3>
                     </div>
-                    <img style={styles.hoverLogo} src={hoverLogo} alt="" />
+                    {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
                 </div>
                 <div className="text-block">
                     <p>
@@ -60,6 +60,92 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             </p>
                         </li>
                     </ul>
+                    <p>Dates Active: April 2020 - September 2021 </p>
+                </div>
+                <div style={styles.headerContainer}>
+                    <div style={styles.header}>
+                        <h1>BrACS</h1>
+                        <h3>TEAM LEAD & ENGINEER</h3>
+                    </div>
+                </div>
+                <div className="text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Pariatur laudantium labore voluptate dignissimos minus
+                        minima omnis. Laboriosam velit iusto reiciendis, ut sed
+                        fugit maiores, beatae nesciunt tempora quo earum
+                        adipisci?
+                    </p>
+                    <br />
+                    <ul>
+                        <li>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Architecto repudiandae
+                                dignissimos explicabo delectus! Commodi
+                                cupiditate ad rem, reprehenderit velit alias qui
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Quo obcaecati voluptatem, maiores quis, animi
+                                quibusdam non adipisci deleniti, pariatur
+                                accusamus enim laudantium unde necessitatibus!
+                                Vitae perferendis tenetur facere beatae
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Facere amet velit molestias officia earum iusto
+                                error nobis necessitatibus quod sapiente
+                                eligendi, dolorum at magnam corrupti voluptates.
+                            </p>
+                        </li>
+                    </ul>
+                    <p>Dates Active: September 2021 - May 2022 </p>
+                </div>
+                <div style={styles.headerContainer}>
+                    <div style={styles.header}>
+                        <h1>K-F/X</h1>
+                        <h3>SPECIAL EFFECTS TECHNICIAN</h3>
+                    </div>
+                    {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
+                </div>
+                <div className="text-block">
+                    <p>
+                        As a Special Effects Technician I worked on set with a
+                        professional crew of 50+ people. I applied my problem
+                        solving and technical skills to operate large equipment
+                        such as rain machines, fog machines, small explosives
+                        and general rigging in high pressure situations.
+                        Responsible for ensuring that everything goes right when
+                        the cameras start rolling.
+                    </p>
+                    <br />
+                    <h3 style={styles.indent}>SCREEN CREDITS:</h3>
+                    <ul>
+                        <li style={styles.row}>
+                            <p>• Ray Donovan</p>
+                            <p>[ SHOWTIME ]</p>
+                        </li>
+                        <li style={styles.row}>
+                            <p>• Ray Donovan: The Movie</p>
+                            <p>[ SHOWTIME ]</p>
+                        </li>
+                        <li style={styles.row}>
+                            <p>• Hightown</p>
+                            <p>[ STARZ ]</p>
+                        </li>
+                        <li style={styles.row}>
+                            <p>• Bull</p>
+                            <p>[ CBS ]</p>
+                        </li>
+                        <li style={styles.row}>
+                            <p>• At Home with Amy Sedaris</p>
+                            <p>[ truTV ]</p>
+                        </li>
+                    </ul>
+                    <p>Dates Active: Fall 2019, Summer 2021</p>
                 </div>
             </div>
         </div>
@@ -85,6 +171,13 @@ const styles: StyleSheetCSS = {
     },
     hoverText: {
         marginBottom: 8,
+    },
+    indent: {
+        marginLeft: 24,
+    },
+    row: {
+        display: 'flex',
+        justifyContent: 'space-between',
     },
 };
 

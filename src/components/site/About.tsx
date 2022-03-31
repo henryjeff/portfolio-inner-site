@@ -13,16 +13,18 @@ const About: React.FC<AboutProps> = (props) => {
                 <h1>Welcome</h1>
                 <div className="text-block">
                     <p>
-                        I'm Henry, an aspiring Software Engineer. I’m a recent
-                        graduate from Rensselaer Polytechnic Institute with my
-                        BS in computer science. I am currently looking for a job
-                        doing
+                        I'm Henry, an aspiring software engineer. I’m graduating
+                        from Rensselaer Polytechnic Institute with my BS in
+                        computer science this May and I am currently looking for
+                        a job (hire me!) in the software industry.
                     </p>
                     <br />
                     <p>
                         Thank you for taking the time to checkout my portfolio.
-                        I hope you enjoy it and if you have any questions or
-                        comments, feel free to contact me.
+                        I really hope you enjoy it and if you have any questions
+                        or comments, feel free to contact me either through this
+                        site or through my email address --
+                        henryheffernan@gmail.com
                     </p>
                 </div>
                 <h3>MORE ABOUT ME...</h3>
@@ -50,12 +52,21 @@ const About: React.FC<AboutProps> = (props) => {
                     <br />
                     <p>
                         I have always had a passion for technology and
-                        engineering, and in middle school was introduced to the
-                        world of programming. I am incredibly excited to be
-                        graduating from RPI and I look forward to whatever job I
-                        end up getting in the industry.
+                        engineering. I love to create and I am incredibly
+                        excited to be graduating from RPI so I can work in the
+                        industry.
                     </p>
                     <br />
+                </div>
+                <h3>WHAT IS THIS WEBSITE?</h3>
+                <div className="text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptatibus in neque quo quis reprehenderit. Tempore
+                        fugit eveniet cupiditate provident possimus dolore ut
+                        quia molestiae. Fugiat eligendi labore tenetur doloribus
+                        incidunt.
+                    </p>
                 </div>
             </div>
         </div>
