@@ -1,7 +1,6 @@
 import React from 'react';
 import VerticalNavbar from './VerticalNavbar';
-import hoverLogo from '../../assets/pictures/hoverLogoGif.gif';
-import hoverText from '../../assets/pictures/hoverText.jpg';
+import hoverLogo from '../../assets/pictures/hoverLogo.gif';
 
 export interface ExperienceProps {}
 
