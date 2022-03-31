@@ -294,6 +294,7 @@ const styles: StyleSheetCSS = {
         display: 'flex',
         position: 'relative',
         overflow: 'scroll',
+        overflowX: 'hidden',
         backgroundColor: Colors.white,
     },
     bottomBar: {
