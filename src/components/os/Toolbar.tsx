@@ -54,6 +54,7 @@ const styles: StyleSheetCSS = {
         background: Colors.lightGray,
         borderTop: `1px solid ${Colors.lightGray}`,
         display: 'flex',
+        zIndex: 100000,
     },
     toolbarInner: {
         borderTop: `1px solid ${Colors.white}`,

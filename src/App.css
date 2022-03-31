@@ -4,12 +4,15 @@
     width: 100%;
     /* min-height: 100%; */
     image-rendering: pixelated;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 html,
 body {
     height: 100%;
     margin: 0;
+    overflow: hidden;
 }
 
 #root {

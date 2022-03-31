@@ -88,6 +88,13 @@ h1 {
     font-size: 72px;
 }
 
+.text-block {
+    margin-top: 32px;
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+}
+
 .site-page {
     display: flex;
     left: 0px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import VerticalNavbar from './VerticalNavbar';
-import me from '../../assets/pictures/youngAtComputer.png';
+import me from '../../assets/pictures/workingAtComputer.jpg';
 
 export interface AboutProps {}
 
@@ -10,7 +10,7 @@ const About: React.FC<AboutProps> = (props) => {
             <VerticalNavbar />
             <div className="site-page-content">
                 <h2>WELCOME,</h2>
-                <div style={styles.textBlock}>
+                <div className="text-block">
                     <p>
                         I'm Henry, an aspiring Software Engineer. I’m a recent
                         graduate from Rensselaer Polytechnic Institute with my
@@ -25,7 +25,7 @@ const About: React.FC<AboutProps> = (props) => {
                     </p>
                 </div>
                 <h3>A BIT MORE ABOUT ME...</h3>
-                <div style={styles.textBlock}>
+                <div className="text-block">
                     <p>
                         On January 13th, 2000, I was born in sunny Southern
                         California. I lived there most of my childhood until I
@@ -56,21 +56,6 @@ const About: React.FC<AboutProps> = (props) => {
                     </p>
                     <br />
                 </div>
-                {/* <div style={{ display: 'flex', marginTop: 32 }}>
-                    <div style={{ flex: 1 }}>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Corrupti maiores vel et excepturi id nihil
-                            reiciendis praesentium illo laboriosam sed
-                            temporibus eius, eligendi recusandae rem deleniti,
-                            fugiat illum quis ex.
-                        </p>
-                    </div>
-                    <div style={{ flex: 1 }}>
-                        <img src={me} style={styles.image} alt="" />
-                        <p>This is a picture of me developing this website</p>
-                    </div>
-                </div> */}
             </div>
         </div>
     );
@@ -80,12 +65,6 @@ const styles: StyleSheetCSS = {
     contentHeader: {
         marginBottom: 16,
         fontSize: 48,
-    },
-    textBlock: {
-        marginTop: 32,
-        marginBottom: 64,
-        display: 'flex',
-        flexDirection: 'column',
     },
     image: {
         height: 'auto',
