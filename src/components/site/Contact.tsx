@@ -16,32 +16,56 @@ const Contact: React.FC<ContactProps> = (props) => {
                         to chat!
                     </p>
                     <form style={styles.form}>
-                        <label style={styles.formItem}>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                required
-                            />
+                        <label>
+                            <p>
+                                <b>Name:</b>
+                            </p>
                         </label>
-                        <label style={styles.formItem}>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                required
-                            />
+                        <input
+                            style={styles.formItem}
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            required
+                        />
+                        <label>
+                            <p>
+                                <b>Email:</b>
+                            </p>
                         </label>
-                        <label style={styles.formItem}>
-                            <textarea
-                                name="message"
-                                placeholder="Message"
-                                required
-                            />
+                        <input
+                            style={styles.formItem}
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            required
+                        />
+                        <label>
+                            <p>
+                                <b>Company (optional):</b>
+                            </p>
                         </label>
+                        <input
+                            style={styles.formItem}
+                            type="company"
+                            name="company"
+                            placeholder="Company"
+                            required
+                        />
+                        <label>
+                            <p>
+                                <b>Message:</b>
+                            </p>
+                        </label>
+                        <textarea
+                            name="message"
+                            placeholder="Message"
+                            required
+                            style={styles.formItem}
+                        />
                         <div style={styles.buttons}>
                             <button className="site-button" type="submit">
-                                Submit
+                                <p>Submit</p>
                             </button>
                         </div>
                     </form>
@@ -58,11 +82,12 @@ const styles: StyleSheetCSS = {
         marginTop: 32,
     },
     formItem: {
+        marginTop: 4,
         marginBottom: 16,
     },
     buttons: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
 };
 

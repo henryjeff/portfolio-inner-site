@@ -56,6 +56,11 @@ code {
     src: url(./assets/fonts/Millennium.ttf);
 }
 
+@font-face {
+    font-family: MillenniumBold;
+    src: url(./assets/fonts/Millennium-Bold.ttf);
+}
+
 /* 12px */
 @font-face {
     font-family: VerminVibes;
@@ -77,8 +82,12 @@ h6 {
 }
 
 p {
-    font-family: Millennium;
+    font-family: Millennium, 'Times New Roman', Times, serif;
     font-size: 18px;
+}
+
+p b {
+    font-family: MillenniumBold, 'Times New Roman', Times, serif;
 }
 
 .showcase-header {
@@ -87,26 +96,25 @@ p {
     color: white;
 }
 
-h3 {
-    font-family: terminal;
-    font-size: 42px;
-    letter-spacing: 0px;
-}
-
 h1 {
     font-family: gastromond, sans-serif;
     font-size: 64px;
 }
 
 h2 {
-    font-family: gastromond, sans-serif;
-    font-size: 38px;
-    /* letter-spacing: -1px; */
+    font-family: MillenniumBold, 'Times New Roman', Times, serif;
+    font-size: 32px;
+}
+
+h3 {
+    font-family: MillenniumBold, 'Times New Roman', Times, serif;
+    font-size: 24px;
+    letter-spacing: 0px;
 }
 
 h4 {
-    font-family: terminal;
-    font-size: 26px;
+    font-family: MillenniumBold, 'Times New Roman', Times, serif;
+    font-size: 18px;
     letter-spacing: 0px;
 }
 

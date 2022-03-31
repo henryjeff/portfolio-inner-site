@@ -16,8 +16,8 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <h1>Henry Heffernan</h1>
-                <h3>SOFTWARE ENGINEER</h3>
+                <h1 style={styles.name}>Henry Heffernan</h1>
+                <h2>Software Engineer</h2>
             </div>
             {/* <h4> WELCOME TO MY WEBSITE:</h4> */}
             <div style={styles.buttons}>
@@ -89,6 +89,10 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         alignItems: 'center',
         cursor: 'pointer',
+    },
+    name: {
+        fontSize: 72,
+        marginBottom: 8,
     },
 };
 

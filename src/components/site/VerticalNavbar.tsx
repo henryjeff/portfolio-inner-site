@@ -14,9 +14,9 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     return (
         <div style={styles.navbar}>
             <div style={styles.header}>
-                <h2 style={styles.headerText}>Henry</h2>
-                <h2 style={styles.headerText}>Heffernan</h2>
-                <h3 style={styles.headerShowcase}>SHOWCASE 22'</h3>
+                <h1 style={styles.headerText}>Henry</h1>
+                <h1 style={styles.headerText}>Heffernan</h1>
+                <h3 style={styles.headerShowcase}>Showcase 22'</h3>
             </div>
             <div style={styles.links}>
                 <Link containerStyle={styles.link} to="" text="HOME" />
@@ -62,10 +62,10 @@ const styles: StyleSheetCSS = {
         marginBottom: 64,
     },
     headerText: {
+        fontSize: 38,
         lineHeight: 1,
     },
     headerShowcase: {
-        fontSize: 32,
         marginTop: 12,
     },
     logo: {
