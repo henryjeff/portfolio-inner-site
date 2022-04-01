@@ -12,6 +12,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
             <div className="site-page-content">
                 <h1>Art & Design</h1>
                 <h2>ENDEAVORS</h2>
+                <br />
                 <div className="text-block">
                     <p>
                         While I love programming and software development, Art,
@@ -41,8 +42,8 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                         <img src={girlRun} alt="" />
                         <p>
                             <sub>
-                                <b>Figure 1:</b> Run animation by me of Noitu
-                                Love, original sprite by kevink
+                                <b>Figure 1:</b> Run cycle by me of Noitu Love,
+                                original sprite by kevink
                             </sub>
                         </p>
                     </div>
