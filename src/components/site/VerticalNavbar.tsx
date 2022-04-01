@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
 import forhire from '../../assets/pictures/forHireGif.gif';
 import { useNavigate } from 'react-router';
@@ -6,10 +6,23 @@ import { useNavigate } from 'react-router';
 export interface VerticalNavbarProps {}
 
 const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
+    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+    const [projectsExpanded, setProjectsExpanded] = useState(false);
+
     const navigate = useNavigate();
     const goToContact = () => {
         navigate('/contact');
     };
+
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, [window.location.pathname]);
+
+    useEffect(() => {
+        if (currentPath.includes('/projects')) {
+            setProjectsExpanded(true);
+        }
+    }, [currentPath]);
 
     return (
         <div style={styles.navbar}>
@@ -27,10 +40,36 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                     text="EXPERIENCE"
                 />
                 <Link
-                    containerStyle={styles.link}
+                    containerStyle={Object.assign(
+                        {},
+                        styles.link,
+                        projectsExpanded && styles.expandedLink
+                    )}
                     to="projects"
                     text="PROJECTS"
                 />
+                {
+                    // if current path contains projects
+                    projectsExpanded && (
+                        <div style={styles.insetLinks}>
+                            <Link
+                                containerStyle={styles.insetLink}
+                                to="projects/software"
+                                text="SOFTWARE"
+                            />
+                            <Link
+                                containerStyle={styles.insetLink}
+                                to="projects/music"
+                                text="MUSIC"
+                            />
+                            <Link
+                                containerStyle={styles.insetLink}
+                                to="projects/art"
+                                text="ART"
+                            />
+                        </div>
+                    )
+                }
                 <Link
                     containerStyle={styles.link}
                     to="contact"
@@ -74,6 +113,18 @@ const styles: StyleSheetCSS = {
     },
     link: {
         marginBottom: 32,
+    },
+    expandedLink: {
+        marginBottom: 16,
+    },
+    insetLinks: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginLeft: 32,
+        marginBottom: 16,
+    },
+    insetLink: {
+        marginBottom: 8,
     },
     links: {
         display: 'flex',

@@ -5,6 +5,7 @@ export interface LinkProps {
     text: string;
     to: string;
     containerStyle?: React.CSSProperties;
+    outsideTo?: string;
 }
 
 const Link: React.FC<LinkProps> = (props) => {

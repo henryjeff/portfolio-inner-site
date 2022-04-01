@@ -124,10 +124,11 @@ li {
 
 :root {
     --button-highlight: #ffffff;
-    --button-face: #a7a7a7;
+    --button-face: #747474;
     --button-shadow: #808080;
     --window-frame: #2b2b2b;
     --surface: #c0c0c0;
+    --surface-hover: #e9e9e9;
     --border-field: inset -1px -1px var(--button-highlight),
         inset 1px 1px var(--button-shadow), inset -2px -2px var(--button-face),
         inset 2px 2px var(--window-frame);
@@ -136,6 +137,25 @@ li {
     --border-raised-inner: inset -2px -2px var(--button-shadow),
         inset 2px 2px var(--button-face);
 }
+
+.projectLinkContainer {
+    box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+    padding: 24px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.projectLinkContainer:hover {
+    background-color: var(--surface-hover);
+}
+
+.projectLinkContainer:active {
+    box-shadow: var(--border-raised-inner), var(--border-raised-outer);
+    /* box-shadow: inset var(--border-raised-inner),
+        inset var(--border-raised-outer); */
+    background-color: var(--surface);
+}
+
 input {
     width: 100%;
     padding: 4px 8px;
@@ -170,11 +190,36 @@ input:active {
 
 .site-button {
     box-sizing: border-box;
-    background: var(--surface);
+    background: var(--surface-hover);
     box-shadow: var(--border-raised-outer), var(--border-raised-inner);
     border-radius: 0;
+    border: none;
+    font-size: 18px;
     flex-shrink: 1;
     padding: 4px 12px;
+    cursor: pointer;
+    font-family: MillenniumBold;
+}
+
+.site-button:hover {
+    background-color: var(--surface);
+}
+
+.site-button:active {
+    background-color: var(--button-shadow);
+}
+
+.captioned-image {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.captioned-image img {
+    width: 100%;
 }
 
 .text-block {

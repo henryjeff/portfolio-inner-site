@@ -18,7 +18,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                     <form style={styles.form}>
                         <label>
                             <p>
-                                <b>Name:</b>
+                                <b>Your name:</b>
                             </p>
                         </label>
                         <input
@@ -65,7 +65,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                         />
                         <div style={styles.buttons}>
                             <button className="site-button" type="submit">
-                                <p>Submit</p>
+                                Submit
                             </button>
                         </div>
                     </form>

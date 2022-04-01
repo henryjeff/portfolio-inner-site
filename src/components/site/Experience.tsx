@@ -1,6 +1,7 @@
 import React from 'react';
 import VerticalNavbar from './VerticalNavbar';
 import hoverLogo from '../../assets/pictures/hoverLogo.gif';
+import { Link } from '../general';
 
 export interface ExperienceProps {}
 
@@ -11,8 +12,19 @@ const Experience: React.FC<ExperienceProps> = (props) => {
             <div className="site-page-content">
                 <div style={styles.headerContainer}>
                     <div style={styles.header}>
-                        <h1>Hover</h1>
-                        <h3>FRONTEND ENGINEER</h3>
+                        <div style={styles.headerRow}>
+                            <h1>Hover</h1>
+                            <a
+                                rel="noreferrer"
+                                target="_blank"
+                                href={'https://hover.gg/'}
+                            >
+                                <p>www.hover.gg</p>
+                            </a>
+                        </div>
+                        <div style={styles.headerRow}>
+                            <h3>FRONTEND ENGINEER</h3>
+                        </div>
                     </div>
                     {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
                 </div>
@@ -64,8 +76,21 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </div>
                 <div style={styles.headerContainer}>
                     <div style={styles.header}>
-                        <h1>BrACS</h1>
-                        <h3>TEAM LEAD & ENGINEER</h3>
+                        <div style={styles.headerRow}>
+                            <h1>BrACS</h1>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href={
+                                    'http://bracs-env.eba-tpqnqa3x.us-east-1.elasticbeanstalk.com/'
+                                }
+                            >
+                                <p>www.bracs.com</p>
+                            </a>
+                        </div>
+                        <div style={styles.headerRow}>
+                            <h3>TEAM LEAD & ENGINEER</h3>
+                        </div>
                     </div>
                 </div>
                 <div className="text-block">
@@ -106,8 +131,19 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </div>
                 <div style={styles.headerContainer}>
                     <div style={styles.header}>
-                        <h1>K-F/X</h1>
-                        <h3>SPECIAL EFFECTS TECHNICIAN</h3>
+                        <div style={styles.headerRow}>
+                            <h1>K-F/X</h1>
+                            <a
+                                target="_blank"
+                                rel="noreferrer"
+                                href={'https://kfxnyc.com/'}
+                            >
+                                <p>www.kfxnyc.com</p>
+                            </a>
+                        </div>
+                        <div style={styles.headerRow}>
+                            <h3>SPECIAL EFFECTS TECHNICIAN</h3>
+                        </div>
                     </div>
                     {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
                 </div>
@@ -174,6 +210,11 @@ const styles: StyleSheetCSS = {
     },
     indent: {
         marginLeft: 24,
+    },
+    headerRow: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     row: {
         display: 'flex',

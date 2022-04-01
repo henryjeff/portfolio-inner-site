@@ -8,6 +8,9 @@ import Window from './Window';
 import Experience from '../site/Experience';
 import Projects from '../site/Projects';
 import Contact from '../site/Contact';
+import SoftwareProjects from '../site/projects/Software';
+import MusicProjects from '../site/projects/Music';
+import ArtProjects from '../site/projects/Art';
 
 export interface DesktopProps {}
 
@@ -15,10 +18,10 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     return (
         <div style={styles.desktop}>
             <Window
-                top={70}
-                left={100}
-                width={1000}
-                height={800}
+                top={10}
+                left={20}
+                width={1170}
+                height={910}
                 closeWindow={() => {}}
             >
                 <Router>
@@ -28,6 +31,15 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                         <Route path="/experience" element={<Experience />} />
                         <Route path="/projects" element={<Projects />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route
+                            path="/projects/software"
+                            element={<SoftwareProjects />}
+                        />
+                        <Route
+                            path="/projects/music"
+                            element={<MusicProjects />}
+                        />
+                        <Route path="/projects/art" element={<ArtProjects />} />
                     </Routes>
                 </Router>
             </Window>
