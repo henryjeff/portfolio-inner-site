@@ -138,18 +138,17 @@ li {
         inset 2px 2px var(--button-face);
 }
 
-.projectLinkContainer {
+.big-button-container {
     box-shadow: var(--border-raised-outer), var(--border-raised-inner);
     padding: 24px;
     cursor: pointer;
-    margin-bottom: 16px;
 }
 
-.projectLinkContainer:hover {
+.big-button-container:hover {
     background-color: var(--surface-hover);
 }
 
-.projectLinkContainer:active {
+.big-button-container:active {
     box-shadow: var(--border-raised-inner), var(--border-raised-outer);
     /* box-shadow: inset var(--border-raised-inner),
         inset var(--border-raised-outer); */
@@ -160,7 +159,7 @@ input {
     width: 100%;
     padding: 4px 8px;
     box-sizing: border-box;
-    border: 2px solid white;
+    border: none;
     resize: none;
     box-shadow: var(--border-field);
     font-family: Millennium, sans-serif;
@@ -171,7 +170,7 @@ textarea {
     width: 100%;
     height: 150px;
     padding: 4px 8px;
-    border: 2px solid white;
+    border: none;
     box-sizing: border-box;
     resize: none;
     box-shadow: var(--border-field);
@@ -184,8 +183,7 @@ textarea:active,
 input:focus,
 input:active {
     outline: none;
-    border-color: blue;
-    border-radius: 0px;
+    background-color: #fbffc4;
 }
 
 .site-button {
@@ -194,11 +192,12 @@ input:active {
     box-shadow: var(--border-raised-outer), var(--border-raised-inner);
     border-radius: 0;
     border: none;
+    color: black;
     font-size: 18px;
     flex-shrink: 1;
     padding: 4px 12px;
     cursor: pointer;
-    font-family: MillenniumBold;
+    font-family: Millennium;
 }
 
 .site-button:hover {
@@ -207,6 +206,12 @@ input:active {
 
 .site-button:active {
     background-color: var(--button-shadow);
+}
+
+.site-button:disabled {
+    background-color: var(--button-shadow);
+    /* cursor cross */
+    cursor: not-allowed;
 }
 
 .captioned-image {
@@ -253,4 +258,28 @@ input:active {
 
 .router-link:visited {
     color: purple;
+}
+
+.loading::after {
+    display: inline-block;
+    animation: dotty steps(1, end) 1s infinite;
+    content: '';
+}
+
+@keyframes dotty {
+    0% {
+        content: '';
+    }
+    25% {
+        content: '.';
+    }
+    50% {
+        content: '..';
+    }
+    75% {
+        content: '...';
+    }
+    100% {
+        content: '';
+    }
 }

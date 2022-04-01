@@ -109,7 +109,7 @@ const Window: React.FC<WindowProps> = (props) => {
 
     useEffect(() => {
         dragRef.current.style.transform = `translate(${left}px, ${top}px)`;
-    }, []);
+    });
 
     const maximize = () => {
         if (isMaximized) {

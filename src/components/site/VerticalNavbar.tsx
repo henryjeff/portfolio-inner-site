@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
-import forhire from '../../assets/pictures/forHireGif.gif';
-import { useNavigate } from 'react-router';
+import forHire from '../../assets/pictures/forHireGif.gif';
+import { useLocation, useNavigate } from 'react-router';
 
 export interface VerticalNavbarProps {}
 
 const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
-    const [currentPath, setCurrentPath] = useState(window.location.pathname);
+    const location = useLocation();
     const [projectsExpanded, setProjectsExpanded] = useState(false);
+    const [isHome, setIsHome] = useState(false);
 
     const navigate = useNavigate();
     const goToContact = () => {
@@ -15,16 +16,17 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     };
 
     useEffect(() => {
-        setCurrentPath(window.location.pathname);
-    }, [window.location.pathname]);
-
-    useEffect(() => {
-        if (currentPath.includes('/projects')) {
+        if (location.pathname.includes('/projects')) {
             setProjectsExpanded(true);
         }
-    }, [currentPath]);
+        if (location.pathname === '/') {
+            setIsHome(true);
+        } else {
+            setIsHome(false);
+        }
+    }, [location.pathname]);
 
-    return (
+    return !isHome ? (
         <div style={styles.navbar}>
             <div style={styles.header}>
                 <h1 style={styles.headerText}>Henry</h1>
@@ -78,9 +80,11 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
             </div>
             <div style={styles.spacer} />
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                <img src={forhire} style={styles.image} alt="" />
+                <img src={forHire} style={styles.image} alt="" />
             </div>
         </div>
+    ) : (
+        <></>
     );
 };
 

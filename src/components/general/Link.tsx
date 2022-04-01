@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 
 export interface LinkProps {
     text: string;
@@ -12,21 +12,27 @@ const Link: React.FC<LinkProps> = (props) => {
     const navigate = useNavigate();
 
     // get current location of react router
-    const location = window.location.pathname;
+    const location = useLocation();
 
     const [active, setActive] = React.useState(false);
 
     const handleClick = (e: any) => {
+        let isMounted = true;
         e.preventDefault();
         setActive(true);
-        if (location !== `/${props.to}`) {
+        if (location.pathname !== `/${props.to}`) {
             setTimeout(() => {
-                navigate(`/${props.to}`);
+                if (isMounted) navigate(`/${props.to}`);
             }, 100);
         }
-        setTimeout(() => {
-            setActive(false);
+        let t = setTimeout(() => {
+            if (isMounted) setActive(false);
         }, 100);
+
+        return () => {
+            isMounted = false;
+            clearTimeout(t);
+        };
     };
 
     return (

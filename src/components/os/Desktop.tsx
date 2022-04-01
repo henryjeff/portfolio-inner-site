@@ -11,6 +11,7 @@ import Contact from '../site/Contact';
 import SoftwareProjects from '../site/projects/Software';
 import MusicProjects from '../site/projects/Music';
 import ArtProjects from '../site/projects/Art';
+import VerticalNavbar from '../site/VerticalNavbar';
 
 export interface DesktopProps {}
 
@@ -25,24 +26,34 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 closeWindow={() => {}}
             >
                 <Router>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/experience" element={<Experience />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route
-                            path="/projects/software"
-                            element={<SoftwareProjects />}
-                        />
-                        <Route
-                            path="/projects/music"
-                            element={<MusicProjects />}
-                        />
-                        <Route path="/projects/art" element={<ArtProjects />} />
-                    </Routes>
+                    <div className="site-page">
+                        <VerticalNavbar />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            <Route
+                                path="/experience"
+                                element={<Experience />}
+                            />
+                            <Route path="/projects" element={<Projects />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route
+                                path="/projects/software"
+                                element={<SoftwareProjects />}
+                            />
+                            <Route
+                                path="/projects/music"
+                                element={<MusicProjects />}
+                            />
+                            <Route
+                                path="/projects/art"
+                                element={<ArtProjects />}
+                            />
+                        </Routes>
+                    </div>
                 </Router>
             </Window>
+
             <Toolbar />
         </div>
     );
