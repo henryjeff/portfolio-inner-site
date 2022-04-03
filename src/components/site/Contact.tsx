@@ -29,10 +29,10 @@ const SocialBox: React.FC<SocialBoxProps> = ({ link, icon }) => {
 };
 
 const Contact: React.FC<ContactProps> = (props) => {
-    const [company, setCompany] = useState('Beef Co.');
-    const [email, setEmail] = useState('beefster@gmail.com');
-    const [name, setName] = useState('Henny Beef');
-    const [message, setMessage] = useState('Hey Beef.');
+    const [company, setCompany] = useState('');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
     const [isFormValid, setIsFormValid] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [formMessage, setFormMessage] = useState('');
