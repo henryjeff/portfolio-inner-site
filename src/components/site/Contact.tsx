@@ -198,7 +198,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                             className="site-button"
                             style={styles.button}
                             type="submit"
-                            // disabled={!isFormValid || isLoading}
+                            disabled={!isFormValid || isLoading}
                             onMouseDown={handleSubmit}
                         >
                             {!isLoading ? (
