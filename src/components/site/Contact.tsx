@@ -29,10 +29,10 @@ const SocialBox: React.FC<SocialBoxProps> = ({ link, icon }) => {
 };
 
 const Contact: React.FC<ContactProps> = (props) => {
-    const [company, setCompany] = useState('');
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
-    const [message, setMessage] = useState('');
+    const [company, setCompany] = useState('Beef Co.');
+    const [email, setEmail] = useState('beefster@gmail.com');
+    const [name, setName] = useState('Henny Beef');
+    const [message, setMessage] = useState('Hey Beef.');
     const [isFormValid, setIsFormValid] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [formMessage, setFormMessage] = useState('');
@@ -49,16 +49,44 @@ const Contact: React.FC<ContactProps> = (props) => {
     const handleSubmit = useCallback(() => {
         if (isFormValid) {
             setIsLoading(true);
-            console.log(company, email, name, message);
-            setTimeout(() => {
-                setFormMessage(`Message successfully sent. Thank you ${name}!`);
-                setCompany('');
-                setEmail('');
-                setName('');
-                setMessage('');
-                setFormMessageColor(colors.blue);
-                setIsLoading(false);
-            }, 2000);
+            fetch('https://henryheffernan.com/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    company,
+                    email,
+                    name,
+                    message,
+                }),
+            })
+                .then((res) => {
+                    if (res.status === 200) {
+                        setFormMessage(
+                            `Message successfully sent. Thank you ${name}!`
+                        );
+                        setCompany('');
+                        setEmail('');
+                        setName('');
+                        setMessage('');
+                        setFormMessageColor(colors.blue);
+                        setIsLoading(false);
+                    } else {
+                        setFormMessage(
+                            'There was an error sending your message. Please try again.'
+                        );
+                        setFormMessageColor(colors.red);
+                        setIsLoading(false);
+                    }
+                })
+                .catch((err) => {
+                    setFormMessage(
+                        'There was an error sending your message. Please try again.'
+                    );
+                    setFormMessageColor(colors.red);
+                    setIsLoading(false);
+                });
         } else {
             setFormMessage('Form unable to validate, please try again.');
             setFormMessageColor('red');
@@ -170,7 +198,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                             className="site-button"
                             style={styles.button}
                             type="submit"
-                            disabled={!isFormValid || isLoading}
+                            // disabled={!isFormValid || isLoading}
                             onMouseDown={handleSubmit}
                         >
                             {!isLoading ? (

@@ -1,10 +1,11 @@
 const colors = {
-  white: "#FFFFFF",
-  black: "#000000",
-  turquoise: "#6ba8a9",
-  lightGray: "#c3c6ca",
-  darkGray: "#86898d",
-  blue: "#0000a3",
+    white: '#FFFFFF',
+    black: '#000000',
+    turquoise: '#6ba8a9',
+    lightGray: '#c3c6ca',
+    darkGray: '#86898d',
+    blue: '#0000a3',
+    red: '#ff0000',
 } as const;
 
 export type ColorName = keyof typeof colors;
