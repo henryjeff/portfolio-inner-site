@@ -33,6 +33,9 @@
       addEventListener('mousedown', (event) => {
         window.parent.postMessage({ type: 'mousedown' }, '*');
       });
+      addEventListener('mouseup', (event) => {
+        window.parent.postMessage({ type: 'mouseup' }, '*');
+      });
       addEventListener('keydown', (event) => {
         window.parent.postMessage({ type: 'keydown', key: event.key }, '*');
       });
