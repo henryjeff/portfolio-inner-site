@@ -194,10 +194,11 @@ input:active {
     border: none;
     color: black;
     font-size: 18px;
-    flex-shrink: 1;
+    /* flex-shrink: 1; */
     padding: 4px 12px;
     cursor: pointer;
     font-family: Millennium;
+    overflow: hidden;
 }
 
 .site-button:hover {

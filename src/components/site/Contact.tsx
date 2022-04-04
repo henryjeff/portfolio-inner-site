@@ -262,16 +262,18 @@ const styles: StyleSheetCSS = {
         alignItems: 'center',
     },
     formInfo: {
+        textAlign: 'right',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
+        paddingLeft: 24,
     },
     star: {
         paddingRight: 4,
         color: 'red',
     },
     button: {
-        width: 164,
+        minWidth: 184,
         height: 32,
     },
     header: {
