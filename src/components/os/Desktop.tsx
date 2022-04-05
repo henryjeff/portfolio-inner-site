@@ -25,6 +25,13 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 height={910}
                 closeWindow={() => {}}
             >
+                <div style={styles.constructionContainer}>
+                    <img
+                        alt=""
+                        style={styles.construction}
+                        src="https://web.archive.org/web/20091026011725if_/http://geocities.com/angiegoingtothedogs/barundercont.gif"
+                    />
+                </div>
                 <Router>
                     <div className="site-page">
                         <VerticalNavbar />
@@ -64,6 +71,19 @@ const styles: StyleSheetCSS = {
         minHeight: '100%',
         display: 'flex',
         backgroundColor: Colors.turquoise,
+    },
+    construction: {
+        width: 'auto',
+        height: 24,
+    },
+    constructionContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        height: 24,
+        backgroundColor: 'white',
+        width: '100%',
+        paddingTop: 4,
+        zIndex: 10000,
     },
 };
 

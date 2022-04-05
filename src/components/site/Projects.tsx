@@ -12,6 +12,7 @@ interface ProjectBoxProps {
     title: string;
     subtitle: string;
     route: string;
+    iconStyle: React.CSSProperties;
 }
 
 const ProjectBox: React.FC<ProjectBoxProps> = ({
@@ -19,6 +20,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
     title,
     subtitle,
     route,
+    iconStyle,
 }) => {
     const [isHovering, setIsHovering] = useState(false);
     const navigation = useNavigate();
@@ -44,10 +46,18 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
             onMouseLeave={onMouseLeave}
         >
             <div style={styles.projectLinkLeft}>
-                <img src={icon} style={styles.projectLinkImage} alt="" />
+                <img
+                    src={icon}
+                    style={Object.assign(
+                        {},
+                        styles.projectLinkImage,
+                        iconStyle
+                    )}
+                    alt=""
+                />
                 <div style={styles.projectText}>
-                    <h2>{title}</h2>
-                    <p>{subtitle}</p>
+                    <h1 style={{ fontSize: 48 }}>{title}</h1>
+                    <h2>{subtitle}</h2>
                 </div>
             </div>
             <div style={styles.projectLinkRight}>
@@ -71,19 +81,28 @@ const Projects: React.FC<ProjectsProps> = (props) => {
             </div>
             <div style={styles.projectLinksContainer}>
                 <ProjectBox
-                    icon={softwareIcon}
+                    icon={
+                        'https://web.archive.org/web/20091027081323im_/http://geocities.com/black_john/Computer_2.gif'
+                    }
+                    iconStyle={styles.computerIcon}
                     title="Software"
                     subtitle="Projects"
                     route="software"
                 />
                 <ProjectBox
-                    icon={musicIcon}
+                    icon={
+                        'https://web.archive.org/web/20090830005448/http://geocities.com/SoHo/Village/2665/images/Music001.gif'
+                    }
+                    iconStyle={styles.musicIcon}
                     title="Music & Sound"
                     subtitle="Ventures"
                     route="music"
                 />
                 <ProjectBox
-                    icon={artIcon}
+                    icon={
+                        'https://web.archive.org/web/20090831202501/http://geocities.com/ilka_lemos_br/paint1.gif'
+                    }
+                    iconStyle={styles.artIcon}
                     title="Art & Design"
                     subtitle="Endeavors"
                     route="art"
@@ -112,8 +131,8 @@ const styles: StyleSheetCSS = {
     },
     projectLinkImage: {
         width: 48,
-        height: 48,
-        marginRight: 16,
+        // height: 48,
+        marginRight: 32,
     },
     projectLinkLeft: {
         display: 'flex',
@@ -122,6 +141,10 @@ const styles: StyleSheetCSS = {
     arrowIcon: {
         width: 48,
         height: 48,
+    },
+    artIcon: {
+        width: 40,
+        height: 64,
     },
 };
 
