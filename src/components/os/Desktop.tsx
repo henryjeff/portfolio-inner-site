@@ -20,14 +20,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 key="showcase"
             />
         );
-        addWindow(
-            'wordle',
-            <WordleApp
-                onInteract={() => onWindowInteract('wordle')}
-                onClose={() => removeWindow('wordle')}
-                key="wordle"
-            />
-        );
+        // addWindow(
+        //     'wordle',
+        //     <WordleApp
+        //         onInteract={() => onWindowInteract('wordle')}
+        //         onClose={() => removeWindow('wordle')}
+        //         key="wordle"
+        //     />
+        // );
     }, []);
 
     const removeWindow = (key: string) => {
