@@ -1,65 +1,95 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
-import Home from '../site/Home';
-import About from '../site/About';
+import ShowcaseExplorer from '../applications/ShowcaseExplorer';
+import WordleApp from '../applications/WordleApp';
 import Toolbar from './Toolbar';
-import Window from './Window';
-import Experience from '../site/Experience';
-import Projects from '../site/Projects';
-import Contact from '../site/Contact';
-import SoftwareProjects from '../site/projects/Software';
-import MusicProjects from '../site/projects/Music';
-import ArtProjects from '../site/projects/Art';
-import VerticalNavbar from '../site/VerticalNavbar';
 
 export interface DesktopProps {}
 
 const Desktop: React.FC<DesktopProps> = (props) => {
+    const [windows, setWindows] = useState<{
+        [key in string]: { zIndex: number; component: React.ReactElement };
+    }>({});
+
+    useEffect(() => {
+        addWindow(
+            'showcase',
+            <ShowcaseExplorer
+                onInteract={() => onWindowInteract('showcase')}
+                onClose={() => removeWindow('showcase')}
+                key="showcase"
+            />
+        );
+        addWindow(
+            'wordle',
+            <WordleApp
+                onInteract={() => onWindowInteract('wordle')}
+                onClose={() => removeWindow('wordle')}
+                key="wordle"
+            />
+        );
+    }, []);
+
+    const removeWindow = (key: string) => {
+        const newWindows = { ...windows };
+        delete newWindows[key];
+        setWindows(newWindows);
+    };
+
+    const getHighestZIndex = useCallback((): number => {
+        let highestZIndex = 0;
+        Object.keys(windows).forEach((key) => {
+            const window = windows[key];
+            if (window) {
+                if (window.zIndex > highestZIndex)
+                    highestZIndex = window.zIndex;
+            }
+        });
+        return highestZIndex;
+    }, [windows]);
+
+    const onWindowInteract = useCallback(
+        (key: string) => {
+            setWindows((prevWindows) => ({
+                ...prevWindows,
+                [key]: {
+                    ...prevWindows[key],
+                    zIndex: 1 + getHighestZIndex(),
+                },
+            }));
+        },
+        [setWindows, getHighestZIndex]
+    );
+
+    const addWindow = (key: string, element: JSX.Element) => {
+        setWindows((prevState) => ({
+            ...prevState,
+            [key]: {
+                zIndex: getHighestZIndex() + 1,
+                component: element,
+            },
+        }));
+    };
+
     return (
         <div style={styles.desktop}>
-            <Window
-                top={10}
-                left={20}
-                width={1170}
-                height={910}
-                closeWindow={() => {}}
-            >
-                <div style={styles.constructionContainer}>
-                    <img
-                        alt=""
-                        style={styles.construction}
-                        src="https://web.archive.org/web/20091026011725if_/http://geocities.com/angiegoingtothedogs/barundercont.gif"
-                    />
-                </div>
-                <Router>
-                    <div className="site-page">
-                        <VerticalNavbar />
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="/about" element={<About />} />
-                            <Route
-                                path="/experience"
-                                element={<Experience />}
-                            />
-                            <Route path="/projects" element={<Projects />} />
-                            <Route path="/contact" element={<Contact />} />
-                            <Route
-                                path="/projects/software"
-                                element={<SoftwareProjects />}
-                            />
-                            <Route
-                                path="/projects/music"
-                                element={<MusicProjects />}
-                            />
-                            <Route
-                                path="/projects/art"
-                                element={<ArtProjects />}
-                            />
-                        </Routes>
+            {/* For each window in windows, loop over and render  */}
+            {Object.keys(windows).map((key) => {
+                const element = windows[key].component;
+                if (!element) return <div key={`win-${key}`}></div>;
+                return (
+                    <div
+                        key={`win-${key}`}
+                        style={{ zIndex: windows[key].zIndex }}
+                    >
+                        {React.cloneElement(element, {
+                            key,
+                            onInteract: () => onWindowInteract(key),
+                            onClose: () => removeWindow(key),
+                        })}
                     </div>
-                </Router>
-            </Window>
+                );
+            })}
 
             <Toolbar />
         </div>
@@ -77,11 +107,13 @@ const styles: StyleSheetCSS = {
         height: 24,
     },
     constructionContainer: {
+        overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
         height: 24,
         backgroundColor: 'white',
-        width: '100%',
+        maxWidth: '100%',
+        minWidth: '0%',
         paddingTop: 4,
         zIndex: 10000,
     },

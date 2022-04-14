@@ -8,10 +8,13 @@ import ResizeIndicator from './ResizeIndicator';
 
 export interface WindowProps {
     closeWindow: () => void;
+    onInteract: () => void;
     width: number;
     height: number;
     top: number;
     left: number;
+    windowTitle?: string;
+    rainbow?: boolean;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
@@ -101,6 +104,16 @@ const Window: React.FC<WindowProps> = (props) => {
         if (!dragProps.current) return { x: 0, y: 0 };
         const { dragStartX, dragStartY } = dragProps.current;
 
+        // clamp x and y to the window
+        // const x = Math.max(
+        //     0,
+        //     Math.min(clientX - dragStartX + left, window.innerWidth - width)
+        // );
+        // const y = Math.max(
+        //     0,
+        //     Math.min(clientY - dragStartY + top, window.innerHeight - height)
+        // );
+
         const x = clientX - dragStartX + left;
         const y = clientY - dragStartY + top;
 
@@ -134,7 +147,7 @@ const Window: React.FC<WindowProps> = (props) => {
     };
 
     return (
-        <div style={styles.container}>
+        <div onMouseDown={props.onInteract} style={styles.container}>
             <div
                 style={Object.assign({}, styles.window, {
                     width,
@@ -146,10 +159,17 @@ const Window: React.FC<WindowProps> = (props) => {
             >
                 <div style={styles.windowBorderOuter}>
                     <div style={styles.windowBorderInner}>
-                        <div style={styles.topBar}>
+                        <div
+                            style={styles.dragHitbox}
+                            onMouseDown={startDrag}
+                        ></div>
+                        <div
+                            className={props.rainbow ? 'rainbow-wrapper' : ''}
+                            style={styles.topBar}
+                        >
                             <div style={styles.windowHeader}>
                                 <p className="showcase-header">
-                                    Showcase Explorer
+                                    {props.windowTitle}
                                 </p>
                             </div>
                             <div style={styles.windowTopButtons}>
@@ -165,7 +185,7 @@ const Window: React.FC<WindowProps> = (props) => {
                         </div>
                         <div
                             style={Object.assign({}, styles.contentOuter, {
-                                zIndex: isDragging || isResizing ? 0 : 100,
+                                // zIndex: isDragging || isResizing ? 0 : 100,
                             })}
                         >
                             <div style={styles.contentInner}>
@@ -174,6 +194,10 @@ const Window: React.FC<WindowProps> = (props) => {
                                 </div>
                             </div>
                         </div>
+                        <div
+                            onMouseDown={startResize}
+                            style={styles.resizeHitbox}
+                        ></div>
                         <div style={styles.bottomBar}>
                             <div
                                 style={Object.assign({}, styles.insetBorder, {
@@ -215,21 +239,40 @@ const Window: React.FC<WindowProps> = (props) => {
                 </div>
             </div>
 
-            <ResizeIndicator
-                top={top}
-                left={left}
-                width={width}
-                height={height}
-                startResize={startResize}
-                resizeRef={resizeRef}
-            />
-
-            <DragIndicator
-                startDrag={startDrag}
-                width={width}
-                height={height}
-                dragRef={dragRef}
-            />
+            <div
+                style={
+                    !isResizing
+                        ? {
+                              zIndex: -10000,
+                              pointerEvents: 'none',
+                          }
+                        : { zIndex: 1001, cursor: 'nwse-resize' }
+                }
+            >
+                <ResizeIndicator
+                    top={top}
+                    left={left}
+                    width={width}
+                    height={height}
+                    resizeRef={resizeRef}
+                />
+            </div>
+            <div
+                style={
+                    !isDragging
+                        ? {
+                              zIndex: -10000,
+                              pointerEvents: 'none',
+                          }
+                        : { zIndex: 1000, cursor: 'move' }
+                }
+            >
+                <DragIndicator
+                    width={width}
+                    height={height}
+                    dragRef={dragRef}
+                />
+            </div>
         </div>
     );
 };
@@ -239,6 +282,15 @@ const styles: StyleSheetCSS = {
         backgroundColor: Colors.lightGray,
         position: 'absolute',
         display: 'flex',
+    },
+    dragHitbox: {
+        position: 'absolute',
+        width: 'calc(100% - 70px)',
+        height: 48,
+        zIndex: 10000,
+        top: -8,
+        left: -4,
+        cursor: 'move',
     },
     windowBorderOuter: {
         border: `1px solid ${Colors.black}`,
@@ -256,12 +308,13 @@ const styles: StyleSheetCSS = {
         display: 'flex',
         flexDirection: 'column',
     },
-    resizeArea: {
-        right: -16,
-        bottom: -16,
-        width: 64,
-        height: 64,
+    resizeHitbox: {
         position: 'absolute',
+        width: 60,
+        height: 60,
+        bottom: -20,
+        right: -20,
+        cursor: 'nwse-resize',
     },
     topBar: {
         backgroundColor: Colors.blue,
@@ -321,7 +374,7 @@ const styles: StyleSheetCSS = {
         marginLeft: 2,
     },
     windowTopButtons: {
-        zIndex: 10000,
+        // zIndex: 10000,
         display: 'flex',
         alignItems: 'center',
     },

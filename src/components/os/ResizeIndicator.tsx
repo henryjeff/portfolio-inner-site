@@ -7,7 +7,7 @@ export interface ResizeIndicatorProps {
     left: number;
     width: number;
     height: number;
-    startResize: (e: any) => void;
+    // startResize: (e: any) => void;
 }
 
 const ResizeIndicator: React.FC<ResizeIndicatorProps> = ({
@@ -16,7 +16,6 @@ const ResizeIndicator: React.FC<ResizeIndicatorProps> = ({
     left,
     width,
     height,
-    startResize,
 }) => {
     return (
         <div
@@ -28,6 +27,15 @@ const ResizeIndicator: React.FC<ResizeIndicatorProps> = ({
             })}
             ref={resizeRef}
         >
+            <div
+                style={{
+                    position: 'absolute',
+                    width: 32,
+                    height: 32,
+                    bottom: -20,
+                    right: -20,
+                }}
+            />
             <div
                 style={Object.assign({}, styles.hozDrag, styles.checkerboard)}
             />
@@ -50,17 +58,6 @@ const ResizeIndicator: React.FC<ResizeIndicatorProps> = ({
             <div
                 style={Object.assign({}, styles.hozDrag, styles.checkerboard)}
             />
-            <div
-                onMouseDown={startResize}
-                style={{
-                    position: 'absolute',
-                    width: 60,
-                    height: 60,
-                    bottom: -40,
-                    right: -40,
-                    cursor: 'nwse-resize',
-                }}
-            ></div>
         </div>
     );
 };

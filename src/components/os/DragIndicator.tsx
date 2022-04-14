@@ -7,14 +7,12 @@ export interface DragIndicatorProps {
     dragRef: any;
     width: number;
     height: number;
-    startDrag: (e: any) => void;
 }
 
 const DragIndicator: React.FC<DragIndicatorProps> = ({
     dragRef,
     width,
     height,
-    startDrag,
 }) => {
     return (
         <div
@@ -24,17 +22,6 @@ const DragIndicator: React.FC<DragIndicatorProps> = ({
             })}
             ref={dragRef}
         >
-            <div
-                onMouseDown={startDrag}
-                style={{
-                    width: 'calc(100% - 70px)',
-                    height: 40,
-                    marginTop: -10,
-                    position: 'absolute',
-                    cursor: 'move',
-                    zIndex: 1000,
-                }}
-            ></div>
             <div
                 style={Object.assign({}, styles.hozDrag, styles.checkerboard)}
             />
@@ -67,7 +54,6 @@ export const styles: StyleSheetCSS = {
         mixBlendMode: 'difference',
         position: 'absolute',
         boxSizing: 'border-box',
-        // pointerEvents: 'none',
     },
     hozDrag: {
         width: '100%',
