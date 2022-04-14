@@ -57,12 +57,17 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
                 />
                 <div style={styles.projectText}>
                     <h1 style={{ fontSize: 48 }}>{title}</h1>
-                    <h2>{subtitle}</h2>
+                    <h3>{subtitle}</h3>
                 </div>
             </div>
             <div style={styles.projectLinkRight}>
                 {isHovering && (
-                    <img src={arrowIcon} style={styles.arrowIcon} alt="" />
+                    <img
+                        src={arrowIcon}
+                        className="arrow-mount"
+                        style={styles.arrowIcon}
+                        alt=""
+                    />
                 )}
             </div>
         </div>
@@ -86,7 +91,7 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                     }
                     iconStyle={styles.computerIcon}
                     title="Software"
-                    subtitle="Projects"
+                    subtitle="PROJECTS"
                     route="software"
                 />
                 <ProjectBox
@@ -94,8 +99,8 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                         'https://web.archive.org/web/20090830005448/http://geocities.com/SoHo/Village/2665/images/Music001.gif'
                     }
                     iconStyle={styles.musicIcon}
-                    title="Music & Sound"
-                    subtitle="Ventures"
+                    title="Music"
+                    subtitle="VENTURES"
                     route="music"
                 />
                 <ProjectBox
@@ -103,8 +108,8 @@ const Projects: React.FC<ProjectsProps> = (props) => {
                         'https://web.archive.org/web/20090831202501/http://geocities.com/ilka_lemos_br/paint1.gif'
                     }
                     iconStyle={styles.artIcon}
-                    title="Art & Design"
-                    subtitle="Endeavors"
+                    title="Art"
+                    subtitle="ENDEAVORS"
                     route="art"
                 />
             </div>

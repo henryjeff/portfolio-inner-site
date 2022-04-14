@@ -8,7 +8,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Art & Design</h1>
-            <h2>ENDEAVORS</h2>
+            <h3>ENDEAVORS</h3>
             <br />
             <div className="text-block">
                 <p>

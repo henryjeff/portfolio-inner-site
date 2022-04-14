@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IconName } from '../../assets/icons';
 import Colors from '../../constants/colors';
 import { Icon } from '../general';
@@ -10,6 +10,16 @@ export interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+    };
+
     const outerBorderStyle = Object.assign(
         {},
         styles.outerBorder,
@@ -29,8 +39,19 @@ const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
     };
 
     return (
-        <div style={outerBorderStyle} onMouseDown={click}>
-            <div style={innerBorderStyle}>
+        <div
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={outerBorderStyle}
+            onMouseDown={click}
+        >
+            <div
+                style={Object.assign(
+                    {},
+                    isHovering && { backgroundColor: Colors.darkGray },
+                    innerBorderStyle
+                )}
+            >
                 {icon && <Icon icon={icon} style={styles.icon} />}
                 {text && (
                     // <Text noSelect style={styles.text}>
