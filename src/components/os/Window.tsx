@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { IconName } from '../../assets/icons';
 import colors from '../../constants/colors';
 import Colors from '../../constants/colors';
 import Icon from '../general/Icon';
@@ -15,6 +16,8 @@ export interface WindowProps {
     left: number;
     windowTitle?: string;
     rainbow?: boolean;
+    windowBarColor?: string;
+    windowBarIcon?: IconName;
     onWidthChange?: (width: number) => void;
     onHeightChange?: (height: number) => void;
 }
@@ -177,9 +180,24 @@ const Window: React.FC<WindowProps> = (props) => {
                         ></div>
                         <div
                             className={props.rainbow ? 'rainbow-wrapper' : ''}
-                            style={styles.topBar}
+                            style={Object.assign(
+                                {},
+                                styles.topBar,
+                                props.windowBarColor && {
+                                    backgroundColor: props.windowBarColor,
+                                }
+                            )}
                         >
                             <div style={styles.windowHeader}>
+                                {props.windowBarIcon ? (
+                                    <Icon
+                                        icon={props.windowBarIcon}
+                                        style={styles.windowBarIcon}
+                                        size={16}
+                                    />
+                                ) : (
+                                    <div style={{ width: 16 }} />
+                                )}
                                 <p className="showcase-header">
                                     {props.windowTitle}
                                 </p>
@@ -334,7 +352,6 @@ const styles: StyleSheetCSS = {
         height: 20,
         display: 'flex',
         alignItems: 'center',
-        paddingLeft: 12,
         paddingRight: 2,
         boxSizing: 'border-box',
     },
@@ -392,8 +409,13 @@ const styles: StyleSheetCSS = {
     },
     windowHeader: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        display: 'flex',
+    },
+    windowBarIcon: {
+        paddingLeft: 4,
+        paddingRight: 4,
     },
 };
 

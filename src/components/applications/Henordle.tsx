@@ -2,9 +2,9 @@ import React from 'react';
 import Window from '../os/Window';
 import Wordle from '../wordle/Wordle';
 
-export interface WordleAppProps extends WindowAppProps {}
+export interface HenordleAppProps extends WindowAppProps {}
 
-const WordleApp: React.FC<WordleAppProps> = (props) => {
+const HenordleApp: React.FC<HenordleAppProps> = (props) => {
     return (
         <Window
             top={20}
@@ -23,4 +23,4 @@ const WordleApp: React.FC<WordleAppProps> = (props) => {
     );
 };
 
-export default WordleApp;
+export default HenordleApp;

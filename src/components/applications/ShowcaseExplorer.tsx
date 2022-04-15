@@ -16,9 +16,9 @@ export interface ShowcaseExplorerProps extends WindowAppProps {}
 const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
     return (
         <Window
-            top={10}
-            left={20}
-            width={1170}
+            top={16}
+            left={45}
+            width={1130}
             height={910}
             windowTitle="Henry Heffernan - Showcase 2022"
             closeWindow={props.onClose}

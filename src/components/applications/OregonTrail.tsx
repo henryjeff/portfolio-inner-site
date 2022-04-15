@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import DosPlayer from '../dos/DosPlayer';
 import Window from '../os/Window';
 
-export interface DoomAppProps extends WindowAppProps {}
+export interface OregonTrailAppProps extends WindowAppProps {}
 
-const DoomApp: React.FC<DoomAppProps> = (props) => {
-    const [width, setWidth] = useState(980);
-    const [height, setHeight] = useState(670);
+const OregonTrailApp: React.FC<OregonTrailAppProps> = (props) => {
+    const [width, setWidth] = useState(920);
+    const [height, setHeight] = useState(750);
 
     return (
         <Window
@@ -14,17 +14,17 @@ const DoomApp: React.FC<DoomAppProps> = (props) => {
             left={10}
             width={width}
             height={height}
-            windowTitle="Doom"
-            windowBarColor="#1C1C1C"
+            windowTitle="The Oregon Trail"
             windowBarIcon="windowGameIcon"
+            windowBarColor="#240C00"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             onWidthChange={setWidth}
             onHeightChange={setHeight}
         >
-            <DosPlayer width={width} height={height} bundleUrl="doom.jsdos" />
+            <DosPlayer width={width} height={height} bundleUrl="trail.jsdos" />
         </Window>
     );
 };
 
-export default DoomApp;
+export default OregonTrailApp;

@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
-import WordleApp from '../applications/WordleApp';
+// import WordleApp from '../applications/Henordle';
 import Doom from '../applications/Doom';
+import OregonTrail from '../applications/OregonTrail';
 import Toolbar from './Toolbar';
+import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
 
 export interface DesktopProps {}
 
@@ -12,6 +14,67 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         [key in string]: { zIndex: number; component: React.ReactElement };
     }>({});
 
+    const [shortcuts, setShortcuts] = useState<DesktopShortcutProps[]>([
+        // { shortcutName: 'My Computer', icon: 'myComputer' },
+        {
+            shortcutName: 'This Computer',
+            icon: 'myComputer',
+            onOpen: () => {
+                // addWindow(
+                //     'showcase',
+                //     <ShowcaseExplorer
+                //         onInteract={() => onWindowInteract('showcase')}
+                //         onClose={() => removeWindow('showcase')}
+                //         key="showcase"
+                //     />
+                // );
+            },
+        },
+        {
+            shortcutName: 'My Showcase',
+            icon: 'showcaseIcon',
+            onOpen: () => {
+                addWindow(
+                    'showcase',
+                    <ShowcaseExplorer
+                        onInteract={() => onWindowInteract('showcase')}
+                        onClose={() => removeWindow('showcase')}
+                        key="showcase"
+                    />
+                );
+            },
+        },
+
+        {
+            shortcutName: 'The Oregon Trail',
+            icon: 'trailIcon',
+            onOpen: () => {
+                addWindow(
+                    'trail',
+                    <OregonTrail
+                        onInteract={() => onWindowInteract('trail')}
+                        onClose={() => removeWindow('trail')}
+                        key="trail"
+                    />
+                );
+            },
+        },
+        {
+            shortcutName: 'DOOM',
+            icon: 'doomIcon',
+            onOpen: () => {
+                addWindow(
+                    'doom',
+                    <Doom
+                        onInteract={() => onWindowInteract('doom')}
+                        onClose={() => removeWindow('doom')}
+                        key="doom"
+                    />
+                );
+            },
+        },
+    ]);
+
     useEffect(() => {
         addWindow(
             'showcase',
@@ -19,22 +82,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 onInteract={() => onWindowInteract('showcase')}
                 onClose={() => removeWindow('showcase')}
                 key="showcase"
-            />
-        );
-        // addWindow(
-        //     'wordle',
-        //     <WordleApp
-        //         onInteract={() => onWindowInteract('wordle')}
-        //         onClose={() => removeWindow('wordle')}
-        //         key="wordle"
-        //     />
-        // );
-        addWindow(
-            'doom',
-            <Doom
-                onInteract={() => onWindowInteract('doom')}
-                onClose={() => removeWindow('doom')}
-                key="doom"
             />
         );
     }, []);
@@ -99,6 +146,24 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     </div>
                 );
             })}
+            <div style={styles.shortcuts}>
+                {shortcuts.map((shortcut, i) => {
+                    return (
+                        <div
+                            style={Object.assign({}, styles.shortcutContainer, {
+                                top: i * 128,
+                            })}
+                            key={shortcut.shortcutName}
+                        >
+                            <DesktopShortcut
+                                icon={shortcut.icon}
+                                shortcutName={shortcut.shortcutName}
+                                onOpen={shortcut.onOpen}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
 
             <Toolbar />
         </div>
@@ -125,6 +190,14 @@ const styles: StyleSheetCSS = {
         minWidth: '0%',
         paddingTop: 4,
         zIndex: 10000,
+    },
+    shortcutContainer: {
+        position: 'absolute',
+    },
+    shortcuts: {
+        position: 'absolute',
+        top: 16,
+        left: 8,
     },
 };
 
