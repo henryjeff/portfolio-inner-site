@@ -11,10 +11,7 @@ import MusicProjects from '../site/projects/Music';
 import ArtProjects from '../site/projects/Art';
 import VerticalNavbar from '../site/VerticalNavbar';
 
-export interface ShowcaseExplorerProps {
-    onClose: () => void;
-    onInteract: () => void;
-}
+export interface ShowcaseExplorerProps extends WindowAppProps {}
 
 const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
     return (
