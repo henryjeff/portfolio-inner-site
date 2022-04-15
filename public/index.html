@@ -39,7 +39,15 @@
       addEventListener('keydown', (event) => {
         window.parent.postMessage({ type: 'keydown', key: event.key }, '*');
       });
+      addEventListener('keyup', (event) => {
+        window.parent.postMessage({ type: 'keyup', key: event.key }, '*');
+      });
     };
+  </script>
+  <script src="%PUBLIC_URL%/js-dos/js-dos.js"></script>
+  <link rel="stylesheet" href="%PUBLIC_URL%/js-dos/js-dos.css">
+  <script>
+    emulators.pathPrefix = "%PUBLIC_URL%/js-dos/";
   </script>
 </head>
 

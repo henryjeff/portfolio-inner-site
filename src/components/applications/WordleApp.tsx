@@ -2,10 +2,7 @@ import React from 'react';
 import Window from '../os/Window';
 import Wordle from '../wordle/Wordle';
 
-export interface WordleAppProps {
-    onClose: () => void;
-    onInteract: () => void;
-}
+export interface WordleAppProps extends WindowAppProps {}
 
 const WordleApp: React.FC<WordleAppProps> = (props) => {
     return (

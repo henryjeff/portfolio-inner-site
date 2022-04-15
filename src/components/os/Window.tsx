@@ -15,11 +15,14 @@ export interface WindowProps {
     left: number;
     windowTitle?: string;
     rainbow?: boolean;
+    onWidthChange?: (width: number) => void;
+    onHeightChange?: (height: number) => void;
 }
 
 const Window: React.FC<WindowProps> = (props) => {
     const windowRef = useRef<any>(null);
     const dragRef = useRef<any>(null);
+    const contentRef = useRef<any>(null);
 
     const dragProps = useRef<{
         dragStartX: any;
@@ -33,6 +36,9 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const [width, setWidth] = useState(props.width);
     const [height, setHeight] = useState(props.height);
+
+    const [contentWidth, setContentWidth] = useState(props.width);
+    const [contentHeight, setContentHeight] = useState(props.height);
 
     const [isMaximized, setIsMaximized] = useState(false);
     const [preMaxSize, setPreMaxSize] = useState({
@@ -104,16 +110,6 @@ const Window: React.FC<WindowProps> = (props) => {
         if (!dragProps.current) return { x: 0, y: 0 };
         const { dragStartX, dragStartY } = dragProps.current;
 
-        // clamp x and y to the window
-        // const x = Math.max(
-        //     0,
-        //     Math.min(clientX - dragStartX + left, window.innerWidth - width)
-        // );
-        // const y = Math.max(
-        //     0,
-        //     Math.min(clientY - dragStartY + top, window.innerHeight - height)
-        // );
-
         const x = clientX - dragStartX + left;
         const y = clientY - dragStartY + top;
 
@@ -123,6 +119,22 @@ const Window: React.FC<WindowProps> = (props) => {
     useEffect(() => {
         dragRef.current.style.transform = `translate(${left}px, ${top}px)`;
     });
+
+    useEffect(() => {
+        props.onWidthChange && props.onWidthChange(contentWidth);
+    }, [props.onWidthChange, contentWidth]); // eslint-disable-line
+
+    useEffect(() => {
+        props.onHeightChange && props.onHeightChange(contentHeight);
+    }, [props.onHeightChange, contentHeight]); // eslint-disable-line
+
+    useEffect(() => {
+        setContentWidth(contentRef.current.getBoundingClientRect().width);
+    }, [width]);
+
+    useEffect(() => {
+        setContentHeight(contentRef.current.getBoundingClientRect().height);
+    }, [height]);
 
     const maximize = () => {
         if (isMaximized) {
@@ -189,7 +201,7 @@ const Window: React.FC<WindowProps> = (props) => {
                             })}
                         >
                             <div style={styles.contentInner}>
-                                <div style={styles.content}>
+                                <div style={styles.content} ref={contentRef}>
                                     {props.children}
                                 </div>
                             </div>
