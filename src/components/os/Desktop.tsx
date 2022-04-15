@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
 import WordleApp from '../applications/WordleApp';
+import Doom from '../applications/Doom';
 import Toolbar from './Toolbar';
 
 export interface DesktopProps {}
@@ -28,6 +29,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         //         key="wordle"
         //     />
         // );
+        addWindow(
+            'doom',
+            <Doom
+                onInteract={() => onWindowInteract('doom')}
+                onClose={() => removeWindow('doom')}
+                key="doom"
+            />
+        );
     }, []);
 
     const removeWindow = (key: string) => {
