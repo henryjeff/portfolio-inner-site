@@ -96,6 +96,12 @@ p b {
     color: white;
 }
 
+.toolbar-text {
+    font-family: lores-15-bold-alt-oakland;
+    font-size: 18px;
+    color: black;
+}
+
 h1 {
     font-family: gastromond, sans-serif;
     font-size: 64px;

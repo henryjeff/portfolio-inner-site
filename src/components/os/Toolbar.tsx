@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
+import { Icon } from '../general';
 // import { } from '../general';
 // import Home from '../site/Home';
 // import Window from './Window';
@@ -35,7 +36,19 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
     return (
         <div style={styles.toolbarOuter}>
             <div style={styles.toolbarInner}>
-                <div style={styles.toolbar}></div>
+                <div style={styles.toolbar}>
+                    <div style={styles.startContainerOuter}>
+                        <div style={styles.startContainer}>
+                            <Icon
+                                size={18}
+                                icon="windowsStartIcon"
+                                style={styles.startIcon}
+                            />
+                            <p className="toolbar-text ">Start</p>
+                        </div>
+                    </div>
+                    <div style={styles.toolbarTabsContainer} />
+                </div>
                 <div style={styles.time}>
                     <p style={styles.timeText}>{time}</p>
                 </div>
@@ -50,11 +63,38 @@ const styles: StyleSheetCSS = {
         position: 'absolute',
         bottom: 0,
         width: '100%',
-        height: 28,
+        height: 32,
         background: Colors.lightGray,
         borderTop: `1px solid ${Colors.lightGray}`,
         display: 'flex',
         zIndex: 100000,
+    },
+    startContainer: {
+        display: 'flex',
+        alignItems: 'center',
+        flexShrink: 1,
+        // background: 'red',
+        border: `1px solid ${Colors.lightGray}`,
+        borderBottomColor: Colors.darkGray,
+        borderRightColor: Colors.darkGray,
+        padding: 1,
+        paddingLeft: 5,
+        paddingRight: 5,
+    },
+    startContainerOuter: {
+        marginLeft: 3,
+        boxSizing: 'border-box',
+        border: `1px solid ${Colors.white}`,
+        borderBottomColor: Colors.black,
+        borderRightColor: Colors.black,
+    },
+    toolbarTabsContainer: {
+        display: 'flex',
+        // background: 'blue',
+        flex: 1,
+    },
+    startIcon: {
+        marginRight: 4,
     },
     toolbarInner: {
         borderTop: `1px solid ${Colors.white}`,
@@ -63,13 +103,14 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     toolbar: {
+        display: 'flex',
         flexGrow: 1,
         width: '100%',
     },
     time: {
         flexShrink: 1,
         width: 64,
-        height: 20,
+        height: 24,
         boxSizing: 'border-box',
         marginRight: 4,
         border: `1px solid ${Colors.white}`,
@@ -80,7 +121,8 @@ const styles: StyleSheetCSS = {
         borderLeftColor: Colors.darkGray,
     },
     timeText: {
-        fontSize: 10,
+        fontSize: 12,
+        fontFamily: 'MSSerif',
     },
 };
 

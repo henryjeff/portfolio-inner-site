@@ -19,8 +19,9 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
             top={16}
             left={45}
             width={1130}
-            height={910}
+            height={880}
             windowTitle="Henry Heffernan - Showcase 2022"
+            windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
         >

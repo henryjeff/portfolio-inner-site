@@ -6,6 +6,7 @@ import Doom from '../applications/Doom';
 import OregonTrail from '../applications/OregonTrail';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
+import Scrabble from '../applications/Scrabble';
 
 export interface DesktopProps {}
 
@@ -69,6 +70,20 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                         onInteract={() => onWindowInteract('doom')}
                         onClose={() => removeWindow('doom')}
                         key="doom"
+                    />
+                );
+            },
+        },
+        {
+            shortcutName: 'Scrabble',
+            icon: 'scrabbleIcon',
+            onOpen: () => {
+                addWindow(
+                    'scrabble',
+                    <Scrabble
+                        onInteract={() => onWindowInteract('scrabble')}
+                        onClose={() => removeWindow('scrabble')}
+                        key="scrabble"
                     />
                 );
             },
@@ -151,7 +166,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     return (
                         <div
                             style={Object.assign({}, styles.shortcutContainer, {
-                                top: i * 128,
+                                top: i * 104,
                             })}
                             key={shortcut.shortcutName}
                         >
@@ -197,7 +212,7 @@ const styles: StyleSheetCSS = {
     shortcuts: {
         position: 'absolute',
         top: 16,
-        left: 8,
+        left: 6,
     },
 };
 

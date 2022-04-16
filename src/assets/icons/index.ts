@@ -9,6 +9,9 @@ import showcaseIcon from './showcaseIcon.png';
 import doomIcon from './doomIcon.png';
 import trailIcon from './trailIcon.png';
 import windowGameIcon from './windowGameIcon.png';
+import windowExplorerIcon from './windowExplorerIcon.png';
+import windowsStartIcon from './windowsStartIcon.png';
+import scrabbleIcon from './scrabbleIcon.png';
 import close from './close.png';
 
 const icons = {
@@ -19,8 +22,11 @@ const icons = {
     myComputer: myComputer,
     showcaseIcon: showcaseIcon,
     doomIcon: doomIcon,
+    scrabbleIcon: scrabbleIcon,
     close: close,
     windowGameIcon: windowGameIcon,
+    windowExplorerIcon: windowExplorerIcon,
+    windowsStartIcon: windowsStartIcon,
     trailIcon: trailIcon,
 };
 
