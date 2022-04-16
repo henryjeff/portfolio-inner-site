@@ -10,16 +10,19 @@ import SoftwareProjects from '../site/projects/Software';
 import MusicProjects from '../site/projects/Music';
 import ArtProjects from '../site/projects/Art';
 import VerticalNavbar from '../site/VerticalNavbar';
+import useInitialWindowSize from '../../hooks/useInitialWindowSize';
 
 export interface ShowcaseExplorerProps extends WindowAppProps {}
 
 const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
+    const { initWidth, initHeight } = useInitialWindowSize({ margin: 100 });
+
     return (
         <Window
             top={16}
             left={45}
-            width={1130}
-            height={880}
+            width={initWidth}
+            height={initHeight}
             windowTitle="Henry Heffernan - Showcase 2022"
             windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
