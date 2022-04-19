@@ -84,7 +84,7 @@ const styles: StyleSheetCSS = {
     captionedImage: {
         alignSelf: 'center',
         width: '80%',
-        display: 'flex',
+
         alignItems: 'center',
         marginBottom: 32,
         flexDirection: 'column',

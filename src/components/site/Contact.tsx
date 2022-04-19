@@ -244,7 +244,6 @@ const Contact: React.FC<ContactProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     form: {
-        display: 'flex',
         flexDirection: 'column',
         marginTop: 32,
     },
@@ -257,13 +256,12 @@ const styles: StyleSheetCSS = {
         height: 36,
     },
     buttons: {
-        display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
     formInfo: {
         textAlign: 'right',
-        display: 'flex',
+
         flexDirection: 'column',
         alignItems: 'flex-end',
         paddingLeft: 24,
@@ -277,12 +275,10 @@ const styles: StyleSheetCSS = {
         height: 32,
     },
     header: {
-        display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'space-between',
     },
     socials: {
-        display: 'flex',
         marginBottom: 16,
         justifyContent: 'flex-end',
     },
@@ -290,7 +286,7 @@ const styles: StyleSheetCSS = {
         width: 4,
         height: 4,
         // borderRadius: 1000,
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         marginLeft: 8,

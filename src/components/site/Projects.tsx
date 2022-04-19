@@ -119,18 +119,16 @@ const Projects: React.FC<ProjectsProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     projectLinksContainer: {
-        display: 'flex',
         flexDirection: 'column',
     },
     projectLink: {
         marginBottom: 24,
         cursor: 'pointer',
-        display: 'flex',
+
         alignItems: 'center',
         justifyContent: 'space-between',
     },
     projectText: {
-        display: 'flex',
         justifyContent: 'center',
         flexDirection: 'column',
     },
@@ -140,7 +138,6 @@ const styles: StyleSheetCSS = {
         marginRight: 32,
     },
     projectLinkLeft: {
-        display: 'flex',
         alignItems: 'center',
     },
     arrowIcon: {

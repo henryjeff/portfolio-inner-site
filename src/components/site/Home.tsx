@@ -47,7 +47,6 @@ const Home: React.FC<HomeProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     page: {
-        display: 'flex',
         left: 0,
         right: 0,
         top: 0,
@@ -58,19 +57,16 @@ const styles: StyleSheetCSS = {
         height: '100%',
     },
     header: {
-        // flex: 1,
+        textAlign: 'center',
         marginBottom: 64,
         marginTop: 64,
-        display: 'flex',
+
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
     },
     buttons: {
-        display: 'flex',
         justifyContent: 'space-between',
-        // background: 'red',
-        // marginTop: 64,
     },
     image: {
         width: 800,
@@ -85,14 +81,14 @@ const styles: StyleSheetCSS = {
     forHireContainer: {
         marginTop: 64,
         width: '100%',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         cursor: 'pointer',
     },
     name: {
         fontSize: 72,
-        marginBottom: 8,
+        marginBottom: 16,
+        lineHeight: 0.9,
     },
 };
 

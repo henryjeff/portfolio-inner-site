@@ -177,14 +177,12 @@ const vars: Variants = {
 
 const styles: StyleSheetCSS = {
     musicPlayerContainer: {
-        display: 'flex',
         flexDirection: 'row',
         height: 96,
         width: '100%',
         borderRadius: 4,
     },
     playerControls: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         background: 'red',
@@ -204,7 +202,6 @@ const styles: StyleSheetCSS = {
         marginRight: 8,
     },
     progressContainer: {
-        display: 'flex',
         flexDirection: 'row',
         width: '100%',
         alignItems: 'center',
@@ -214,28 +211,27 @@ const styles: StyleSheetCSS = {
         overflow: 'hidden',
         border: `1px solid ${colors.darkGray}`,
         borderTopWidth: 0,
+        flexDirection: 'column',
         borderBottomWidth: 0,
         padding: 16,
+        paddingTop: 12,
     },
     info: {
-        display: 'flex',
         flexDirection: 'column',
     },
     playerBottom: {
-        display: 'flex',
         paddingTop: 2,
         justifyContent: 'space-between',
         alignItems: 'center',
     },
     playerStart: {
         flexShrink: 1,
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         width: 96,
     },
     controlButton: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
     },

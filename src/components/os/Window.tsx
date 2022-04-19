@@ -257,7 +257,6 @@ const Window: React.FC<WindowProps> = (props) => {
                             >
                                 <div
                                     style={{
-                                        display: 'flex',
                                         alignItems: 'flex-end',
                                     }}
                                 >
@@ -311,7 +310,6 @@ const styles: StyleSheetCSS = {
     window: {
         backgroundColor: Colors.lightGray,
         position: 'absolute',
-        display: 'flex',
     },
     dragHitbox: {
         position: 'absolute',
@@ -327,7 +325,6 @@ const styles: StyleSheetCSS = {
         borderTopColor: colors.lightGray,
         borderLeftColor: colors.lightGray,
         flex: 1,
-        display: 'flex',
     },
     windowBorderInner: {
         border: `1px solid ${Colors.darkGray}`,
@@ -335,7 +332,7 @@ const styles: StyleSheetCSS = {
         borderLeftColor: colors.white,
         flex: 1,
         padding: 2,
-        display: 'flex',
+
         flexDirection: 'column',
     },
     resizeHitbox: {
@@ -350,7 +347,7 @@ const styles: StyleSheetCSS = {
         backgroundColor: Colors.blue,
         width: '100%',
         height: 20,
-        display: 'flex',
+
         alignItems: 'center',
         paddingRight: 2,
         boxSizing: 'border-box',
@@ -360,7 +357,7 @@ const styles: StyleSheetCSS = {
         borderTopColor: colors.darkGray,
         borderLeftColor: colors.darkGray,
         flexGrow: 1,
-        display: 'flex',
+
         marginTop: 8,
         marginBottom: 8,
     },
@@ -369,11 +366,10 @@ const styles: StyleSheetCSS = {
         borderTopColor: colors.black,
         borderLeftColor: colors.black,
         flex: 1,
-        display: 'flex',
     },
     content: {
         flex: 1,
-        display: 'flex',
+
         position: 'relative',
         overflow: 'scroll',
         overflowX: 'hidden',
@@ -383,7 +379,6 @@ const styles: StyleSheetCSS = {
         flexShrink: 1,
         width: '100%',
         height: 16,
-        display: 'flex',
     },
     bottomSpacer: {
         width: 16,
@@ -397,21 +392,20 @@ const styles: StyleSheetCSS = {
     },
     bottomResizeContainer: {
         flex: 2 / 7,
-        display: 'flex',
+
         justifyContent: 'flex-end',
         padding: 0,
         marginLeft: 2,
     },
     windowTopButtons: {
         // zIndex: 10000,
-        display: 'flex',
+
         alignItems: 'center',
     },
     windowHeader: {
         flex: 1,
         // justifyContent: 'center',
         // alignItems: 'center',
-        display: 'flex',
     },
     windowBarIcon: {
         paddingLeft: 4,

@@ -66,11 +66,10 @@ const styles: StyleSheetCSS = {
         height: 32,
         background: Colors.lightGray,
         borderTop: `1px solid ${Colors.lightGray}`,
-        display: 'flex',
+
         zIndex: 100000,
     },
     startContainer: {
-        display: 'flex',
         alignItems: 'center',
         flexShrink: 1,
         // background: 'red',
@@ -89,7 +88,6 @@ const styles: StyleSheetCSS = {
         borderRightColor: Colors.black,
     },
     toolbarTabsContainer: {
-        display: 'flex',
         // background: 'blue',
         flex: 1,
     },
@@ -98,12 +96,11 @@ const styles: StyleSheetCSS = {
     },
     toolbarInner: {
         borderTop: `1px solid ${Colors.white}`,
-        display: 'flex',
+
         alignItems: 'center',
         flex: 1,
     },
     toolbar: {
-        display: 'flex',
         flexGrow: 1,
         width: '100%',
     },
@@ -115,7 +112,7 @@ const styles: StyleSheetCSS = {
         marginRight: 4,
         border: `1px solid ${Colors.white}`,
         borderTopColor: Colors.darkGray,
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         borderLeftColor: Colors.darkGray,

@@ -21,15 +21,14 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         <h3>FRONTEND ENGINEER</h3>
                     </div>
                 </div>
-                {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
             </div>
             <div className="text-block">
                 <p>
-                    Hover is a discover-ability platform targeted towards online
-                    content creators looking to grow an audience and online
-                    presence. Written in React-Native and Typescript, I was
-                    responsible for designing, implementing and ensuring quality
-                    and scalability on the front-end.
+                    Hover is a platform targeted towards online content creators
+                    looking to grow an audience and online presence. Written in
+                    React-Native and Typescript, I was responsible for
+                    designing, implementing and ensuring quality and scalability
+                    on the front-end.
                 </p>
                 <br />
                 <ul>
@@ -43,10 +42,10 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     </li>
                     <li>
                         <p>
-                            Designed and Implemented the new discover player
-                            which allows for the consumption of media agnostic
-                            to the orientation of the users device by optimizing
-                            the UI layout in real time.
+                            Designed, Architected and Implemented the new
+                            discover player which allows for the consumption of
+                            media agnostic to the orientation of the users
+                            device by optimizing the UI layout in real time.
                         </p>
                     </li>
                     <li>
@@ -73,13 +72,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
                         <h1>BrACS</h1>
-                        <a
-                            target="_blank"
-                            rel="noreferrer"
-                            href={
-                                'http://bracs-env.eba-tpqnqa3x.us-east-1.elasticbeanstalk.com/'
-                            }
-                        >
+                        <a target="_blank" rel="noreferrer" href={'penis.beer'}>
                             <p>www.bracs.com</p>
                         </a>
                     </div>
@@ -233,17 +226,15 @@ const Experience: React.FC<ExperienceProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     header: {
-        display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         width: '100%',
     },
     hoverLogo: {
-        height: 100,
+        height: 32,
         marginBottom: 16,
     },
     headerContainer: {
-        display: 'flex',
         alignItems: 'flex-end',
         width: '100%',
         justifyContent: 'center',
@@ -255,7 +246,6 @@ const styles: StyleSheetCSS = {
         marginLeft: 24,
     },
     headerRow: {
-        display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
     },

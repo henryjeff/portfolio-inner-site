@@ -18,12 +18,15 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
     useEffect(() => {
         if (location.pathname.includes('/projects')) {
             setProjectsExpanded(true);
+        } else {
+            setProjectsExpanded(false);
         }
         if (location.pathname === '/') {
             setIsHome(true);
         } else {
             setIsHome(false);
         }
+        return () => {};
     }, [location.pathname]);
 
     return !isHome ? (
@@ -90,7 +93,6 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
 
 const styles: StyleSheetCSS = {
     navbar: {
-        display: 'flex',
         width: 300,
         height: '100%',
         flexDirection: 'column',
@@ -100,7 +102,6 @@ const styles: StyleSheetCSS = {
         overflow: 'hidden',
     },
     header: {
-        display: 'flex',
         flexDirection: 'column',
         marginBottom: 64,
     },
@@ -122,7 +123,6 @@ const styles: StyleSheetCSS = {
         marginBottom: 16,
     },
     insetLinks: {
-        display: 'flex',
         flexDirection: 'column',
         marginLeft: 32,
         marginBottom: 16,
@@ -131,7 +131,6 @@ const styles: StyleSheetCSS = {
         marginBottom: 8,
     },
     links: {
-        display: 'flex',
         flexDirection: 'column',
         flex: 1,
         justifyContent: 'center',
@@ -144,7 +143,7 @@ const styles: StyleSheetCSS = {
     },
     forHireContainer: {
         cursor: 'pointer',
-        display: 'flex',
+
         width: '100%',
     },
 };

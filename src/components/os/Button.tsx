@@ -70,7 +70,7 @@ const styles: StyleSheetCSS = {
         borderTopColor: Colors.white,
         borderLeftColor: Colors.white,
         background: Colors.lightGray,
-        display: 'flex',
+
         cursor: 'pointer',
     },
     innerBorder: {
@@ -78,7 +78,6 @@ const styles: StyleSheetCSS = {
         borderTopColor: Colors.lightGray,
         borderLeftColor: Colors.lightGray,
         flex: 1,
-        display: 'flex',
     },
 };
 

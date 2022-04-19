@@ -252,6 +252,7 @@ input:active {
     align-self: center;
     display: flex;
     align-items: center;
+    text-align: center;
     flex-direction: column;
     width: 100%;
     margin-bottom: 32px;

@@ -188,23 +188,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 const styles: StyleSheetCSS = {
     desktop: {
         minHeight: '100%',
-        display: 'flex',
+        flex: 1,
         backgroundColor: Colors.turquoise,
-    },
-    construction: {
-        width: 'auto',
-        height: 24,
-    },
-    constructionContainer: {
-        overflow: 'hidden',
-        display: 'flex',
-        justifyContent: 'center',
-        height: 24,
-        backgroundColor: 'white',
-        maxWidth: '100%',
-        minWidth: '0%',
-        paddingTop: 4,
-        zIndex: 10000,
     },
     shortcutContainer: {
         position: 'absolute',

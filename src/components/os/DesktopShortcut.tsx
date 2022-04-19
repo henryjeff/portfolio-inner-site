@@ -131,7 +131,7 @@ const styles: StyleSheetCSS = {
     appShortcut: {
         position: 'absolute',
         width: 56,
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',

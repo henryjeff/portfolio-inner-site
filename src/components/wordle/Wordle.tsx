@@ -380,19 +380,17 @@ const gameOverAnimations = {
 
 const styles: StyleSheetCSS = {
     container: {
-        display: 'flex',
         flex: 1,
         flexDirection: 'column',
         overflowY: 'scroll',
     },
     gameContainer: {
-        display: 'flex',
         flex: 1,
         flexDirection: 'column',
     },
     gameOverContainer: {
         zIndex: -1000,
-        display: 'flex',
+
         width: '100%',
         height: '100%',
         position: 'absolute',
@@ -402,7 +400,6 @@ const styles: StyleSheetCSS = {
         backgroundColor: '#fff',
     },
     header: {
-        display: 'flex',
         flexShrink: 1,
         paddingTop: 32,
         flexDirection: 'column',
@@ -411,7 +408,7 @@ const styles: StyleSheetCSS = {
     },
     keyboardContainer: {
         flexShrink: 1,
-        display: 'flex',
+
         paddingBottom: 24,
         flexDirection: 'column',
         justifyContent: 'center',
@@ -420,7 +417,7 @@ const styles: StyleSheetCSS = {
     playArea: {
         flex: 1,
         flexDirection: 'column',
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 16,
@@ -430,26 +427,22 @@ const styles: StyleSheetCSS = {
         padding: 12,
         paddingTop: 16,
         minWidth: 42,
-        display: 'flex',
+
         justifyContent: 'center',
         alignItems: 'center',
         paddingBottom: 16,
         margin: 4,
     },
-    keyboardRow: {
-        display: 'flex',
-    },
+    keyboardRow: {},
     guessLetterBox: {
         width: 60,
         height: 60,
         justifyContent: 'center',
         alignItems: 'center',
-        display: 'flex',
+
         margin: 4,
     },
-    guessWordRow: {
-        display: 'flex',
-    },
+    guessWordRow: {},
     emptyBox: {
         border: '2px solid gray',
         backgroundColor: 'white',

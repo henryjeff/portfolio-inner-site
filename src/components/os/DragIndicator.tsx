@@ -54,6 +54,7 @@ export const styles: StyleSheetCSS = {
         mixBlendMode: 'difference',
         position: 'absolute',
         boxSizing: 'border-box',
+        flexDirection: 'column',
     },
     hozDrag: {
         width: '100%',
@@ -65,7 +66,7 @@ export const styles: StyleSheetCSS = {
         width: '100%',
         height: `calc(100% - ${BORDER_WIDTH * 2}px)`,
         flex: 1,
-        display: 'flex',
+
         justifyContent: 'space-between',
         pointerEvents: 'none',
     },
