@@ -15,6 +15,10 @@ body {
     overflow: hidden;
 }
 
+div {
+    display: flex;
+}
+
 #root {
     height: 100%;
 }
