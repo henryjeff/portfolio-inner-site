@@ -267,6 +267,7 @@ input:active {
     margin-bottom: 48px;
     display: flex;
     flex-direction: column;
+    text-align: justify;
 }
 
 .site-page {
