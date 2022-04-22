@@ -24,7 +24,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 </p>
             </div>
             <div className="text-block">
-                <h2>PIXEL ART & ANIMATION</h2>
+                <h2>Pixel Art and Animation</h2>
                 <br />
                 <p>
                     In highschool I started learning how to draw and animate
@@ -53,7 +53,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     to the work I uploaded to youtube.
                 </p>
                 <br />
-                <h3>VIDEO LINKS</h3>
+                <h3>Video Links:</h3>
                 <br />
                 <ul>
                     <li>
@@ -95,13 +95,17 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 </ul>
                 <br />
                 <p>
-                    I fell off doing pixel art once I got to college and started
+                    {/* I fell off doing pixel art once I got to college and started
                     to really focus on my work and education, but I will forever
                     be thankful to have been a part of the pixel art community
                     for the few years I was involved. I also learned a lot of
                     invaluable lessons of animation and design that apply all
-                    the time to the work I do now.
+                    the time to the work I do now. */}
+                    Still doing it today! Not as active as I was in highschool,
+                    but I'm still learning and growing.
                 </p>
+
+                <h3> Screen record time-lapses and make gifs</h3>
             </div>
         </div>
     );

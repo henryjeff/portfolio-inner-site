@@ -22,7 +22,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 <br />
                 <p>Here are some samples of my work!</p>
             </div>
-            <h2>MY WORK</h2>
+            <h2>Something else</h2>
             <br />
             <p>
                 Here are some pieces I'm very proud of. I've never gotten around
@@ -30,14 +30,15 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 and do this for fun.
             </p>
             <br />
+
+            <MusicPlayer src={music} title="Hause" subtitle="Myself - 2022" />
+            <br />
             <p>
                 This first track started out as an experiment making some house
                 music. At the time I was really getting into house music, and
                 wanted to take a stab at making a house track with a little
                 extra flare.
             </p>
-            <br />
-            <MusicPlayer src={music} title="Hause" subtitle="Myself - 2022" />
             <br />
             <br />
             <div className="captioned-image">
@@ -61,7 +62,12 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 itself. Overall, I had an absolute blast making this back in the
                 fall of 2020.
             </p>
+
+            <h3>2 more songs? + sound fx stuff</h3>
+
+            <h3>Maybe overkill ^</h3>
             <br />
+            <h3>Add in SFX</h3>
         </div>
     );
 };

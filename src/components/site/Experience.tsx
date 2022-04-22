@@ -116,6 +116,14 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </ul>
                 <p>Dates Active: September 2021 - May 2022 </p>
             </div>
+            <div>
+                <h1>SKILLS</h1>
+                <h3>But maybe not here</h3>
+                <p>
+                    open up finder window and have shortcuts to each of the
+                    languages
+                </p>
+            </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
