@@ -264,7 +264,7 @@ input:active {
 
 .text-block {
     margin-top: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     text-align: justify;
@@ -286,6 +286,7 @@ input:active {
     display: flex;
     flex-direction: column;
     margin-left: 300px;
+    width: 100%;
     padding: 64px;
     padding-top: 32px;
     padding-left: 16px;
