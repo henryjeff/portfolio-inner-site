@@ -7,10 +7,15 @@ body {
     /* -moz-osx-font-smoothing: grayscale; */
 }
 
+html, body {
+    background-color: #fff;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
 
 /* 8px */
 @font-face {
@@ -134,6 +139,11 @@ h4 {
 
 li {
     margin-bottom: 16px;
+}
+
+.blend {
+    mix-blend-mode: screen;
+    background-color: red;
 }
 
 :root {
