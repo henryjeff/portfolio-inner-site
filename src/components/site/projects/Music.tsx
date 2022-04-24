@@ -62,12 +62,12 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 itself. Overall, I had an absolute blast making this back in the
                 fall of 2020.
             </p>
-
+            {/* 
             <h3>2 more songs? + sound fx stuff</h3>
 
             <h3>Maybe overkill ^</h3>
             <br />
-            <h3>Add in SFX</h3>
+            <h3>Add in SFX</h3> */}
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import girlRun from '../../../assets/pictures/projects/art/girl-run.gif';
+import fxGif from '../../../assets/pictures/projects/art/fx.gif';
+import grunt from '../../../assets/pictures/projects/art/grunt.gif';
 
 export interface ArtProjectsProps {}
 
@@ -94,18 +96,30 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     </li>
                 </ul>
                 <br />
-                <p>
-                    {/* I fell off doing pixel art once I got to college and started
+                {/* <p>
+                    I fell off doing pixel art once I got to college and started
                     to really focus on my work and education, but I will forever
                     be thankful to have been a part of the pixel art community
                     for the few years I was involved. I also learned a lot of
                     invaluable lessons of animation and design that apply all
-                    the time to the work I do now. */}
+                    the time to the work I do now.
+                    
+                    nah not this ^^
+                    
                     Still doing it today! Not as active as I was in highschool,
                     but I'm still learning and growing.
-                </p>
+                </p> */}
+                <div className="captioned-image">
+                    <img src={grunt} alt="" />
+                    <p>
+                        <sub>
+                            <b>Figure 2:</b> Grunt from my game Guntattchment -
+                            Saga run cycle, attack and death animation.
+                        </sub>
+                    </p>
+                </div>
 
-                <h3> Screen record time-lapses and make gifs</h3>
+                {/* <h3> Screen record time-lapses and make gifs</h3> */}
             </div>
         </div>
     );

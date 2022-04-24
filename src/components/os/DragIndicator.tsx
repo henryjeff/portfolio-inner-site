@@ -51,7 +51,6 @@ const DragIndicator: React.FC<DragIndicatorProps> = ({
 export const styles: StyleSheetCSS = {
     draggable: {
         opacity: 0,
-        mixBlendMode: 'difference',
         position: 'absolute',
         boxSizing: 'border-box',
         flexDirection: 'column',

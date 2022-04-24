@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 
 export interface LinkProps {
@@ -13,8 +15,19 @@ const Link: React.FC<LinkProps> = (props) => {
 
     // get current location of react router
     const location = useLocation();
+    const [isHere, setIsHere] = useState(false);
 
-    const [active, setActive] = React.useState(false);
+    // if current path is the same as the link path
+    useEffect(() => {
+        if (location.pathname === `/${props.to}`) {
+            setIsHere(true);
+        } else {
+            setIsHere(false);
+        }
+        return () => {};
+    }, [location, props.to]);
+
+    const [active, setActive] = useState(false);
 
     const handleClick = (e: any) => {
         let isMounted = true;
@@ -39,8 +52,9 @@ const Link: React.FC<LinkProps> = (props) => {
         <RouterLink
             to={`/${props.to}`}
             onMouseDown={handleClick}
-            style={props.containerStyle}
+            style={Object.assign({}, { display: 'flex' }, props.containerStyle)}
         >
+            {isHere && <div style={styles.hereIndicator} />}
             <h4
                 className="router-link"
                 style={Object.assign(
@@ -60,6 +74,17 @@ const styles: StyleSheetCSS = {
         cursor: 'pointer',
         fontWeight: 'bolder',
         textDecoration: 'underline',
+    },
+    hereIndicator: {
+        width: 4,
+        height: 4,
+        borderWidth: 3,
+        borderStyle: 'solid',
+        borderColor: 'rgb(85, 26, 139)',
+        alignSelf: 'center',
+        borderRadius: '50%',
+        marginRight: 6,
+        textDecoration: 'none',
     },
 };
 

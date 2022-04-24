@@ -19,6 +19,7 @@ const OregonTrailApp: React.FC<OregonTrailAppProps> = (props) => {
             windowBarColor="#240C00"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
+            minimizeWindow={props.onMinimize}
             onWidthChange={setWidth}
             onHeightChange={setHeight}
         >

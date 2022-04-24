@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import softwareIcon from '../../assets/pictures/projects/software.png';
-import artIcon from '../../assets/pictures/projects/art.png';
-import musicIcon from '../../assets/pictures/projects/music.png';
-import arrowIcon from '../../assets/pictures/projects/arrow.png';
+import software from '../../assets/pictures/projects/software.gif';
+import art from '../../assets/pictures/projects/art.gif';
+import music from '../../assets/pictures/projects/music.gif';
 
 export interface ProjectsProps {}
 
@@ -60,16 +59,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
                     <h3>{subtitle}</h3>
                 </div>
             </div>
-            <div style={styles.projectLinkRight}>
-                {isHovering && (
-                    <img
-                        src={arrowIcon}
-                        className="arrow-mount"
-                        style={styles.arrowIcon}
-                        alt=""
-                    />
-                )}
-            </div>
+            <div style={styles.projectLinkRight}></div>
         </div>
     );
 };
@@ -89,27 +79,21 @@ const Projects: React.FC<ProjectsProps> = (props) => {
             <br />
             <div style={styles.projectLinksContainer}>
                 <ProjectBox
-                    icon={
-                        'https://web.archive.org/web/20091027081323im_/http://geocities.com/black_john/Computer_2.gif'
-                    }
+                    icon={software}
                     iconStyle={styles.computerIcon}
                     title="Software"
                     subtitle="PROJECTS"
                     route="software"
                 />
                 <ProjectBox
-                    icon={
-                        'https://web.archive.org/web/20090830005448/http://geocities.com/SoHo/Village/2665/images/Music001.gif'
-                    }
+                    icon={music}
                     iconStyle={styles.musicIcon}
                     title="Music"
                     subtitle="VENTURES"
                     route="music"
                 />
                 <ProjectBox
-                    icon={
-                        'https://web.archive.org/web/20090831202501/http://geocities.com/ilka_lemos_br/paint1.gif'
-                    }
+                    icon={art}
                     iconStyle={styles.artIcon}
                     title="Art"
                     subtitle="ENDEAVORS"
@@ -153,8 +137,8 @@ const styles: StyleSheetCSS = {
         height: 48,
     },
     artIcon: {
-        width: 40,
-        height: 64,
+        width: 21 * 2,
+        height: 37 * 2,
     },
 };
 

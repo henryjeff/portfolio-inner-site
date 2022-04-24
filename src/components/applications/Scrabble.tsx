@@ -21,6 +21,7 @@ const ScrabbleApp: React.FC<ScrabbleAppProps> = (props) => {
             onInteract={props.onInteract}
             onWidthChange={setWidth}
             onHeightChange={setHeight}
+            minimizeWindow={props.onMinimize}
         >
             <DosPlayer
                 width={width}

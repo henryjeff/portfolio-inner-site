@@ -8,13 +8,14 @@ const HenordleApp: React.FC<HenordleAppProps> = (props) => {
     return (
         <Window
             top={20}
-            left={20}
+            left={300}
             width={600}
-            height={910}
+            height={860}
+            windowBarIcon="windowGameIcon"
             windowTitle="Henordle"
-            rainbow
             closeWindow={props.onClose}
             onInteract={props.onInteract}
+            minimizeWindow={props.onMinimize}
         >
             <div className="site-page">
                 <Wordle />

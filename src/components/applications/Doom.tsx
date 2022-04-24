@@ -19,6 +19,7 @@ const DoomApp: React.FC<DoomAppProps> = (props) => {
             windowBarIcon="windowGameIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
+            minimizeWindow={props.onMinimize}
             onWidthChange={setWidth}
             onHeightChange={setHeight}
         >

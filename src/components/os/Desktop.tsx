@@ -4,108 +4,116 @@ import ShowcaseExplorer from '../applications/ShowcaseExplorer';
 // import WordleApp from '../applications/Henordle';
 import Doom from '../applications/Doom';
 import OregonTrail from '../applications/OregonTrail';
+import ThisComputer from '../applications/ThisComputer';
+import Henordle from '../applications/Henordle';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
 import Scrabble from '../applications/Scrabble';
+import { IconName } from '../../assets/icons';
 
 export interface DesktopProps {}
 
+type ExtendedWindowAppProps<T> = T & WindowAppProps;
+
+const APPLICATIONS: {
+    [key in string]: {
+        key: string;
+        name: string;
+        shortcutIcon: IconName;
+        component: React.FC<ExtendedWindowAppProps<any>>;
+    };
+} = {
+    computer: {
+        key: 'computer',
+        name: 'This Computer',
+        shortcutIcon: 'computerBig',
+        component: ThisComputer,
+    },
+    showcase: {
+        key: 'showcase',
+        name: 'My Showcase',
+        shortcutIcon: 'showcaseIcon',
+        component: ShowcaseExplorer,
+    },
+    trail: {
+        key: 'trail',
+        name: 'The Oregon Trail',
+        shortcutIcon: 'trailIcon',
+        component: OregonTrail,
+    },
+    doom: {
+        key: 'doom',
+        name: 'Doom',
+        shortcutIcon: 'doomIcon',
+        component: Doom,
+    },
+    scrabble: {
+        key: 'scrabble',
+        name: 'Scrabble',
+        shortcutIcon: 'scrabbleIcon',
+        component: Scrabble,
+    },
+    henordle: {
+        key: 'henordle',
+        name: 'Henordle',
+        shortcutIcon: 'henordleIcon',
+        component: Henordle,
+    },
+};
+
 const Desktop: React.FC<DesktopProps> = (props) => {
-    const [windows, setWindows] = useState<{
-        [key in string]: { zIndex: number; component: React.ReactElement };
-    }>({});
+    const [windows, setWindows] = useState<DesktopWindows>({});
 
-    const [shortcuts, setShortcuts] = useState<DesktopShortcutProps[]>([
-        // { shortcutName: 'My Computer', icon: 'myComputer' },
-        {
-            shortcutName: 'This Computer',
-            icon: 'myComputer',
-            onOpen: () => {
-                // addWindow(
-                //     'showcase',
-                //     <ShowcaseExplorer
-                //         onInteract={() => onWindowInteract('showcase')}
-                //         onClose={() => removeWindow('showcase')}
-                //         key="showcase"
-                //     />
-                // );
-            },
-        },
-        {
-            shortcutName: 'My Showcase',
-            icon: 'showcaseIcon',
-            onOpen: () => {
-                addWindow(
-                    'showcase',
-                    <ShowcaseExplorer
-                        onInteract={() => onWindowInteract('showcase')}
-                        onClose={() => removeWindow('showcase')}
-                        key="showcase"
-                    />
-                );
-            },
-        },
-
-        {
-            shortcutName: 'The Oregon Trail',
-            icon: 'trailIcon',
-            onOpen: () => {
-                addWindow(
-                    'trail',
-                    <OregonTrail
-                        onInteract={() => onWindowInteract('trail')}
-                        onClose={() => removeWindow('trail')}
-                        key="trail"
-                    />
-                );
-            },
-        },
-        {
-            shortcutName: 'DOOM',
-            icon: 'doomIcon',
-            onOpen: () => {
-                addWindow(
-                    'doom',
-                    <Doom
-                        onInteract={() => onWindowInteract('doom')}
-                        onClose={() => removeWindow('doom')}
-                        key="doom"
-                    />
-                );
-            },
-        },
-        {
-            shortcutName: 'Scrabble',
-            icon: 'scrabbleIcon',
-            onOpen: () => {
-                addWindow(
-                    'scrabble',
-                    <Scrabble
-                        onInteract={() => onWindowInteract('scrabble')}
-                        onClose={() => removeWindow('scrabble')}
-                        key="scrabble"
-                    />
-                );
-            },
-        },
-    ]);
+    const [shortcuts, setShortcuts] = useState<DesktopShortcutProps[]>([]);
 
     useEffect(() => {
-        addWindow(
-            'showcase',
-            <ShowcaseExplorer
-                onInteract={() => onWindowInteract('showcase')}
-                onClose={() => removeWindow('showcase')}
-                key="showcase"
-            />
-        );
+        const newShortcuts: DesktopShortcutProps[] = [];
+        Object.keys(APPLICATIONS).forEach((key) => {
+            const app = APPLICATIONS[key];
+            newShortcuts.push({
+                shortcutName: app.name,
+                icon: app.shortcutIcon,
+                onOpen: () => {
+                    addWindow(
+                        app.key,
+                        <app.component
+                            onInteract={() => onWindowInteract(app.key)}
+                            onMinimize={() => minimizeWindow(app.key)}
+                            onClose={() => removeWindow(app.key)}
+                            key={app.key}
+                        />
+                    );
+                },
+            });
+        });
+
+        newShortcuts.forEach((shortcut) => {
+            if (shortcut.shortcutName === 'My Showcase') {
+                shortcut.onOpen();
+            }
+        });
+
+        setShortcuts(newShortcuts);
     }, []);
 
-    const removeWindow = (key: string) => {
-        const newWindows = { ...windows };
-        delete newWindows[key];
-        setWindows(newWindows);
-    };
+    const removeWindow = useCallback((key: string) => {
+        // Absolute hack and a half
+        setTimeout(() => {
+            setWindows((prevWindows) => {
+                const newWindows = { ...prevWindows };
+                delete newWindows[key];
+                return newWindows;
+            });
+        }, 100);
+    }, []);
+
+    const minimizeWindow = useCallback((key: string) => {
+        setWindows((prevWindows) => {
+            const newWindows = { ...prevWindows };
+            newWindows[key].minimized = true;
+            return newWindows;
+        });
+    }, []);
 
     const getHighestZIndex = useCallback((): number => {
         let highestZIndex = 0;
@@ -118,6 +126,22 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         });
         return highestZIndex;
     }, [windows]);
+
+    const toggleMinimize = useCallback(
+        (key: string) => {
+            const newWindows = { ...windows };
+            const highestIndex = getHighestZIndex();
+            if (
+                newWindows[key].minimized ||
+                newWindows[key].zIndex === highestIndex
+            ) {
+                newWindows[key].minimized = !newWindows[key].minimized;
+            }
+            newWindows[key].zIndex = getHighestZIndex() + 1;
+            setWindows(newWindows);
+        },
+        [windows, getHighestZIndex]
+    );
 
     const onWindowInteract = useCallback(
         (key: string) => {
@@ -132,15 +156,21 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         [setWindows, getHighestZIndex]
     );
 
-    const addWindow = (key: string, element: JSX.Element) => {
-        setWindows((prevState) => ({
-            ...prevState,
-            [key]: {
-                zIndex: getHighestZIndex() + 1,
-                component: element,
-            },
-        }));
-    };
+    const addWindow = useCallback(
+        (key: string, element: JSX.Element) => {
+            setWindows((prevState) => ({
+                ...prevState,
+                [key]: {
+                    zIndex: getHighestZIndex() + 1,
+                    minimized: false,
+                    component: element,
+                    name: APPLICATIONS[key].name,
+                    icon: APPLICATIONS[key].shortcutIcon,
+                },
+            }));
+        },
+        [getHighestZIndex]
+    );
 
     return (
         <div style={styles.desktop}>
@@ -151,7 +181,11 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 return (
                     <div
                         key={`win-${key}`}
-                        style={{ zIndex: windows[key].zIndex }}
+                        style={Object.assign(
+                            {},
+                            { zIndex: windows[key].zIndex },
+                            windows[key].minimized && styles.minimized
+                        )}
                     >
                         {React.cloneElement(element, {
                             key,
@@ -179,8 +213,8 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     );
                 })}
             </div>
-
-            <Toolbar />
+            {/* <p>{JSON.stringify(windows)}</p> */}
+            <Toolbar windows={windows} toggleMinimize={toggleMinimize} />
         </div>
     );
 };
@@ -198,6 +232,10 @@ const styles: StyleSheetCSS = {
         position: 'absolute',
         top: 16,
         left: 6,
+    },
+    minimized: {
+        pointerEvents: 'none',
+        opacity: 0,
     },
 };
 

@@ -9,6 +9,7 @@ import ResizeIndicator from './ResizeIndicator';
 
 export interface WindowProps {
     closeWindow: () => void;
+    minimizeWindow: () => void;
     onInteract: () => void;
     width: number;
     height: number;
@@ -98,7 +99,7 @@ const Window: React.FC<WindowProps> = (props) => {
 
     const stopDrag = ({ clientX, clientY }: any) => {
         setIsDragging(false);
-        dragRef.current.style.opacity = 0;
+        // dragRef.current.style.opacity = 0;
         const { x, y } = getXYFromDragProps(clientX, clientY);
         setTop(y);
         setLeft(x);
@@ -203,7 +204,10 @@ const Window: React.FC<WindowProps> = (props) => {
                                 </p>
                             </div>
                             <div style={styles.windowTopButtons}>
-                                <Button icon="minimize" />
+                                <Button
+                                    icon="minimize"
+                                    onClick={props.minimizeWindow}
+                                />
                                 <Button icon="maximize" onClick={maximize} />
                                 <div style={{ paddingLeft: 2 }}>
                                     <Button
@@ -275,7 +279,11 @@ const Window: React.FC<WindowProps> = (props) => {
                               zIndex: -10000,
                               pointerEvents: 'none',
                           }
-                        : { zIndex: 1001, cursor: 'nwse-resize' }
+                        : {
+                              zIndex: 1000,
+                              cursor: 'nwse-resize',
+                              mixBlendMode: 'difference',
+                          }
                 }
             >
                 <ResizeIndicator
@@ -293,7 +301,11 @@ const Window: React.FC<WindowProps> = (props) => {
                               zIndex: -10000,
                               pointerEvents: 'none',
                           }
-                        : { zIndex: 1000, cursor: 'move' }
+                        : {
+                              zIndex: 1000,
+                              cursor: 'move',
+                              mixBlendMode: 'difference',
+                          }
                 }
             >
                 <DragIndicator

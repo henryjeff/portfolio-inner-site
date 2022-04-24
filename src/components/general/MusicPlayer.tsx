@@ -112,7 +112,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
                         />
                     </div>
                     <p style={styles.time}>
-                        <b>{duration === 1 ? '-:-' : formatTime(duration)}</b>
+                        <b>{duration === 1 ? '..:..' : formatTime(duration)}</b>
                     </p>
                 </div>
                 <div style={styles.playerBottom}>
@@ -178,7 +178,6 @@ const vars: Variants = {
 const styles: StyleSheetCSS = {
     musicPlayerContainer: {
         flexDirection: 'row',
-        height: 96,
         width: '100%',
         borderRadius: 4,
     },

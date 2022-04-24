@@ -27,6 +27,7 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
             windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}
+            minimizeWindow={props.onMinimize}
         >
             <Router>
                 <div className="site-page">

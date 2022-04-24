@@ -5,9 +5,12 @@ import { Icon } from '../general';
 // import Home from '../site/Home';
 // import Window from './Window';
 
-export interface ToolbarProps {}
+export interface ToolbarProps {
+    windows: DesktopWindows;
+    toggleMinimize: (key: string) => void;
+}
 
-const Toolbar: React.FC<ToolbarProps> = (props) => {
+const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
     const getTime = () => {
         const date = new Date();
         let hours = date.getHours();
@@ -19,6 +22,20 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
         const strTime = hours + ':' + mins + ' ' + amPm;
         return strTime;
     };
+
+    const [lastActive, setLastActive] = useState('');
+
+    useEffect(() => {
+        let max = 0;
+        let k = '';
+        Object.keys(windows).forEach((key) => {
+            if (windows[key].zIndex >= max) {
+                max = windows[key].zIndex;
+                k = key;
+            }
+        });
+        setLastActive(k);
+    }, [windows]);
 
     const [time, setTime] = useState(getTime());
 
@@ -47,7 +64,42 @@ const Toolbar: React.FC<ToolbarProps> = (props) => {
                             <p className="toolbar-text ">Start</p>
                         </div>
                     </div>
-                    <div style={styles.toolbarTabsContainer} />
+                    <div style={styles.toolbarTabsContainer}>
+                        {Object.keys(windows).map((key) => {
+                            return (
+                                <div
+                                    key={key}
+                                    style={Object.assign(
+                                        {},
+                                        styles.tabContainerOuter,
+                                        lastActive === key &&
+                                            !windows[key].minimized &&
+                                            styles.activeTabOuter
+                                    )}
+                                    onMouseDown={() => toggleMinimize(key)}
+                                >
+                                    <div
+                                        style={Object.assign(
+                                            {},
+                                            styles.tabContainer,
+                                            lastActive === key &&
+                                                !windows[key].minimized &&
+                                                styles.activeTabInner
+                                        )}
+                                    >
+                                        <Icon
+                                            size={20}
+                                            icon="computerSmall"
+                                            style={styles.tabIcon}
+                                        />
+                                        <p style={styles.tabText}>
+                                            {windows[key].name}
+                                        </p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div style={styles.time}>
                     <p style={styles.timeText}>{time}</p>
@@ -68,6 +120,45 @@ const styles: StyleSheetCSS = {
         borderTop: `1px solid ${Colors.lightGray}`,
 
         zIndex: 100000,
+    },
+    activeTabOuter: {
+        border: `1px solid ${Colors.black}`,
+        borderBottomColor: Colors.white,
+        borderRightColor: Colors.white,
+    },
+    activeTabInner: {
+        border: `1px solid ${Colors.darkGray}`,
+        borderBottomColor: Colors.lightGray,
+        borderRightColor: Colors.lightGray,
+        backgroundImage: `linear-gradient(45deg, white 25%, transparent 25%),
+        linear-gradient(-45deg,  white 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%,  white 75%),
+        linear-gradient(-45deg, transparent 75%,  white 75%)`,
+        backgroundSize: `4px 4px`,
+        backgroundPosition: `0 0, 0 2px, 2px -2px, -2px 0px`,
+        pointerEvents: 'none',
+    },
+    tabContainerOuter: {
+        display: 'flex',
+        flex: 1,
+        maxWidth: 300,
+        marginRight: 4,
+        boxSizing: 'border-box',
+        border: `1px solid ${Colors.white}`,
+        borderBottomColor: Colors.black,
+        borderRightColor: Colors.black,
+    },
+    tabContainer: {
+        display: 'flex',
+        border: `1px solid ${Colors.lightGray}`,
+        borderBottomColor: Colors.darkGray,
+        borderRightColor: Colors.darkGray,
+        alignItems: 'center',
+        paddingLeft: 4,
+        flex: 1,
+    },
+    tabIcon: {
+        marginRight: 4,
     },
     startContainer: {
         alignItems: 'center',
@@ -90,6 +181,8 @@ const styles: StyleSheetCSS = {
     toolbarTabsContainer: {
         // background: 'blue',
         flex: 1,
+        marginLeft: 4,
+        marginRight: 4,
     },
     startIcon: {
         marginRight: 4,
@@ -116,6 +209,10 @@ const styles: StyleSheetCSS = {
         justifyContent: 'center',
         alignItems: 'center',
         borderLeftColor: Colors.darkGray,
+    },
+    tabText: {
+        fontSize: 14,
+        fontFamily: 'MSSerif',
     },
     timeText: {
         fontSize: 12,

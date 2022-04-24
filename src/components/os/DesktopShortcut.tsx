@@ -6,12 +6,14 @@ import { Icon } from '../general';
 export interface DesktopShortcutProps {
     icon: IconName;
     shortcutName: string;
-    onOpen?: () => void;
+    invertText?: boolean;
+    onOpen: () => void;
 }
 
 const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
     icon,
     shortcutName,
+    invertText,
     onOpen,
 }) => {
     const [isSelected, setIsSelected] = useState(false);
@@ -119,7 +121,14 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
                 id={`${shortcutId}`}
                 style={isSelected ? { backgroundColor: colors.blue } : {}}
             >
-                <p id={`${shortcutId}`} style={styles.shortcutText}>
+                <p
+                    id={`${shortcutId}`}
+                    style={Object.assign(
+                        {},
+                        styles.shortcutText,
+                        invertText && !isSelected && { color: 'black' }
+                    )}
+                >
                     {shortcutName}
                 </p>
             </div>
