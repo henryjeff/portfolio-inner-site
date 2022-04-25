@@ -16,6 +16,7 @@ export interface WindowProps {
     top: number;
     left: number;
     windowTitle?: string;
+    bottomLeftText?: string;
     rainbow?: boolean;
     windowBarColor?: string;
     windowBarIcon?: IconName;
@@ -236,8 +237,19 @@ const Window: React.FC<WindowProps> = (props) => {
                             <div
                                 style={Object.assign({}, styles.insetBorder, {
                                     flex: 5 / 7,
+                                    alignItems: 'center',
                                 })}
-                            />
+                            >
+                                <p
+                                    style={{
+                                        fontSize: 12,
+                                        marginLeft: 4,
+                                        fontFamily: 'MSSerif',
+                                    }}
+                                >
+                                    {props.bottomLeftText}
+                                </p>
+                            </div>
                             <div
                                 style={Object.assign(
                                     {},
@@ -390,7 +402,7 @@ const styles: StyleSheetCSS = {
     bottomBar: {
         flexShrink: 1,
         width: '100%',
-        height: 16,
+        height: 20,
     },
     bottomSpacer: {
         width: 16,

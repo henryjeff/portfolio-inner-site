@@ -149,7 +149,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
                 controls
                     .start({
                         backgroundColor: '#f00',
-                        y: 2,
+                        x: 2,
                         transition: {
                             duration: 0.1,
                         },
@@ -157,7 +157,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
                     .then(() => {
                         controls
                             .start({
-                                y: -4,
+                                x: -4,
                                 backgroundColor: '#fff',
                                 transition: {
                                     duration: 0.1,
@@ -165,7 +165,7 @@ const GuessWord: React.FC<GuessWordProps> = ({
                             })
                             .then(() => {
                                 controls.start({
-                                    y: 0,
+                                    x: 0,
                                     backgroundColor: '#fff',
                                     transition: {
                                         duration: 0.09,

@@ -9,6 +9,8 @@ import myComputer from './myComputer.png';
 import showcaseIcon from './showcaseIcon.png';
 import doomIcon from './doomIcon.png';
 import henordleIcon from './henordleIcon.png';
+import volumeOn from './volumeOn.png';
+import volumeOff from './volumeOff.png';
 import trailIcon from './trailIcon.png';
 import windowGameIcon from './windowGameIcon.png';
 import windowExplorerIcon from './windowExplorerIcon.png';
@@ -25,6 +27,8 @@ const icons = {
     myComputer: myComputer,
     showcaseIcon: showcaseIcon,
     doomIcon: doomIcon,
+    volumeOn: volumeOn,
+    volumeOff: volumeOff,
     scrabbleIcon: scrabbleIcon,
     henordleIcon: henordleIcon,
     close: close,

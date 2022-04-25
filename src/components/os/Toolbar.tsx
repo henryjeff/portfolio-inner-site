@@ -46,6 +46,13 @@ const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
         }, 5000);
     };
 
+    const toggleMute = () => {
+        document
+            .querySelectorAll('audio, video')
+            // @ts-ignore
+            .forEach((el) => (el.muted = true));
+    };
+
     useEffect(() => {
         updateTime();
     });
@@ -102,6 +109,7 @@ const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
                     </div>
                 </div>
                 <div style={styles.time}>
+                    <Icon style={styles.volumeIcon} icon="volumeOn" />
                     <p style={styles.timeText}>{time}</p>
                 </div>
             </div>
@@ -199,16 +207,22 @@ const styles: StyleSheetCSS = {
     },
     time: {
         flexShrink: 1,
-        width: 64,
+        width: 86,
         height: 24,
         boxSizing: 'border-box',
         marginRight: 4,
+        paddingLeft: 4,
+        paddingRight: 4,
         border: `1px solid ${Colors.white}`,
         borderTopColor: Colors.darkGray,
 
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         borderLeftColor: Colors.darkGray,
+    },
+    volumeIcon: {
+        cursor: 'pointer',
+        height: 18,
     },
     tabText: {
         fontSize: 14,

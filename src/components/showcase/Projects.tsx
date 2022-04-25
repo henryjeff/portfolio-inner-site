@@ -39,7 +39,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
     return (
         <div
             onMouseDown={handleClick}
-            className="big-button-container "
+            className="big-button-container"
             style={styles.projectLink}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -68,7 +68,7 @@ const Projects: React.FC<ProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Projects</h1>
-            <h3>AND HOBBIES</h3>
+            <h3>& Hobbies</h3>
             <br />
             <p>
                 Click on one of the areas below to check out some of my favorite
@@ -127,9 +127,10 @@ const styles: StyleSheetCSS = {
     projectLinkImage: {
         width: 48,
         // height: 48,
-        marginRight: 32,
+        marginRight: 38,
     },
     projectLinkLeft: {
+        marginLeft: 16,
         alignItems: 'center',
     },
     arrowIcon: {

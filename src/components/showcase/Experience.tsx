@@ -5,6 +5,84 @@ export interface ExperienceProps {}
 const Experience: React.FC<ExperienceProps> = (props) => {
     return (
         <div className="site-page-content">
+            {/* <div style={styles.skillsContainer}>
+                <h1>Skills</h1>
+                <br />
+                <h3>Programming Languages:</h3>
+                <div style={styles.skillRow}>
+                    <p>Python</p>
+                    <p>Typescript</p>
+                    <p>JavaScript </p>
+                    <p>Java</p>
+                    <p>C++</p>
+                </div>
+                <div style={styles.skillRow}>
+                    <p>C#</p>
+                    <p>C</p>
+                    <p>HTML5</p>
+                    <p>CSS3</p>
+                    <p>SQL</p>
+                    <p>Haskell</p>
+                </div> */}
+            {/* <div style={styles.skillRow}>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>Python</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>Java</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>C++</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                </div>
+                <div style={styles.skillRow}>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>TS</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>C</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4 style={styles.skillName}>C#</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                </div> */}
+            {/* <br />
+                <h3>Web & App Development:</h3> */}
+            {/* <div style={styles.skillRow}>
+                    <div style={styles.skill}>
+                        <h4>React</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4>Node</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4>Redux</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                </div>
+                <div style={styles.skillRow}>
+                    <div style={styles.skill}>
+                        <h4>Three.js</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4>Express</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                    <div style={styles.skill}>
+                        <h4>Vue</h4>
+                        <div style={styles.progressBar} />
+                    </div>
+                </div> */}
+            {/* </div> */}
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
@@ -18,7 +96,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>FRONTEND ENGINEER</h3>
+                        <h3>Frontend Engineer</h3>
                     </div>
                 </div>
             </div>
@@ -77,7 +155,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>TEAM LEAD & ENGINEER</h3>
+                        <h3>Team Lead & Engineer</h3>
                     </div>
                 </div>
             </div>
@@ -116,14 +194,6 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                 </ul>
                 <p>Dates Active: September 2021 - May 2022 </p>
             </div>
-            <div>
-                <h1>SKILLS</h1>
-                <h3>But maybe not here</h3>
-                <p>
-                    open up finder window and have shortcuts to each of the
-                    languages
-                </p>
-            </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
@@ -137,7 +207,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         </a>
                     </div>
                     <div style={styles.headerRow}>
-                        <h3>SPECIAL EFFECTS TECHNICIAN</h3>
+                        <h3>Special Effects Technician</h3>
                     </div>
                 </div>
                 {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
@@ -153,7 +223,7 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                     rolling.
                 </p>
                 <br />
-                <h3 style={styles.indent}>SCREEN CREDITS:</h3>
+                <h3 style={styles.indent}>Screen Credits:</h3>
                 <ul>
                     <li style={styles.row}>
                         <p>• Ray Donovan</p>
@@ -237,6 +307,32 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
         justifyContent: 'space-between',
         width: '100%',
+    },
+    skillsContainer: {
+        padding: 12,
+        border: '1px solid black',
+        borderLeftWidth: 0,
+        borderRightWidth: 0,
+        width: '100%',
+        flexDirection: 'column',
+    },
+    skillRow: {
+        flex: 1,
+        justifyContent: 'space-between',
+    },
+    skillName: {
+        minWidth: 56,
+    },
+    skill: {
+        flex: 1,
+        padding: 8,
+        alignItems: 'center',
+    },
+    progressBar: {
+        flex: 1,
+        background: 'red',
+        marginLeft: 8,
+        height: 8,
     },
     hoverLogo: {
         height: 32,

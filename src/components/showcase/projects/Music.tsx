@@ -10,7 +10,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
     return (
         <div className="site-page-content">
             <h1>Music & Sound</h1>
-            <h3>VENTURES</h3>
+            <h3>Ventures</h3>
             <br />
             <div className="text-block">
                 <p>

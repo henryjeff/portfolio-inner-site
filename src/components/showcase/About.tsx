@@ -32,7 +32,7 @@ const About: React.FC<AboutProps> = (props) => {
                 </p>
             </div>
             <div className="text-block">
-                <h2>About Me</h2>
+                <h3>About Me</h3>
                 <br />
                 <p>
                     From a young age I have always had a curiosity to learn how
