@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = (props) => {
             <div className="text-block">
                 <p>
                     I'm a software engineer graduating from Rensselaer
-                    Polytechnic Institute with my BS in computer science in May.
+                    Polytechnic Institute with my BS in Computer Science in May.
                     I am currently looking for a full time role.
                 </p>
                 <br />
@@ -35,16 +35,14 @@ const About: React.FC<AboutProps> = (props) => {
                 <h3>About Me</h3>
                 <br />
                 <p>
-                    From a young age I have always had a curiosity to learn how
-                    things worked. This naturally led me to become absolutely
-                    obsessed with Lego and I fell in love with creating things.
-                    When I was in elementary school I joined the Lego Robotics
-                    team at my local middle school and this was my first big
-                    exposure to creating technology to solve a problem. We used
-                    a visual programming language and I have very distinct
-                    memories of loving the problem solving process. After
-                    elementary school my family and I moved across the country
-                    to NY where I went to middle school and high school.
+                    From a young age, I have had a curiosity about how things
+                    worked. This naturally led me to become absolutely obsessed
+                    with Lego and I fell in love with building things. In
+                    elementary school, I joined the Lego Robotics team at my
+                    local middle school, which was my first real exposure to
+                    programming. My family and I moved across the country from
+                    California to New York, where I attended middle school, high
+                    school, and college.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -58,10 +56,10 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
 
                 <p>
-                    I started programming in highschool, initially learning how
-                    to scrape and interact with websites. I went on to do a ton
-                    of passion projects a lot of them with from on of my best
-                    friends from highschool,{' '}
+                    I started programming more seriously in high school,
+                    initially learning how to scrape and interact with websites.
+                    I went on to do a ton of passion projects, many of them with
+                    one of my closest friends,{' '}
                     <a
                         rel="noreferrer"
                         target="_blank"
@@ -70,23 +68,20 @@ const About: React.FC<AboutProps> = (props) => {
                         Scott Bass
                     </a>
                     . We worked on many projects together, including chat bots,
-                    multiple game projects, apps and a ton of miscellaneous
-                    random projects. One of these projects can be seen on my{' '}
-                    <Link to="/projects/software">Software Projects</Link> page
+                    multiple game projects, apps, and more. One of these
+                    projects is viewable on my{' '}
+                    <Link to="/projects/software">Software Projects</Link> page.
                 </p>
                 <br />
                 <p>
                     In 2017, I got accepted into Rennselear Polytechnic
-                    Institute to study Computer Science. It ws my first choice
+                    Institute to study Computer Science. It was my first choice
                     school and I was absolutely ecstatic to be going to such a
-                    great school. At the end of my sophomore year I got an
-                    internship working for the startup Hover. I was brought onto
-                    the team as a frontend engineer and with no experience using
-                    react or react native I quickly learned and ended up taking
-                    on big responsibilities for the frontend as a whole. I
-                    continued to work at Hover on and off for about a year and a
-                    half, until the start of my senior year when I decided to
-                    focus on myself and pursuing other opportunities.
+                    great school. At the end of my sophomore year, I got an
+                    internship working for the startup Hover, primarily focusing
+                    on frontend work. I continued to work at Hover on and off
+                    for about a year and a half, until the start of my senior
+                    year when I decided to focus on other opportunities.
                 </p>
                 <br />
                 <br />
@@ -101,23 +96,23 @@ const About: React.FC<AboutProps> = (props) => {
                         <h3>My Hobbies</h3>
                         <br />
                         <p>
-                            Beyond software I have a lot of hobbies that I enjoy
-                            doing in my free time. The more tangible hobbies I
-                            have are{' '}
+                            Beyond software, I have a lot of hobbies that I
+                            enjoy doing in my free time. The more tangible
+                            hobbies I have are{' '}
                             <Link to="/projects/music">Music Production</Link>{' '}
                             and creating{' '}
                             <Link to="/projects/art">Digital Art</Link>. You can
                             read more about each of these on their respective
                             pages under my projects tab. Some other hobbies I
-                            enjoy are working out, cooking and unsurprisingly
+                            enjoy are working out, cooking, and (unsurprisingly)
                             playing video games.
                         </p>
                         <br />
                         <p>
-                            In college I was an active member in the fraternity
+                            In college, I was an active member in the fraternity
                             Sigma Alpha Epsilon and held multiple positions in
                             the chapter. I met a lot of amazing people through
-                            my fraternity and I had a lot of fun.
+                            my fraternity and thoroughly enjoyed the community.
                         </p>
                     </div>
                     <div style={styles.verticalImage}>
@@ -131,9 +126,9 @@ const About: React.FC<AboutProps> = (props) => {
                 </div>
                 <br />
                 <p>
-                    Thanks for reading about me and I hope that you enjoy
-                    exploring my portfolio website and everything it has to
-                    offer. With that said, If you manage to beat Oregon Trail on
+                    Thanks for reading about me! I hope that you enjoy exploring
+                    the rest of my portfolio website and everything it has to
+                    offer. On that note, If you manage to beat Oregon Trail on
                     this computer starting as a Teacher and{' '}
                     <a
                         rel="noreferrer"

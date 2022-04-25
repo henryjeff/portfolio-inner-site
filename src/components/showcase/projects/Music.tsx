@@ -15,9 +15,9 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             <div className="text-block">
                 <p>
                     Music has been a passion of mine for my whole life. When I
-                    was 15 years old, I downloaded FL Studio and started to
-                    produce my own music. I found a wonderful community on
-                    reddit called r/edmproduction.
+                    was 15, I downloaded FL Studio and started to produce my own
+                    music. I found a wonderful community on reddit called
+                    r/edmproduction.
                 </p>
                 <br />
                 <p>Here are some samples of my work!</p>
