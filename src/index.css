@@ -23,39 +23,6 @@ code {
     src: url(./assets/fonts/MSSansSerif.ttf);
 }
 
-/* 21px */
-@font-face {
-    font-family: Daydream;
-    src: url(./assets/fonts/Daydream.ttf);
-}
-
-/* 16px */
-@font-face {
-    font-family: LadyRadical;
-    src: url(./assets/fonts/LadyRadical.ttf);
-}
-
-@font-face {
-    font-family: terminal;
-    src: url(./assets/fonts/terminal.ttf);
-}
-
-/* 16px */
-@font-face {
-    font-family: Credits;
-    src: url(./assets/fonts/2Credits.ttf);
-}
-
-@font-face {
-    font-family: Cavalhatriz;
-    src: url(./assets/fonts/Cavalhatriz.ttf);
-}
-
-@font-face {
-    font-family: Generic;
-    src: url(./assets/fonts/Generic.ttf);
-}
-
 @font-face {
     font-family: Millennium;
     src: url(./assets/fonts/Millennium.ttf);
@@ -64,16 +31,6 @@ code {
 @font-face {
     font-family: MillenniumBold;
     src: url(./assets/fonts/Millennium-Bold.ttf);
-}
-
-/* 12px */
-@font-face {
-    font-family: VerminVibes;
-    src: url('./assets/fonts/Vermin-Vibes-1989.woff2') format('woff2'),
-        url('./assets/fonts/Vermin-Vibes-1989.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
 }
 
 * {
