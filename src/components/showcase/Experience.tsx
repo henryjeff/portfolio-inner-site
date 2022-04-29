@@ -1,88 +1,12 @@
 import React from 'react';
+import ResumeDownload from './ResumeDownload';
 
 export interface ExperienceProps {}
 
 const Experience: React.FC<ExperienceProps> = (props) => {
     return (
         <div className="site-page-content">
-            {/* <div style={styles.skillsContainer}>
-                <h1>Skills</h1>
-                <br />
-                <h3>Programming Languages:</h3>
-                <div style={styles.skillRow}>
-                    <p>Python</p>
-                    <p>Typescript</p>
-                    <p>JavaScript </p>
-                    <p>Java</p>
-                    <p>C++</p>
-                </div>
-                <div style={styles.skillRow}>
-                    <p>C#</p>
-                    <p>C</p>
-                    <p>HTML5</p>
-                    <p>CSS3</p>
-                    <p>SQL</p>
-                    <p>Haskell</p>
-                </div> */}
-            {/* <div style={styles.skillRow}>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>Python</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>Java</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>C++</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                </div>
-                <div style={styles.skillRow}>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>TS</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>C</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4 style={styles.skillName}>C#</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                </div> */}
-            {/* <br />
-                <h3>Web & App Development:</h3> */}
-            {/* <div style={styles.skillRow}>
-                    <div style={styles.skill}>
-                        <h4>React</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4>Node</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4>Redux</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                </div>
-                <div style={styles.skillRow}>
-                    <div style={styles.skill}>
-                        <h4>Three.js</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4>Express</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                    <div style={styles.skill}>
-                        <h4>Vue</h4>
-                        <div style={styles.progressBar} />
-                    </div>
-                </div> */}
-            {/* </div> */}
+            <ResumeDownload />
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
@@ -92,107 +16,124 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             target="_blank"
                             href={'https://hover.gg/'}
                         >
-                            <p>www.hover.gg</p>
+                            <h4>www.hover.gg</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
                         <h3>Frontend Engineer</h3>
+                        <b>
+                            <p>Summer 2020 - Fall 2021</p>
+                        </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Hover is a platform targeted towards online content creators
-                    looking to grow an audience and online presence. Written in
-                    React-Native and Typescript, I was responsible for
-                    designing, implementing and ensuring quality and scalability
-                    on the front-end.
+                    Targeted towards online content creators and streamers
+                    looking to build a brand, Hover is the home of over 150K
+                    users. Written in Typescript using React, React-Native,
+                    Framer, Express, and Redux.
                 </p>
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Lead major refactors to optimize app performance
-                            across all devices by reducing redundant re-renders,
-                            API calls and caching data on the user’s device
-                            using the Redux store.
+                            Architected and engineered the vertical scrolling
+                            discover player which, at its daily peak, was
+                            responsible for generating over 600,000 views across
+                            20,000 active users.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Designed, Architected and Implemented the new
-                            discover player which allows for the consumption of
-                            media agnostic to the orientation of the users
-                            device by optimizing the UI layout in real time.
+                            Designed and implemented multiple features to
+                            increase app usability and user experience while
+                            ensuring the quality, maintainability and
+                            scalability of the front end as the user base grew
+                            by over 50,000.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Created an in app video editor with the capability
-                            to quickly cut and stitch video clips on demand.
-                            Finished videos were rendered on the user’s device
-                            using FFMPEG, the open source standard for video
-                            manipulation.
+                            Coordinated major refactors targeted towards app
+                            optimization and performance resulting in a smoother
+                            user experience and accomplished by eliminating
+                            redundant re-renders and API calls by over 50%.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Built out a robust and reusable functional animation
-                            system to allow for performant native animations in
-                            the app, ensuring a smoother user experience across
-                            the board.
+                            Directed and executed an internal migration of 3
+                            individual repositories to a single monorepo,
+                            greatly reducing overhead for developing new
+                            features, fixing bugs, and managing dependencies.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Rebuilt the website with React and shared mobile app
+                            components allowing users to access a wide variety
+                            of app interactions entirely on the web, resulting
+                            in over 700,000 total site visits.
                         </p>
                     </li>
                 </ul>
-                <p>Dates Active: April 2020 - September 2021 </p>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
                     <div style={styles.headerRow}>
                         <h1>BrACS</h1>
-                        <a target="_blank" rel="noreferrer" href={'penis.beer'}>
-                            <p>www.bracs.com</p>
+                        <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={'https://bracs.co/'}
+                        >
+                            <h4>www.bracs.co</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
                         <h3>Team Lead & Engineer</h3>
+                        <b>
+                            <p>Fall 2021 - Spring 2022</p>
+                        </b>
                     </div>
                 </div>
             </div>
             <div className="text-block">
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Pariatur laudantium labore voluptate dignissimos minus
-                    minima omnis. Laboriosam velit iusto reiciendis, ut sed
-                    fugit maiores, beatae nesciunt tempora quo earum adipisci?
+                    Supervised and developed the front end of bracs.co, a
+                    beautifully simple and effective bracket creation and
+                    management engine. Written in Typescript using React and
+                    deployed using AWS Elastic Beanstalk.
                 </p>
                 <br />
                 <ul>
                     <li>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Architecto repudiandae dignissimos explicabo
-                            delectus! Commodi cupiditate ad rem, reprehenderit
-                            velit alias qui
+                            Managed the project and team members by conducting
+                            bi-weekly stand-ups.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Quo obcaecati voluptatem, maiores quis, animi
-                            quibusdam non adipisci deleniti, pariatur accusamus
-                            enim laudantium unde necessitatibus! Vitae
-                            perferendis tenetur facere beatae
+                            Architected bracket view UI using React Flow and
+                            custom bracket data types built from binary trees.
                         </p>
                     </li>
                     <li>
                         <p>
-                            Facere amet velit molestias officia earum iusto
-                            error nobis necessitatibus quod sapiente eligendi,
-                            dolorum at magnam corrupti voluptates.
+                            Created conversion algorithms to serialize bracket
+                            tree data to allow for saving in the cloud.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Implemented bracket generation utilities which
+                            employ gray code for proper team seeding and
+                            placement.
                         </p>
                     </li>
                 </ul>
-                <p>Dates Active: September 2021 - May 2022 </p>
             </div>
             <div style={styles.headerContainer}>
                 <div style={styles.header}>
@@ -203,24 +144,23 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                             rel="noreferrer"
                             href={'https://kfxnyc.com/'}
                         >
-                            <p>www.kfxnyc.com</p>
+                            <h4>www.kfxnyc.com</h4>
                         </a>
                     </div>
                     <div style={styles.headerRow}>
                         <h3>Special Effects Technician</h3>
+                        <b>
+                            <p>Fall 2019, Summer 2021</p>
+                        </b>
                     </div>
                 </div>
-                {/* <img style={styles.hoverLogo} src={hoverLogo} alt="" /> */}
             </div>
             <div className="text-block">
                 <p>
-                    As a Special Effects Technician I worked on set with a
-                    professional crew of 50+ people. I applied my problem
-                    solving and technical skills to operate large equipment such
-                    as rain machines, fog machines, small explosives and general
-                    rigging in high pressure situations. Responsible for
-                    ensuring that everything goes right when the cameras start
-                    rolling.
+                    Applied problem solving and technical skills to operate
+                    large equipment such as rain machines, fog machines, small
+                    explosives and general rigging with a professional crew of
+                    50+ people.
                 </p>
                 <br />
                 <h3 style={styles.indent}>Screen Credits:</h3>
@@ -296,7 +236,6 @@ const Experience: React.FC<ExperienceProps> = (props) => {
                         </p>
                     </li>
                 </ul>
-                <p>Dates Active: Fall 2019, Summer 2021</p>
             </div>
         </div>
     );
@@ -307,14 +246,6 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
         justifyContent: 'space-between',
         width: '100%',
-    },
-    skillsContainer: {
-        padding: 12,
-        border: '1px solid black',
-        borderLeftWidth: 0,
-        borderRightWidth: 0,
-        width: '100%',
-        flexDirection: 'column',
     },
     skillRow: {
         flex: 1,
@@ -351,7 +282,7 @@ const styles: StyleSheetCSS = {
     },
     headerRow: {
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'flex-end',
     },
     row: {
         display: 'flex',

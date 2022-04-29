@@ -3,6 +3,7 @@ import colors from '../../constants/colors';
 import twitterIcon from '../../assets/pictures/contact-twitter.png';
 import ghIcon from '../../assets/pictures/contact-gh.png';
 import inIcon from '../../assets/pictures/contact-in.png';
+import ResumeDownload from './ResumeDownload';
 
 export interface ContactProps {}
 
@@ -238,6 +239,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                     </div>
                 </div>
             </div>
+            <ResumeDownload />
         </div>
     );
 };

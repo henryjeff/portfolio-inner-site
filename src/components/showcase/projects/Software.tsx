@@ -5,6 +5,7 @@ import saga from '../../../assets/pictures/projects/software/saga.mp4';
 import computer from '../../../assets/pictures/projects/software/computer.mp4';
 // @ts-ignore
 import scroll from '../../../assets/pictures/projects/software/scroll.mp4';
+import ResumeDownload from '../ResumeDownload';
 
 export interface SoftwareProjectsProps {}
 
@@ -19,6 +20,8 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 projects. Below are some of my favorite projects I have worked
                 on over the last few years.
             </p>
+            <br />
+            <ResumeDownload />
             <br />
             <div className="text-block">
                 <h2>henryheffernan.com</h2>

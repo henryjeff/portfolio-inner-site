@@ -2,6 +2,7 @@ import React from 'react';
 import me from '../../assets/pictures/workingAtComputer.jpg';
 import meNow from '../../assets/pictures/currentMe.png';
 import { Link } from 'react-router-dom';
+import ResumeDownload from './ResumeDownload';
 
 export interface AboutProps {}
 
@@ -15,9 +16,9 @@ const About: React.FC<AboutProps> = (props) => {
             <br />
             <div className="text-block">
                 <p>
-                    I'm a software engineer graduating from Rensselaer
-                    Polytechnic Institute with my BS in computer science in May.
-                    I am currently looking for a full time role.
+                    A software engineer graduating from Rensselaer Polytechnic
+                    Institute with my BS in Computer Science in May. I am
+                    currently looking for a full time role.
                 </p>
                 <br />
                 <p>
@@ -31,6 +32,7 @@ const About: React.FC<AboutProps> = (props) => {
                     </a>
                 </p>
             </div>
+            <ResumeDownload />
             <div className="text-block">
                 <h3>About Me</h3>
                 <br />
@@ -95,6 +97,7 @@ const About: React.FC<AboutProps> = (props) => {
                         style={{
                             flex: 1,
                             textAlign: 'justify',
+                            alignSelf: 'center',
                             flexDirection: 'column',
                         }}
                     >
@@ -117,7 +120,9 @@ const About: React.FC<AboutProps> = (props) => {
                             In college I was an active member in the fraternity
                             Sigma Alpha Epsilon and held multiple positions in
                             the chapter. I met a lot of amazing people through
-                            my fraternity and I had a lot of fun.
+                            my fraternity and I am very thankful for the
+                            opportunity to be a part of such a great
+                            organization and community.
                         </p>
                     </div>
                     <div style={styles.verticalImage}>
@@ -129,6 +134,7 @@ const About: React.FC<AboutProps> = (props) => {
                         </p>
                     </div>
                 </div>
+                <br />
                 <br />
                 <p>
                     Thanks for reading about me and I hope that you enjoy
