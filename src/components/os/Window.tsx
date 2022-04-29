@@ -384,18 +384,20 @@ const styles: StyleSheetCSS = {
 
         marginTop: 8,
         marginBottom: 8,
+        overflow: 'hidden',
     },
     contentInner: {
         border: `1px solid ${Colors.lightGray}`,
         borderTopColor: colors.black,
         borderLeftColor: colors.black,
         flex: 1,
+        overflow: 'hidden',
     },
     content: {
         flex: 1,
 
         position: 'relative',
-        overflow: 'scroll',
+        // overflow: 'scroll',
         overflowX: 'hidden',
         backgroundColor: Colors.white,
     },

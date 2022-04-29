@@ -25,7 +25,7 @@ const styles: StyleSheetCSS = {
     resumeContainer: {
         backgroundColor: 'white',
         padding: 12,
-        marginRight: 32,
+        boxSizing: 'border-box',
         border: '2px solid black',
         borderLeftWidth: 0,
         borderRightWidth: 0,
