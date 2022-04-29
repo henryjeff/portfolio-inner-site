@@ -5,7 +5,10 @@ import house from '../../../assets/audio/house_master.mp3';
 import edge from '../../../assets/audio/edge_unmastered.mp3';
 // @ts-ignore
 import dnb from '../../../assets/audio/dnb_snip.mp3';
+// @ts-ignore
+import dnbDrums from '../../../assets/audio/dnb_drop_drums.mp3';
 import houseProject from '../../../assets/pictures/projects/audio/houseProject.png';
+import dnbDrumsProject from '../../../assets/pictures/projects/audio/dnbDrumsProject.png';
 import { MusicPlayer } from '../../general';
 
 export interface MusicProjectsProps {}
@@ -83,13 +86,13 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 the years that really reflects my specific taste at the time.
             </p>
             <br />
-            <MusicPlayer
-                src={edge}
-                title="Edge [WIP]"
-                subtitle="Henry Heffernan - 2021"
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-            />
+            <p>
+                The track below is a snip-it from a DnB track I started work
+                back in 2019. I recently decided to pick it up again and work on
+                it some more because I loved the idea. Below is a short demo of
+                the track including a small buildup and drop.
+            </p>
+            <br />
             <MusicPlayer
                 src={dnb}
                 title="Break [Demo]"
@@ -97,12 +100,44 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
                 currentSong={currentSong}
                 setCurrentSong={setCurrentSong}
             />
-            {/* 
-            <h3>2 more songs? + sound fx stuff</h3>
-
-            <h3>Maybe overkill ^</h3>
             <br />
-            <h3>Add in SFX</h3> */}
+            <p>
+                I decided to come back to the track because I absolutely loved
+                the drums and bassline which are obviously the two key parts of
+                any DnB track. When I worked on the track some more I decided to
+                totally remix the drums and I'm super proud with how they turned
+                out. So proud in fact I wanted to show them off some more on
+                their own! Below are the drums in the above track, but isolated.
+                I have also included the sub bass because it is drum and bass
+                after all!
+            </p>
+            <br />
+            <MusicPlayer
+                src={dnbDrums}
+                title="Break [ Drums and Sub]"
+                subtitle="Henry Heffernan - 2021"
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+            />
+            <br />
+            <div className="captioned-image">
+                <img src={dnbDrumsProject} alt="" />
+                <p>
+                    <sub>
+                        <b>Figure 2:</b> A screenshot of drums and sub for the
+                        track Break. See if you can follow along in the image as
+                        the audio plays!
+                    </sub>
+                </p>
+            </div>
+
+            <MusicPlayer
+                src={edge}
+                title="Edge [WIP]"
+                subtitle="Henry Heffernan - 2021"
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+            />
         </div>
     );
 };
