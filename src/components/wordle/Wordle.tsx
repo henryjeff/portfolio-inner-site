@@ -273,8 +273,8 @@ const Wordle: React.FC<WordleProps> = ({}) => {
     return (
         <div style={styles.container}>
             <div style={styles.header}>
-                <h1>Henordle</h1>
-                <h3>Wordle but its always just "HENRY"</h3>
+                <h2>Henordle</h2>
+                <p>Wordle but its always just "HENRY"</p>
             </div>
             <motion.div
                 variants={gameOverAnimations}

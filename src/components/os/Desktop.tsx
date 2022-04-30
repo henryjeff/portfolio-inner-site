@@ -63,7 +63,7 @@ const APPLICATIONS: {
     credits: {
         key: 'credits',
         name: 'Credits',
-        shortcutIcon: 'computerBig',
+        shortcutIcon: 'credits',
         component: Credits,
     },
 };

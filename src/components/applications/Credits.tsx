@@ -62,11 +62,14 @@ const Credits: React.FC<CreditsProps> = (props) => {
                 <br />
                 {CREDITS.map((section) => {
                     return (
-                        <div style={styles.section}>
+                        <div
+                            key={`section-${section.title}`}
+                            style={styles.section}
+                        >
                             <h3 style={styles.sectionTitle}>{section.title}</h3>
-                            {section.rows.map((row) => {
+                            {section.rows.map((row, i) => {
                                 return (
-                                    <div style={styles.row}>
+                                    <div key={`row-${i}`} style={styles.row}>
                                         <p>{row[0]}</p>
                                         <p>{row[1]}</p>
                                     </div>

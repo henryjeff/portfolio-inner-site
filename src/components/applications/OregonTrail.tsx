@@ -17,6 +17,7 @@ const OregonTrailApp: React.FC<OregonTrailAppProps> = (props) => {
             windowTitle="The Oregon Trail"
             windowBarIcon="windowGameIcon"
             windowBarColor="#240C00"
+            bottomLeftText={'Powered by JSDOS'}
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
