@@ -6,6 +6,7 @@ import computer from '../../../assets/pictures/projects/software/computer.mp4';
 // @ts-ignore
 import scroll from '../../../assets/pictures/projects/software/scroll.mp4';
 import ResumeDownload from '../ResumeDownload';
+import VideoAsset from '../../general/VideoAsset';
 
 export interface SoftwareProjectsProps {}
 
@@ -40,13 +41,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <video
-                        style={styles.video}
-                        src={computer}
-                        autoPlay
-                        muted
-                        loop
-                    />
+                    <VideoAsset src={computer} />
                     <p style={styles.caption}>
                         <sub>
                             <b>Figure 1:</b> Blender Scene of the 3D website.
@@ -114,13 +109,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <video
-                        style={styles.video}
-                        src={saga}
-                        autoPlay
-                        muted
-                        loop
-                    />
+                    <VideoAsset src={saga} />
                     <div style={styles.caption}>
                         <p>
                             <sub>
@@ -197,13 +186,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <video
-                        style={styles.video}
-                        src={scroll}
-                        autoPlay
-                        muted
-                        loop
-                    />
+                    <VideoAsset src={scroll} />
                     <p style={styles.caption}>
                         <sub>
                             <b>Figure 3:</b> Skip the Scroll in action, finding
