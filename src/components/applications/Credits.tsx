@@ -1,18 +1,17 @@
-import React from 'react';
-import me from '../../assets/pictures/workingAtComputer.jpg';
-import meNow from '../../assets/pictures/currentme.jpg';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Window from '../os/Window';
+import { useInterval } from 'usehooks-ts';
+import { motion } from 'framer-motion';
 
 export interface CreditsProps extends WindowAppProps {}
 
 const CREDITS = [
     {
-        title: 'Development',
+        title: 'Engineering & Design',
         rows: [['Henry Heffernan', 'All']],
     },
     {
-        title: 'Modeling and Texturing',
+        title: 'Modeling & Texturing',
         rows: [
             ['Henry Heffernan', 'Texturing, Composition & UV'],
             ['Mickael Boitte', 'Computer Model'],
@@ -41,6 +40,27 @@ const CREDITS = [
 ];
 
 const Credits: React.FC<CreditsProps> = (props) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [time, setTime] = useState(0);
+
+    // every 5 seconds, move to the next slide
+    useInterval(() => {
+        setTime(time + 1);
+        // setCurrentSlide((currentSlide + 1) % CREDITS.length);
+    }, 1000);
+
+    useEffect(() => {
+        if (time > 5) {
+            setCurrentSlide((currentSlide + 1) % CREDITS.length);
+            setTime(0);
+        }
+    }, [time]);
+
+    const nextSlide = () => {
+        setTime(0);
+        setCurrentSlide((currentSlide + 1) % CREDITS.length);
+    };
+
     return (
         // add on resize listener
         <Window
@@ -55,19 +75,28 @@ const Credits: React.FC<CreditsProps> = (props) => {
             minimizeWindow={props.onMinimize}
             bottomLeftText={'© Copyright 2022 Henry Heffernan'}
         >
-            <div className="site-page" style={styles.credits}>
-                <h2>henryheffernan.com Credits:</h2>
+            <div
+                onMouseDown={nextSlide}
+                className="site-page"
+                style={styles.credits}
+            >
+                <h2>Credits</h2>
+                <p>henryheffernan.com, 2022</p>
                 <br />
                 <br />
                 <br />
-                {CREDITS.map((section) => {
-                    return (
-                        <div
-                            key={`section-${section.title}`}
+                <div style={styles.slideContainer}>
+                    {
+                        <motion.div
+                            animate={{ opacity: 1, y: -20 }}
+                            transition={{ duration: 0.5 }}
+                            key={`section-${CREDITS[currentSlide].title}`}
                             style={styles.section}
                         >
-                            <h3 style={styles.sectionTitle}>{section.title}</h3>
-                            {section.rows.map((row, i) => {
+                            <h3 style={styles.sectionTitle}>
+                                {CREDITS[currentSlide].title}
+                            </h3>
+                            {CREDITS[currentSlide].rows.map((row, i) => {
                                 return (
                                     <div key={`row-${i}`} style={styles.row}>
                                         <p>{row[0]}</p>
@@ -75,11 +104,21 @@ const Credits: React.FC<CreditsProps> = (props) => {
                                     </div>
                                 );
                             })}
-                        </div>
-                    );
-                })}
+                        </motion.div>
+                    }
+                </div>
+                <p>Click to continue...</p>
                 <br />
-                <p>Thank you for taking the time to check out my website!</p>
+                <div style={styles.nextSlideTimer}>
+                    {/* make a time number of dots */}
+                    {Array.from(Array(time)).map((i) => {
+                        return (
+                            <div key={i}>
+                                <p>.</p>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </Window>
     );
@@ -108,9 +147,23 @@ const styles: StyleSheetCSS = {
         alignItems: 'center',
         flexDirection: 'column',
         marginBottom: 32,
+        opacity: 0,
     },
     sectionTitle: {
         marginBottom: 32,
+    },
+    slideContainer: {
+        width: '100%',
+        height: '70%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        cursor: 'pointer',
+    },
+    nextSlideTimer: {
+        width: 64,
+        height: 32,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
     },
 };
 

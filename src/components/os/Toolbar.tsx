@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Colors from '../../constants/colors';
 import { Icon } from '../general';
 // import { } from '../general';
@@ -8,9 +8,14 @@ import { Icon } from '../general';
 export interface ToolbarProps {
     windows: DesktopWindows;
     toggleMinimize: (key: string) => void;
+    shutdown: () => void;
 }
 
-const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
+const Toolbar: React.FC<ToolbarProps> = ({
+    windows,
+    toggleMinimize,
+    shutdown,
+}) => {
     const getTime = () => {
         const date = new Date();
         let hours = date.getHours();
@@ -22,6 +27,9 @@ const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
         const strTime = hours + ':' + mins + ' ' + amPm;
         return strTime;
     };
+
+    const [startWindowOpen, setStartWindowOpen] = useState(false);
+    const lastClickInside = useRef(false);
 
     const [lastActive, setLastActive] = useState('');
 
@@ -57,12 +65,79 @@ const Toolbar: React.FC<ToolbarProps> = ({ windows, toggleMinimize }) => {
         updateTime();
     });
 
+    const onCheckClick = () => {
+        if (lastClickInside.current) {
+            setStartWindowOpen(true);
+        } else {
+            setStartWindowOpen(false);
+        }
+        lastClickInside.current = false;
+    };
+
+    useEffect(() => {
+        window.addEventListener('mousedown', onCheckClick, false);
+        return () => {
+            window.removeEventListener('mousedown', onCheckClick, false);
+        };
+    }, []);
+
+    const onStartWindowClicked = () => {
+        setStartWindowOpen(true);
+        lastClickInside.current = true;
+    };
+
+    const toggleStartWindow = () => {
+        if (!startWindowOpen) {
+            lastClickInside.current = true;
+        } else {
+            lastClickInside.current = false;
+        }
+    };
+
     return (
         <div style={styles.toolbarOuter}>
+            {startWindowOpen && (
+                <div
+                    onMouseDown={onStartWindowClicked}
+                    style={styles.startWindow}
+                >
+                    <div style={styles.startWindowInner}>
+                        <div style={styles.verticalStartContainer}></div>
+                        <div style={styles.startWindowContent}>
+                            <div
+                                className="start-menu-option"
+                                style={styles.startMenuOption}
+                                onMouseDown={shutdown}
+                            >
+                                <Icon
+                                    style={styles.startMenuIcon}
+                                    icon="computerBig"
+                                />
+                                <p style={styles.startMenuText}>
+                                    Sh<u>u</u>t down...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             <div style={styles.toolbarInner}>
                 <div style={styles.toolbar}>
-                    <div style={styles.startContainerOuter}>
-                        <div style={styles.startContainer}>
+                    <div
+                        style={Object.assign(
+                            {},
+                            styles.startContainerOuter,
+                            startWindowOpen && styles.activeTabOuter
+                        )}
+                        onMouseDown={toggleStartWindow}
+                    >
+                        <div
+                            style={Object.assign(
+                                {},
+                                styles.startContainer,
+                                startWindowOpen && styles.activeTabInner
+                            )}
+                        >
                             <Icon
                                 size={18}
                                 icon="windowsStartIcon"
@@ -126,13 +201,55 @@ const styles: StyleSheetCSS = {
         height: 32,
         background: Colors.lightGray,
         borderTop: `1px solid ${Colors.lightGray}`,
-
         zIndex: 100000,
+    },
+    verticalStartContainer: {
+        width: 30,
+        height: '100%',
+        background: Colors.darkGray,
+    },
+    startWindowContent: {
+        flex: 1,
+    },
+    startWindow: {
+        position: 'absolute',
+        bottom: 28,
+        display: 'flex',
+        flex: 1,
+        width: 256,
+        // height: 400,
+        left: 4,
+        boxSizing: 'border-box',
+        border: `1px solid ${Colors.white}`,
+        borderBottomColor: Colors.black,
+        borderRightColor: Colors.black,
+        background: Colors.lightGray,
     },
     activeTabOuter: {
         border: `1px solid ${Colors.black}`,
         borderBottomColor: Colors.white,
         borderRightColor: Colors.white,
+    },
+    startWindowInner: {
+        border: `1px solid ${Colors.lightGray}`,
+        borderBottomColor: Colors.darkGray,
+        borderRightColor: Colors.darkGray,
+        flex: 1,
+    },
+    startMenuIcon: {
+        width: 32,
+        height: 32,
+    },
+    startMenuText: {
+        fontSize: 14,
+        fontFamily: 'MSSerif',
+        marginLeft: 8,
+    },
+    startMenuOption: {
+        alignItems: 'center',
+        flex: 1,
+        height: 24,
+        padding: 12,
     },
     activeTabInner: {
         border: `1px solid ${Colors.darkGray}`,
@@ -182,6 +299,7 @@ const styles: StyleSheetCSS = {
     startContainerOuter: {
         marginLeft: 3,
         boxSizing: 'border-box',
+        cursor: 'pointer',
         border: `1px solid ${Colors.white}`,
         borderBottomColor: Colors.black,
         borderRightColor: Colors.black,

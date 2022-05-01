@@ -215,7 +215,7 @@ const Window: React.FC<WindowProps> = (props) => {
                                     backgroundColor: props.windowBarColor,
                                 },
                                 !windowActive && {
-                                    backgroundColor: '#808080',
+                                    backgroundColor: Colors.darkGray,
                                 }
                             )}
                         >
@@ -235,7 +235,9 @@ const Window: React.FC<WindowProps> = (props) => {
                                 )}
                                 <p
                                     style={
-                                        windowActive ? {} : { color: '#b9b9b9' }
+                                        windowActive
+                                            ? {}
+                                            : { color: colors.lightGray }
                                     }
                                     className="showcase-header"
                                 >

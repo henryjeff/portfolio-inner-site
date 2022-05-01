@@ -239,7 +239,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                     </div>
                 </div>
             </div>
-            <ResumeDownload />
+            <ResumeDownload altText="Need a copy of my Resume?" />
         </div>
     );
 };
