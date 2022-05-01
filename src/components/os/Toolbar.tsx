@@ -269,6 +269,7 @@ const styles: StyleSheetCSS = {
         maxWidth: 300,
         marginRight: 4,
         boxSizing: 'border-box',
+        cursor: 'pointer',
         border: `1px solid ${Colors.white}`,
         borderBottomColor: Colors.black,
         borderRightColor: Colors.black,
