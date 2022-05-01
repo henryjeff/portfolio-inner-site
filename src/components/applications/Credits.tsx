@@ -130,10 +130,10 @@ const styles: StyleSheetCSS = {
         backgroundColor: 'black',
         paddingTop: 64,
         flexDirection: 'column',
-        overflow: 'scroll',
         alignItems: 'center',
         paddingBottom: 64,
         color: 'white',
+        overflow: 'hidden',
     },
     row: {
         overflow: 'none',
