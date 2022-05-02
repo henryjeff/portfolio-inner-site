@@ -10,6 +10,7 @@ import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
 import Scrabble from '../applications/Scrabble';
 import { IconName } from '../../assets/icons';
+import Credits from '../applications/Credits';
 
 export interface DesktopProps {}
 
@@ -23,12 +24,12 @@ const APPLICATIONS: {
         component: React.FC<ExtendedWindowAppProps<any>>;
     };
 } = {
-    computer: {
-        key: 'computer',
-        name: 'This Computer',
-        shortcutIcon: 'computerBig',
-        component: ThisComputer,
-    },
+    // computer: {
+    //     key: 'computer',
+    //     name: 'This Computer',
+    //     shortcutIcon: 'computerBig',
+    //     component: ThisComputer,
+    // },
     showcase: {
         key: 'showcase',
         name: 'My Showcase',
@@ -59,12 +60,20 @@ const APPLICATIONS: {
         shortcutIcon: 'henordleIcon',
         component: Henordle,
     },
+    credits: {
+        key: 'credits',
+        name: 'Credits',
+        shortcutIcon: 'credits',
+        component: Credits,
+    },
 };
 
 const Desktop: React.FC<DesktopProps> = (props) => {
     const [windows, setWindows] = useState<DesktopWindows>({});
 
     const [shortcuts, setShortcuts] = useState<DesktopShortcutProps[]>([]);
+
+    const [shutdown, setShutdown] = useState(false);
 
     useEffect(() => {
         const newShortcuts: DesktopShortcutProps[] = [];
@@ -156,6 +165,12 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         [setWindows, getHighestZIndex]
     );
 
+    const startShutdown = useCallback(() => {
+        setTimeout(() => {
+            setShutdown(true);
+        }, 2000);
+    }, []);
+
     const addWindow = useCallback(
         (key: string, element: JSX.Element) => {
             setWindows((prevState) => ({
@@ -172,7 +187,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         [getHighestZIndex]
     );
 
-    return (
+    return !shutdown ? (
         <div style={styles.desktop}>
             {/* For each window in windows, loop over and render  */}
             {Object.keys(windows).map((key) => {
@@ -214,8 +229,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 })}
             </div>
             {/* <p>{JSON.stringify(windows)}</p> */}
-            <Toolbar windows={windows} toggleMinimize={toggleMinimize} />
+            <Toolbar
+                windows={windows}
+                toggleMinimize={toggleMinimize}
+                shutdown={startShutdown}
+            />
         </div>
+    ) : (
+        <div style={styles.shutdown} />
     );
 };
 
@@ -224,6 +245,11 @@ const styles: StyleSheetCSS = {
         minHeight: '100%',
         flex: 1,
         backgroundColor: Colors.turquoise,
+    },
+    shutdown: {
+        minHeight: '100%',
+        flex: 1,
+        backgroundColor: '#1d2e2f',
     },
     shortcutContainer: {
         position: 'absolute',

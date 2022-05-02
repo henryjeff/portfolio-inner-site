@@ -1,7 +1,8 @@
 import React from 'react';
 import me from '../../assets/pictures/workingAtComputer.jpg';
-import meNow from '../../assets/pictures/currentMe.png';
+import meNow from '../../assets/pictures/currentme.jpg';
 import { Link } from 'react-router-dom';
+import ResumeDownload from './ResumeDownload';
 
 export interface AboutProps {}
 
@@ -31,6 +32,7 @@ const About: React.FC<AboutProps> = (props) => {
                     </a>
                 </p>
             </div>
+            <ResumeDownload />
             <div className="text-block">
                 <h3>About Me</h3>
                 <br />
@@ -90,6 +92,7 @@ const About: React.FC<AboutProps> = (props) => {
                         style={{
                             flex: 1,
                             textAlign: 'justify',
+                            alignSelf: 'center',
                             flexDirection: 'column',
                         }}
                     >
@@ -124,6 +127,7 @@ const About: React.FC<AboutProps> = (props) => {
                         </p>
                     </div>
                 </div>
+                <br />
                 <br />
                 <p>
                     Thanks for reading about me! I hope that you enjoy exploring

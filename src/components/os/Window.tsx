@@ -39,11 +39,15 @@ const Window: React.FC<WindowProps> = (props) => {
     const [top, setTop] = useState(props.top);
     const [left, setLeft] = useState(props.left);
 
+    const lastClickInside = useRef(false);
+
     const [width, setWidth] = useState(props.width);
     const [height, setHeight] = useState(props.height);
 
     const [contentWidth, setContentWidth] = useState(props.width);
     const [contentHeight, setContentHeight] = useState(props.height);
+
+    const [windowActive, setWindowActive] = useState(true);
 
     const [isMaximized, setIsMaximized] = useState(false);
     const [preMaxSize, setPreMaxSize] = useState({
@@ -163,8 +167,30 @@ const Window: React.FC<WindowProps> = (props) => {
         }
     };
 
+    const onCheckClick = () => {
+        if (lastClickInside.current) {
+            setWindowActive(true);
+        } else {
+            setWindowActive(false);
+        }
+        lastClickInside.current = false;
+    };
+
+    useEffect(() => {
+        window.addEventListener('mousedown', onCheckClick, false);
+        return () => {
+            window.removeEventListener('mousedown', onCheckClick, false);
+        };
+    }, []);
+
+    const onWindowInteract = () => {
+        props.onInteract();
+        setWindowActive(true);
+        lastClickInside.current = true;
+    };
+
     return (
-        <div onMouseDown={props.onInteract} style={styles.container}>
+        <div onMouseDown={onWindowInteract} style={styles.container}>
             <div
                 style={Object.assign({}, styles.window, {
                     width,
@@ -187,6 +213,9 @@ const Window: React.FC<WindowProps> = (props) => {
                                 styles.topBar,
                                 props.windowBarColor && {
                                     backgroundColor: props.windowBarColor,
+                                },
+                                !windowActive && {
+                                    backgroundColor: Colors.darkGray,
                                 }
                             )}
                         >
@@ -194,13 +223,24 @@ const Window: React.FC<WindowProps> = (props) => {
                                 {props.windowBarIcon ? (
                                     <Icon
                                         icon={props.windowBarIcon}
-                                        style={styles.windowBarIcon}
+                                        style={Object.assign(
+                                            {},
+                                            styles.windowBarIcon,
+                                            !windowActive && { opacity: 0.5 }
+                                        )}
                                         size={16}
                                     />
                                 ) : (
                                     <div style={{ width: 16 }} />
                                 )}
-                                <p className="showcase-header">
+                                <p
+                                    style={
+                                        windowActive
+                                            ? {}
+                                            : { color: colors.lightGray }
+                                    }
+                                    className="showcase-header"
+                                >
                                     {props.windowTitle}
                                 </p>
                             </div>
@@ -384,18 +424,20 @@ const styles: StyleSheetCSS = {
 
         marginTop: 8,
         marginBottom: 8,
+        overflow: 'hidden',
     },
     contentInner: {
         border: `1px solid ${Colors.lightGray}`,
         borderTopColor: colors.black,
         borderLeftColor: colors.black,
         flex: 1,
+        overflow: 'hidden',
     },
     content: {
         flex: 1,
 
         position: 'relative',
-        overflow: 'scroll',
+        // overflow: 'scroll',
         overflowX: 'hidden',
         backgroundColor: Colors.white,
     },

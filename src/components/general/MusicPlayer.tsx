@@ -12,6 +12,8 @@ export interface MusicPlayerProps {
     src: string;
     title: string;
     subtitle: string;
+    currentSong: string;
+    setCurrentSong: React.Dispatch<React.SetStateAction<string>>;
 }
 
 // enum for cd state
@@ -24,8 +26,6 @@ enum CDState {
 
 const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
     const [isPlaying, setIsPlaying] = useState(false);
-    // const [cdState, setCdState] = useState<CDState>(CDState.stopped);
-    // const [cdRPM, setCdRPM] = useState(0);
     const audioRef = useRef(new Audio(props.src));
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(1);
@@ -58,8 +58,19 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
         } else {
             // setCdState(CDState.easeOut);
             setIsPlaying(true);
+            props.setCurrentSong(props.title);
         }
     };
+
+    useEffect(() => {
+        if (props.currentSong === props.title) {
+            audioRef.current.play();
+            setIsPlaying(true);
+        } else {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        }
+    }, [props.currentSong, props.title]);
 
     // format current time
     const formatTime = (time: number) => {
@@ -213,7 +224,7 @@ const styles: StyleSheetCSS = {
         flexDirection: 'column',
         borderBottomWidth: 0,
         padding: 16,
-        paddingTop: 12,
+        paddingTop: 18,
     },
     info: {
         flexDirection: 'column',

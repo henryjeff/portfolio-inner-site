@@ -133,6 +133,14 @@ const styles: StyleSheetCSS = {
         marginLeft: 16,
         alignItems: 'center',
     },
+    computerIcon: {
+        width: 56,
+        height: 56,
+    },
+    musicIcon: {
+        width: 48,
+        height: 48,
+    },
     arrowIcon: {
         width: 48,
         height: 48,

@@ -17,6 +17,7 @@ const ScrabbleApp: React.FC<ScrabbleAppProps> = (props) => {
             windowTitle="Scrabble"
             windowBarIcon="windowGameIcon"
             windowBarColor="#941d13"
+            bottomLeftText={'Powered by JSDOS & DOSBox'}
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             onWidthChange={setWidth}
