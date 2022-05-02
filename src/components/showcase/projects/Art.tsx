@@ -21,7 +21,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 <br />
                 <p>
                     Here are a few projects/things I've done over the years to
-                    keep my artistic side of me alive. I'm always looking to
+                    keep the artistic side of me alive. I'm always looking to
                     push myself creatively and learn new things.
                 </p>
             </div>
@@ -29,11 +29,10 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 <h2>Pixel Art and Animation</h2>
                 <br />
                 <p>
-                    In highschool I started learning how to draw and animate
-                    pixel art because a good friend and I had started getting
-                    interested in video game development and needed art. We
-                    worked on our first game for a few years and I learned so
-                    much about pixel art and specifically fell in love with
+                    In high school, I started learning how to draw and animate
+                    pixel art after becoming interested in video game
+                    development. As I worked on making games over the years, I
+                    learned so much about pixel art and fell in love with
                     animation.
                 </p>
                 <br />
@@ -48,7 +47,7 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                 </div>
                 <p>
                     I really started enjoying the work I was doing, and felt I
-                    was improving a lot. Around 2017 I started to upload videos
+                    was improving a lot. Around 2017, I started to upload videos
                     of my work flow and animation process to YouTube just for
                     fun. I was really surprised however when my first video took
                     off and got a few thousand views! Below are the video links

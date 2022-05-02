@@ -17,9 +17,8 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
             <h3>Projects</h3>
             <br />
             <p>
-                I love to create software, and over the years have done tons of
-                projects. Below are some of my favorite projects I have worked
-                on over the last few years.
+                Below are some of my favorite software projects I have worked on
+                over the last few years.
             </p>
             <br />
             <ResumeDownload />
@@ -28,14 +27,14 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 <h2>henryheffernan.com</h2>
                 <br />
                 <p>
-                    henryheffernan.com is my portfolio website, and also in fact
-                    the website you are on right now. This project was an
-                    absolute joy to make and challenged me both technically and
-                    creatively. Back in January I knew I wanted to make an
+                    henryheffernan.com is my portfolio website, and also the
+                    website you are on right now. This project was an absolute
+                    joy to make and challenged me both technically and
+                    creatively. Early in 2022, I knew I wanted to make an
                     interactive portfolio website, and got the idea for this
-                    site around early march. I've been developing it along-side
-                    by last semester at school and if you are seeing this, it is
-                    pretty much done! Of course this website will never be
+                    site around early March. I've been developing it alongside
+                    my last semester at school and if you are seeing this, it is
+                    pretty much done! Of course, this website will never be
                     "done" as it will continue to get updated with whatever I
                     end up doing or working on.
                 </p>
@@ -162,27 +161,24 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     </li>
                 </ul>
                 <p>
-                    Unfortunately the game currently is not in a releasable
+                    Unfortunately, the game currently is not in a releasable
                     state and so there is no demo available online. If this ever
-                    changes however, a link to the game will be updated here.
+                    changes, however, a link to the game will be added here.
                 </p>
             </div>
             <div className="text-block">
                 <h2>Skip the Scroll</h2>
                 <br />
                 <p>
-                    While working at Hover, I found myself on github issue pages
-                    frequently looking for answers to my problems. Whether it
-                    was a general build issue with thousands of comments or
-                    incredibly niche problem for a specific library we happened
-                    to be using I would always find myself sifting though the
-                    comments trying to find the right answer. After doing a lot,
-                    I realized that the answers almost always were given a lot
-                    of positive reactions in the comments. With this information
-                    I decided to create a very simple chrome extension that
-                    would sift through all the comments on the page, sort them
-                    by positive reactions, and then allow you to traverse them
-                    from most positive reactions to least positive reactions.
+                    While working at Hover, I spent a lot of time on Github
+                    issue pages looking for answers and solutions. I would
+                    always find myself sifting though the comments trying to
+                    find the right answer, which usually had the most upvotes
+                    and positive reactions. With that information, I decided to
+                    create a very simple chrome extension that would sift
+                    through all the comments on the page, sort them by positive
+                    reactions, and then allow you to traverse them from most
+                    positive reactions to least positive reactions.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -200,7 +196,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     Chrome web store. Skip the Scroll is obviously not a project
                     with massive scope, but was a fun little project I wanted to
                     showcase since it's a developer tool I do wanna give it some
-                    visibility. If you like it feel free to star it on github
+                    visibility. If you like it, feel free to star it on Github
                     and rate it on the Chrome web store.
                 </p>
                 <br />
