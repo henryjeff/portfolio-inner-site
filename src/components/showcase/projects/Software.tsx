@@ -53,9 +53,16 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     The website is split into two parts, the 3D site, and the 2D
                     desktop site. The 3D site uses Three.js to render the scene
                     and renders the 2D site inside of it using an iframe. The 2D
-                    desktop site is a simple react site that is hosted here
-                    (link) and works as a standalone. The actual rendering of
-                    the 2D site is accomplished using a CSS renderer provided by
+                    desktop site is a simple react site that is hosted{' '}
+                    <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href="https://henryheffernan.vercel.app/"
+                    >
+                        here
+                    </a>{' '}
+                    and works as a standalone. The actual rendering of the 2D
+                    site is accomplished using a CSS renderer provided by
                     Three.js that transforms the html of the 2D site with 3D
                     transforms using CSS to give the illusion of 3D. I'm
                     skipping over a lot of details, but that is the just of how
