@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
-// import WordleApp from '../applications/Henordle';
 import Doom from '../applications/Doom';
 import OregonTrail from '../applications/OregonTrail';
-import ThisComputer from '../applications/ThisComputer';
+// import ThisComputer from '../applications/ThisComputer';
 import Henordle from '../applications/Henordle';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
@@ -103,6 +102,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         });
 
         setShortcuts(newShortcuts);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const removeWindow = useCallback((key: string) => {

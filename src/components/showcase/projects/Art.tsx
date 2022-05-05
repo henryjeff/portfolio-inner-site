@@ -1,7 +1,6 @@
 import React from 'react';
 
 import girlRun from '../../../assets/pictures/projects/art/girl-run.gif';
-import fxGif from '../../../assets/pictures/projects/art/fx.gif';
 import gsts from '../../../assets/pictures/projects/art/gsts.png';
 
 export interface ArtProjectsProps {}

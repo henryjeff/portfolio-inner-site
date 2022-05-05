@@ -142,6 +142,6 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
     );
 };
 
-const styles: StyleSheetCSS = {};
+// const styles: StyleSheetCSS = {};
 
 export default MusicProjects;

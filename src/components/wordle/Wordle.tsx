@@ -213,7 +213,7 @@ const BOTTOM_ROW = ['RET', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'DEL'];
 const ROWS = [TOP_ROW, MIDDLE_ROW, BOTTOM_ROW];
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-const Wordle: React.FC<WordleProps> = ({}) => {
+const Wordle: React.FC<WordleProps> = () => {
     const word = 'HENRY';
     const [guesses, setGuesses] = useState<string[]>([]);
     const [gameOver, setGameOver] = useState(false);

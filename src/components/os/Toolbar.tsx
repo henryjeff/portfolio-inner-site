@@ -54,13 +54,6 @@ const Toolbar: React.FC<ToolbarProps> = ({
         }, 5000);
     };
 
-    const toggleMute = () => {
-        document
-            .querySelectorAll('audio, video')
-            // @ts-ignore
-            .forEach((el) => (el.muted = true));
-    };
-
     useEffect(() => {
         updateTime();
     });

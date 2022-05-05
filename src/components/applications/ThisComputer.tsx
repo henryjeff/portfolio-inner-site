@@ -1,5 +1,5 @@
 import React from 'react';
-import DesktopShortcut from '../os/DesktopShortcut';
+// import DesktopShortcut from '../os/DesktopShortcut';
 import Window from '../os/Window';
 
 export interface ThisComputerProps extends WindowAppProps {}

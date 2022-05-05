@@ -6,7 +6,7 @@ import ForwardIcon from '../../assets/icons/forward.png';
 import CDIcon from '../../assets/icons/cd.png';
 import colors from '../../constants/colors';
 
-import { motion, useAnimation, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export interface MusicPlayerProps {
     src: string;
@@ -14,14 +14,6 @@ export interface MusicPlayerProps {
     subtitle: string;
     currentSong: string;
     setCurrentSong: React.Dispatch<React.SetStateAction<string>>;
-}
-
-// enum for cd state
-enum CDState {
-    stopped,
-    playing,
-    easeOut,
-    easeIn,
 }
 
 const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
@@ -87,6 +79,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = (props) => {
     useEffect(() => {
         audioRef.current.currentTime = 0;
         return () => {
+            // eslint-disable-next-line
             audioRef.current.pause();
         };
     }, []);

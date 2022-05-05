@@ -6,7 +6,7 @@ export interface VideoAssetProps {
 
 const VideoAsset: React.FC<VideoAssetProps> = ({ src }) => {
     const id = `video-${src}`;
-    const [hasLoaded, setHasLoaded] = useState(false);
+    const [, setHasLoaded] = useState(false);
 
     useEffect(() => {
         const vid = document.getElementById(id);

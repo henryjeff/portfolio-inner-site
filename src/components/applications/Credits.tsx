@@ -58,6 +58,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
             setCurrentSlide((currentSlide + 1) % CREDITS.length);
             setTime(0);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [time]);
 
     const nextSlide = () => {

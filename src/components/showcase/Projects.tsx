@@ -21,7 +21,7 @@ const ProjectBox: React.FC<ProjectBoxProps> = ({
     route,
     iconStyle,
 }) => {
-    const [isHovering, setIsHovering] = useState(false);
+    const [, setIsHovering] = useState(false);
     const navigation = useNavigate();
 
     const handleClick = () => {
