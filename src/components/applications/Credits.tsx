@@ -13,14 +13,18 @@ const CREDITS = [
     {
         title: 'Modeling & Texturing',
         rows: [
-            ['Henry Heffernan', 'Texturing, Composition & UV'],
+            ['Henry Heffernan', 'Texturing, Composition, & UV'],
             ['Mickael Boitte', 'Computer Model'],
             ['Sean Nicolas', 'Enviornment Models'],
         ],
     },
     {
         title: 'Sound Design',
-        rows: [['Henry Heffernan', 'All']],
+        rows: [
+            ['Henry Heffernan', 'Mixing, Composition, & Foley'],
+            ['Sound Cassette', 'Office Ambience'],
+            ['Windows 95 Startup Sound', 'Microsoft'],
+        ],
     },
     {
         title: 'Special Thanks',
@@ -64,10 +68,10 @@ const Credits: React.FC<CreditsProps> = (props) => {
     return (
         // add on resize listener
         <Window
-            top={16}
-            left={45}
-            width={1000}
-            height={700}
+            top={48}
+            left={48}
+            width={1100}
+            height={800}
             windowTitle="Credits"
             windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
