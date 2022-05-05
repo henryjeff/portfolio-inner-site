@@ -31,12 +31,11 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     website you are on right now. This project was an absolute
                     joy to make and challenged me both technically and
                     creatively. Early in 2022, I knew I wanted to make an
-                    interactive portfolio website, and got the idea for this
-                    site around early March. I've been developing it alongside
-                    my last semester at school and if you are seeing this, it is
-                    pretty much done! Of course, this website will never be
-                    "done" as it will continue to get updated with whatever I
-                    end up doing or working on.
+                    interactive portfolio to aid my job search. I eventually got
+                    the idea for this site around early February and began
+                    development early March. I've been developing it alongside
+                    my last semester at school and if you are reading this, it's
+                    pretty much done!
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -50,10 +49,11 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     </p>
                 </div>
                 <p>
-                    The website is split into two parts, the 3D site, and the 2D
-                    desktop site. The 3D site uses Three.js to render the scene
-                    and renders the 2D site inside of it using an iframe. The 2D
-                    desktop site is a simple react site that is hosted{' '}
+                    Now, a quick technical breakdown of the site. The website is
+                    split into two parts, the 3D site, and the 2D OS site. The
+                    3D site uses Three.js to render the scene and renders the 2D
+                    site inside of it using an iframe. The 2D OS site is a
+                    simple react site that is hosted{' '}
                     <a
                         rel="noreferrer"
                         target="_blank"
@@ -61,12 +61,10 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     >
                         here
                     </a>{' '}
-                    and works as a standalone. The actual rendering of the 2D
-                    site is accomplished using a CSS renderer provided by
-                    Three.js that transforms the html of the 2D site with 3D
-                    transforms using CSS to give the illusion of 3D. I'm
-                    skipping over a lot of details, but that is the just of how
-                    this website works!
+                    and works as a standalone web app. The actual rendering of
+                    the 2D site is accomplished using a CSS renderer provided by
+                    Three.js that transforms the html of the 2D site with 3D CSS
+                    transforms to give the illusion of three dimensionality.
                 </p>
                 <br />
                 <h3>Links:</h3>
@@ -75,10 +73,32 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                         <a
                             rel="noreferrer"
                             target="_blank"
+                            href="https://henryheffernan.com"
+                        >
+                            <p>
+                                <b>[3D Site]</b> - henryheffernan.com
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
+                            href="https://henryheffernan.vercel.app/"
+                        >
+                            <p>
+                                <b>[OS Site]</b> - henryheffernan.vercel.app
+                            </p>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            rel="noreferrer"
+                            target="_blank"
                             href="https://github.com/henryjeff/portfolio-website"
                         >
                             <p>
-                                <b>[Github]</b> - 3D Site Repository
+                                <b>[GitHub]</b> - 3D Site Repository
                             </p>
                         </a>
                     </li>
@@ -89,16 +109,23 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                             href="https://github.com/henryjeff/portfolio-inner-site"
                         >
                             <p>
-                                <b>[Github]</b> - Inner Site Repository
+                                <b>[GitHub]</b> - OS Site Repository
                             </p>
                         </a>
                     </li>
                 </ul>
                 <p>
-                    A further technical breakdown for this website can be found
-                    by clicking here. I hope you enjoy the site and if you run
-                    into any issues feel free to post them on the the respective
-                    github issues page.
+                    I'm skipping over a lot of details in exchange for brevity,
+                    but I do plan on doing a more in depth breakdown for those
+                    interested sometime in the future. To get updates with that
+                    project feel free to follow me on twitter{' '}
+                    <a
+                        rel="noreferrer"
+                        target="_blank"
+                        href="https://twitter.com/henryheffernan"
+                    >
+                        @henryheffernan
+                    </a>
                 </p>
             </div>
             <div className="text-block">
@@ -108,10 +135,10 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     Guntattchment Saga or GSTS is a game I made with my good
                     friend Scott Bass back in 2019. The game is a wave based top
                     down shooter where you progress by building the most
-                    outrageous of weapons thru attaching as many attachments on
-                    your weapon as you can. The game ceased development in 2019
-                    due to not having enough time between the two of us to work
-                    on it.
+                    outrageous of weapons through attaching as many attachments
+                    on your weapon as you can. The game ceased development in
+                    2019 because we unfortunately both had packed school
+                    schedules and were unable to find the time to work on it.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -130,14 +157,17 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                     Guntattchment Saga was a really fun project to work on and
                     had a multitude of challenges. An interesting challenge that
                     you may not even notice was the rotation of objects such as
-                    the guns and keeping these rotations consistent at the pixel
-                    scale. Weapons had to be able to point in any direction and
-                    since weapons could vary in size and shape, we had to
-                    develop an algorithm to rotate the pixel art in a way to
-                    keep the art readable and look pretty. This turned out to be
-                    an incredibly difficult challenge, but we did manage to come
-                    up with something, as you can see in the video, it looks
-                    pretty good in my opinion.
+                    the players weapon. Rotating pixel art is a very difficult
+                    thing to do because in the world of pixels you are dealing
+                    with such a little amount of information. Even a single
+                    misplaced pixel can cause a sprite to read in a totally
+                    different and unintended way. To deal with this we developed
+                    an algorithm to prioritize outlines, while rotating the
+                    insides with a simple Nearest Neighbor algorithm. Doing so
+                    resulted in a relatively readable sprite when rotating
+                    sprites. It was a surprisingly difficult challenge as it
+                    intersected both art and programming, but was fun to work on
+                    overall.
                 </p>
                 <br />
                 <h3>Links:</h3>
@@ -149,7 +179,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                             href="https://github.com/scottbass47/gsts"
                         >
                             <p>
-                                <b>[Github]</b> - Guntattchment Saga The Sequel
+                                <b>[GitHub]</b> - Guntattchment Saga The Sequel
                                 Unity Repository
                             </p>
                         </a>
@@ -161,7 +191,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                             href="https://github.com/henryjeff/gsts_assets"
                         >
                             <p>
-                                <b>[Github]</b> - Guntattchment Saga The Sequel
+                                <b>[GitHub]</b> - Guntattchment Saga The Sequel
                                 Assets Repository
                             </p>
                         </a>
@@ -177,15 +207,16 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 <h2>Skip the Scroll</h2>
                 <br />
                 <p>
-                    While working at Hover, I spent a lot of time on Github
-                    issue pages looking for answers and solutions. I would
-                    always find myself sifting though the comments trying to
-                    find the right answer, which usually had the most upvotes
-                    and positive reactions. With that information, I decided to
-                    create a very simple chrome extension that would sift
-                    through all the comments on the page, sort them by positive
-                    reactions, and then allow you to traverse them from most
-                    positive reactions to least positive reactions.
+                    While working at Hover, I spent a lot of time on GitHub
+                    issue pages looking for answers and solutions to problems I
+                    had run into. I would always find myself sifting though the
+                    comments trying to find the right answer, which usually had
+                    the most upvotes and positive reactions. With that
+                    information, I decided to create a very simple chrome
+                    extension that would sift through all the comments on the
+                    page, sort them by positive reactions, and then allow you to
+                    traverse them from most positive reactions to least positive
+                    reactions.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -201,10 +232,10 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 <p>
                     The extension is open source and currently released on the
                     Chrome web store. Skip the Scroll is obviously not a project
-                    with massive scope, but was a fun little project I wanted to
-                    showcase since it's a developer tool I do wanna give it some
-                    visibility. If you like it, feel free to star it on Github
-                    and rate it on the Chrome web store.
+                    with massive scope, but was fun to make and dive into the
+                    world of browser extensions. I wanted to showcase since it's
+                    a developer tool and I wanna give it some visibility for
+                    those who might find it useful.
                 </p>
                 <br />
                 <h3>Links:</h3>
@@ -216,7 +247,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                             href="https://github.com/henryjeff/skip-the-scroll"
                         >
                             <p>
-                                <b>[Github]</b> - Skip the Scroll Repository
+                                <b>[GitHub]</b> - Skip the Scroll Repository
                             </p>
                         </a>
                     </li>
@@ -234,10 +265,14 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </ul>
                 <p>
                     If you are a developer and have also found yourself
-                    scrolling through a ton of github comments, I highly
-                    recommend you check out Skip the Scroll.
+                    scrolling through github comment after github comment saying
+                    "i also have this problem...", then I highly recommend you
+                    check out Skip the Scroll to save you some of your precious
+                    time. If you like it, feel free to star it on GitHub and
+                    rate it on the Chrome web store.
                 </p>
             </div>
+            <ResumeDownload />
         </div>
     );
 };

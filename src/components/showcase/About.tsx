@@ -42,9 +42,9 @@ const About: React.FC<AboutProps> = (props) => {
                     with Lego and I fell in love with building things. In
                     elementary school, I joined the Lego Robotics team at my
                     local middle school, which was my first real exposure to
-                    programming. My family and I moved across the country from
-                    California to New York, where I attended middle school, high
-                    school, and college.
+                    programming. In 2008, my family and I moved across the
+                    country from California to New York, where I attended middle
+                    school, high school, and college.
                 </p>
                 <br />
                 <div className="captioned-image">
@@ -78,8 +78,8 @@ const About: React.FC<AboutProps> = (props) => {
                 <p>
                     In 2017, I got accepted into Rennselear Polytechnic
                     Institute to study Computer Science. It was my first choice
-                    school and I was absolutely ecstatic to be going to such a
-                    great school. At the end of my sophomore year, I got an
+                    and I was absolutely ecstatic to be going to such a great
+                    university. At the end of my sophomore year, I got an
                     internship working for the startup Hover, primarily focusing
                     on frontend work. I continued to work at Hover on and off
                     for about a year and a half, until the start of my senior
@@ -122,7 +122,7 @@ const About: React.FC<AboutProps> = (props) => {
                         <img src={meNow} style={styles.image} alt="" />
                         <p>
                             <sub>
-                                <b>Figure 2:</b> Me, 2022
+                                <b>Figure 2:</b> Me, April 2022
                             </sub>
                         </p>
                     </div>
@@ -141,8 +141,8 @@ const About: React.FC<AboutProps> = (props) => {
                     >
                         tweet it at me (@henryheffernan)
                     </a>{' '}
-                    I will personally give you like 10 of my own dollars for
-                    your extreme efforts.
+                    I will personally give you 10 of my own dollars for your
+                    extreme efforts. Good luck and have fun!
                 </p>
                 <br />
             </div>
