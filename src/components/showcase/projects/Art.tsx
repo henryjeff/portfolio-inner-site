@@ -111,7 +111,8 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     <img src={gsts} alt="" />
                     <p>
                         <sub>
-                            <b>Figure 2:</b> Guntattchment Sage Enemy Lineup
+                            <b>Figure 2:</b> More pixel art: Enemy Lineup from a
+                            game I worked on called Guntattchment Saga
                         </sub>
                     </p>
                 </div>

@@ -141,10 +141,19 @@ const About: React.FC<AboutProps> = (props) => {
                     >
                         tweet it at me (@henryheffernan)
                     </a>{' '}
-                    I will personally give you 10 of my own dollars for your
-                    extreme efforts. Good luck and have fun!
+                    I will personally reward you with 10 of my own dollars for
+                    your extreme efforts. Good luck and have fun!
                 </p>
                 <br />
+                <p>
+                    If you have any questions or comments I would love to hear
+                    them. You can reach me through the{' '}
+                    <Link to="/contact">contact page</Link> or shoot me an email
+                    at{' '}
+                    <a href="mailto:henryheffernan@gmail.com">
+                        henryheffernan@gmail.com
+                    </a>
+                </p>
             </div>
         </div>
     );
