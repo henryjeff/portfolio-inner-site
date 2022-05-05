@@ -2,7 +2,7 @@ import React from 'react';
 
 import girlRun from '../../../assets/pictures/projects/art/girl-run.gif';
 import fxGif from '../../../assets/pictures/projects/art/fx.gif';
-import grunt from '../../../assets/pictures/projects/art/grunt.gif';
+import gsts from '../../../assets/pictures/projects/art/gsts.png';
 
 export interface ArtProjectsProps {}
 
@@ -109,11 +109,10 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     but I'm still learning and growing.
                 </p> */}
                 <div className="captioned-image">
-                    <img src={grunt} alt="" />
+                    <img src={gsts} alt="" />
                     <p>
                         <sub>
-                            <b>Figure 2:</b> Grunt from my game Guntattchment -
-                            Saga run cycle, attack and death animation.
+                            <b>Figure 2:</b> Guntattchment Sage Enemy Lineup
                         </sub>
                     </p>
                 </div>
@@ -122,12 +121,6 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
             </div>
         </div>
     );
-};
-
-const styles: StyleSheetCSS = {
-    image: {
-        width: '100%',
-    },
 };
 
 export default ArtProjects;
