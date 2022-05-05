@@ -31,7 +31,7 @@ const CREDITS = [
         rows: [
             ['Bruno Simon', 'SimonDev'],
             ['Lorelei Kravinsky', 'Scott Bass'],
-            ['Trey Briccetti', 'Mom & Dad'],
+            ['Trey Briccetti', 'Mom, Dad & Angela'],
         ],
     },
     {
