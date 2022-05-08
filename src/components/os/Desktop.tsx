@@ -3,7 +3,7 @@ import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
 import Doom from '../applications/Doom';
 import OregonTrail from '../applications/OregonTrail';
-// import ThisComputer from '../applications/ThisComputer';
+import ShutdownSequence from './ShutdownSequence';
 import Henordle from '../applications/Henordle';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
@@ -73,6 +73,14 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const [shortcuts, setShortcuts] = useState<DesktopShortcutProps[]>([]);
 
     const [shutdown, setShutdown] = useState(false);
+    const [numShutdowns, setNumShutdowns] = useState(1);
+
+    useEffect(() => {
+        if (shutdown === true) {
+            rebootDesktop();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [shutdown]);
 
     useEffect(() => {
         const newShortcuts: DesktopShortcutProps[] = [];
@@ -103,6 +111,10 @@ const Desktop: React.FC<DesktopProps> = (props) => {
 
         setShortcuts(newShortcuts);
         // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const rebootDesktop = useCallback(() => {
+        setWindows({});
     }, []);
 
     const removeWindow = useCallback((key: string) => {
@@ -168,8 +180,9 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     const startShutdown = useCallback(() => {
         setTimeout(() => {
             setShutdown(true);
-        }, 2000);
-    }, []);
+            setNumShutdowns(numShutdowns + 1);
+        }, 600);
+    }, [numShutdowns]);
 
     const addWindow = useCallback(
         (key: string, element: JSX.Element) => {
@@ -228,7 +241,6 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     );
                 })}
             </div>
-            {/* <p>{JSON.stringify(windows)}</p> */}
             <Toolbar
                 windows={windows}
                 toggleMinimize={toggleMinimize}
@@ -236,7 +248,10 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             />
         </div>
     ) : (
-        <div style={styles.shutdown} />
+        <ShutdownSequence
+            setShutdown={setShutdown}
+            numShutdowns={numShutdowns}
+        />
     );
 };
 
