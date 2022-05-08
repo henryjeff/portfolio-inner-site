@@ -132,17 +132,16 @@ const About: React.FC<AboutProps> = (props) => {
                 <p>
                     Thanks for reading about me! I hope that you enjoy exploring
                     the rest of my portfolio website and everything it has to
-                    offer. On that note, If you manage to beat Oregon Trail on
-                    this computer starting as a Teacher and{' '}
+                    offer. If you find the easter egg make sure to let me know
+                    on twitter{' '}
                     <a
                         rel="noreferrer"
                         target="_blank"
                         href="https://twitter.com/henryheffernan"
                     >
-                        tweet it at me (@henryheffernan)
+                        @henryheffernan
                     </a>{' '}
-                    I will personally reward you with 10 of my own dollars for
-                    your extreme efforts. Good luck and have fun!
+                    Good luck and have fun!
                 </p>
                 <br />
                 <p>
