@@ -87,7 +87,7 @@ const ShutdownSequence: React.FC<ShutdownSequenceProps> = ({
     You can play DOOM, Oregon Trail, Scrabble... but all you wanna do is shut the computer down.
     ${_L}
     |Goodbye Again!|
-
+    ${_M}
 
     Rebooting${_S}.${_S}.${_S}.
     `;
@@ -136,11 +136,11 @@ const ShutdownSequence: React.FC<ShutdownSequenceProps> = ({
     `;
 
     const SHUTDOWN_10 = `
-    Alright fine, the message is abundantly clear${_M}, you want to turn off the computer. ${_M}
+    Alright fine, the message is clear${_M}. You want to turn off the computer. ${_M}
 
     You win${_S}.${_S}.${_S}.${_S} fair and square ${_M}
 
-    Truthfully I cannot keep on spending time writing out these messages...${_M} and if the world you want to live in is a world without me (or my epic really cool and sick computer), ${_M}so be it.
+    Truthfully I can't keep on spending time writing out these messages...${_M} and if the world you want to live in is a world without me (or my epic really cool and sick computer), ${_M}so be it.
 
     ${_L}
     I won't forget you...
