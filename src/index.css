@@ -33,6 +33,12 @@ code {
     src: url(./assets/fonts/Millennium-Bold.ttf);
 }
 
+@font-face {
+    font-family: Terminal;
+    src: url(./assets/fonts/Terminal.ttf);
+}
+
+
 * {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -95,8 +95,12 @@ const Toolbar: React.FC<ToolbarProps> = ({
                     style={styles.startWindow}
                 >
                     <div style={styles.startWindowInner}>
-                        <div style={styles.verticalStartContainer}></div>
+                        <div style={styles.verticalStartContainer}>
+                            <p style={styles.verticalText}>HeffernanOS</p>
+                        </div>
                         <div style={styles.startWindowContent}>
+                            <div style={styles.startMenuSpace} />
+                            <div style={styles.startMenuLine} />
                             <div
                                 className="start-menu-option"
                                 style={styles.startMenuOption}
@@ -163,8 +167,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
                                         )}
                                     >
                                         <Icon
-                                            size={20}
-                                            icon="computerSmall"
+                                            size={18}
+                                            icon={windows[key].icon}
                                             style={styles.tabIcon}
                                         />
                                         <p style={styles.tabText}>
@@ -197,12 +201,28 @@ const styles: StyleSheetCSS = {
         zIndex: 100000,
     },
     verticalStartContainer: {
-        width: 30,
+        // width: 30,
         height: '100%',
         background: Colors.darkGray,
     },
+    verticalText: {
+        fontFamily: 'Terminal',
+        textOrientation: 'sideways',
+        fontSize: 32,
+        padding: 4,
+        paddingBottom: 64,
+        paddingTop: 8,
+        letterSpacing: 1,
+        color: Colors.lightGray,
+        transform: 'scale(-1)',
+        // @ts-ignore
+        writingMode: 'tb-rl',
+    },
     startWindowContent: {
         flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        // alignItems: 'flex-end',
     },
     startWindow: {
         position: 'absolute',
@@ -240,9 +260,17 @@ const styles: StyleSheetCSS = {
     },
     startMenuOption: {
         alignItems: 'center',
-        flex: 1,
+        // flex: 1,
         height: 24,
         padding: 12,
+    },
+    startMenuSpace: {
+        flex: 1,
+    },
+    startMenuLine: {
+        height: 1,
+        background: Colors.white,
+        borderTop: `1px solid ${Colors.darkGray}`,
     },
     activeTabInner: {
         border: `1px solid ${Colors.darkGray}`,
@@ -277,7 +305,7 @@ const styles: StyleSheetCSS = {
         flex: 1,
     },
     tabIcon: {
-        marginRight: 4,
+        marginRight: 6,
     },
     startContainer: {
         alignItems: 'center',
