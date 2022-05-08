@@ -215,6 +215,10 @@ const styles: StyleSheetCSS = {
         letterSpacing: 1,
         color: Colors.lightGray,
         transform: 'scale(-1)',
+        WebkitTransform: 'scale(-1)',
+        MozTransform: 'scale(-1)',
+        msTransform: 'scale(-1)',
+        OTransform: 'scale(-1)',
         // @ts-ignore
         writingMode: 'tb-rl',
     },
