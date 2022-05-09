@@ -186,7 +186,6 @@ const ShutdownSequence: React.FC<ShutdownSequenceProps> = ({
                     }
                     dumpText += text[j];
                 }
-                console.log(dumpText);
                 setText(curText + dumpText);
                 typeText(
                     i,

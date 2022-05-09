@@ -24,7 +24,6 @@ export default function DosPlayer(props: PlayerProps) {
         const instance = Dos(root);
 
         setDos(instance);
-        console.log(rootRef.current);
         const elements = rootRef.current.getElementsByClassName('flex-grow-0');
 
         while (elements.length > 0) {
@@ -48,9 +47,6 @@ export default function DosPlayer(props: PlayerProps) {
                 width: props.width,
                 height: props.height,
                 position: 'absolute',
-            }}
-            onMouseDown={(e) => {
-                console.log('OOKKK');
             }}
         ></div>
     );
