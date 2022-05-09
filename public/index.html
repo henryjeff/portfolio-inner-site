@@ -14,6 +14,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- <link rel="preload" as="font" href="../src/assets/fonts/MSSansSerif.ttf" type="font/woff2" crossorigin="anonymous"> -->
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -52,7 +53,13 @@
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-
+  <!-- THIS IS A HACK AND A HALF but I dont care -->
+  <div class="font_preload" style="opacity: 0; position: absolute; pointer-events: none;">
+    <span style="font-family: 'MSSerif', Arial, sans-serif;">abcdefghijklmnopqrstuvwxzy</span>
+    <span style="font-family: 'Millennium', Arial, sans-serif;">abcdefghijklmnopqrstuvwxzy</span>
+    <span style="font-family: 'MillenniumBold', Arial, sans-serif;">abcdefghijklmnopqrstuvwxzy</span>
+    <span style="font-family: 'Terminal', Arial, sans-serif;">abcdefghijklmnopqrstuvwxzy</span>
+  </div>
   <!-- <BODY ondragstart="return false;" ondrop="return false;"></BODY> -->
   <div id="root"></div>
   <!--
