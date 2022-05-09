@@ -94,19 +94,6 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                     </li>
                 </ul>
                 <br />
-                {/* <p>
-                    I fell off doing pixel art once I got to college and started
-                    to really focus on my work and education, but I will forever
-                    be thankful to have been a part of the pixel art community
-                    for the few years I was involved. I also learned a lot of
-                    invaluable lessons of animation and design that apply all
-                    the time to the work I do now.
-                    
-                    nah not this ^^
-                    
-                    Still doing it today! Not as active as I was in highschool,
-                    but I'm still learning and growing.
-                </p> */}
                 <div className="captioned-image">
                     <img src={gsts} alt="" />
                     <p>
@@ -116,7 +103,14 @@ const ArtProjects: React.FC<ArtProjectsProps> = (props) => {
                         </sub>
                     </p>
                 </div>
-
+                <br />
+                <p>
+                    This page is currently a work in progress. I've recently
+                    found myself wanting to make more pixel art recently and I
+                    have some project plans and ideas in the works. Expect
+                    updates to this page as I dive back into the world of pixel
+                    art!
+                </p>
                 {/* <h3> Screen record time-lapses and make gifs</h3> */}
             </div>
         </div>
