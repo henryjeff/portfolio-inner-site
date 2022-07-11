@@ -15,7 +15,7 @@ const CREDITS = [
         rows: [
             ['Henry Heffernan', 'Texturing, Composition, & UV'],
             ['Mickael Boitte', 'Computer Model'],
-            ['Sean Nicolas', 'Enviornment Models'],
+            ['Sean Nicolas', 'Environment Models'],
         ],
     },
     {
