@@ -125,10 +125,10 @@ const Contact: React.FC<ContactProps> = (props) => {
             </div>
             <div className="text-block">
                 <p>
-                    I'm currently looking for a full-time position. If you have
-                    any opportunities, please reach out - I would love to chat!
-                    You can reach me via my personal email, or fill out the form
-                    below!
+                    I am currently employed, however if you have any
+                    opportunities, feel free to reach out - I would love to
+                    chat! You can reach me via my personal email, or fill out
+                    the form below!
                 </p>
                 <br />
                 <p>
