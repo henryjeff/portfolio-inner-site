@@ -48,52 +48,57 @@ const Contact: React.FC<ContactProps> = (props) => {
         }
     }, [email, name, message]);
 
-    const handleSubmit = useCallback(() => {
-        if (isFormValid) {
-            setIsLoading(true);
-            fetch('https://henryheffernan.com/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    company,
-                    email,
-                    name,
-                    message,
-                }),
-            })
-                .then((res) => {
-                    if (res.status === 200) {
-                        setFormMessage(
-                            `Message successfully sent. Thank you ${name}!`
-                        );
-                        setCompany('');
-                        setEmail('');
-                        setName('');
-                        setMessage('');
-                        setFormMessageColor(colors.blue);
-                        setIsLoading(false);
-                    } else {
-                        setFormMessage(
-                            'There was an error sending your message. Please try again.'
-                        );
-                        setFormMessageColor(colors.red);
-                        setIsLoading(false);
-                    }
-                })
-                .catch((err) => {
-                    setFormMessage(
-                        'There was an error sending your message. Please try again.'
-                    );
-                    setFormMessageColor(colors.red);
-                    setIsLoading(false);
-                });
-        } else {
+    async function submitForm() {
+        if (!isFormValid) {
             setFormMessage('Form unable to validate, please try again.');
             setFormMessageColor('red');
+            return;
         }
-    }, [company, email, name, message, isFormValid]);
+        try {
+            setIsLoading(true);
+            const res = await fetch(
+                'https://api.henryheffernan.com/api/contact',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        company,
+                        email,
+                        name,
+                        message,
+                    }),
+                }
+            );
+            // the response will be either {success: true} or {success: false, error: message}
+            const data = (await res.json()) as
+                | {
+                      success: false;
+                      error: string;
+                  }
+                | { success: true };
+            if (data.success) {
+                setFormMessage(`Message successfully sent. Thank you ${name}!`);
+                setCompany('');
+                setEmail('');
+                setName('');
+                setMessage('');
+                setFormMessageColor(colors.blue);
+                setIsLoading(false);
+            } else {
+                setFormMessage(data.error);
+                setFormMessageColor(colors.red);
+                setIsLoading(false);
+            }
+        } catch (e) {
+            setFormMessage(
+                'There was an error sending your message. Please try again.'
+            );
+            setFormMessageColor(colors.red);
+            setIsLoading(false);
+        }
+    }
 
     useEffect(() => {
         if (formMessage.length > 0) {
@@ -201,7 +206,7 @@ const Contact: React.FC<ContactProps> = (props) => {
                             style={styles.button}
                             type="submit"
                             disabled={!isFormValid || isLoading}
-                            onMouseDown={handleSubmit}
+                            onMouseDown={submitForm}
                         >
                             {!isLoading ? (
                                 'Send Message'
