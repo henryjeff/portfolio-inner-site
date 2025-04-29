@@ -1,6 +1,4 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link as RouterLink, useNavigate, useLocation } from 'react-router-dom';
 
 export interface LinkProps {
@@ -12,56 +10,61 @@ export interface LinkProps {
 
 const Link: React.FC<LinkProps> = (props) => {
     const navigate = useNavigate();
-
-    // get current location of react router
     const location = useLocation();
+
     const [isHere, setIsHere] = useState(false);
-
-    // if current path is the same as the link path
-    useEffect(() => {
-        if (location.pathname === `/${props.to}`) {
-            setIsHere(true);
-        } else {
-            setIsHere(false);
-        }
-        return () => {};
-    }, [location, props.to]);
-
     const [active, setActive] = useState(false);
 
-    const handleClick = (e: any) => {
-        let isMounted = true;
+    // Ref to track mount status
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
+
+    // update indicator based on location
+    useEffect(() => {
+        setIsHere(location.pathname === `/${props.to}`);
+    }, [location, props.to]);
+
+    const handleClick = (e: React.MouseEvent) => {
         e.preventDefault();
         setActive(true);
+
         if (location.pathname !== `/${props.to}`) {
             setTimeout(() => {
-                if (isMounted) navigate(`/${props.to}`);
+                if (isMounted.current) {
+                    navigate(`/${props.to}`);
+                }
             }, 100);
         }
-        let t = setTimeout(() => {
-            if (isMounted) setActive(false);
-        }, 100);
 
-        return () => {
-            isMounted = false;
-            clearTimeout(t);
-        };
+        setTimeout(() => {
+            if (isMounted.current) {
+                setActive(false);
+            }
+        }, 100);
     };
 
     return (
         <RouterLink
             to={`/${props.to}`}
             onMouseDown={handleClick}
-            style={Object.assign({}, { display: 'flex' }, props.containerStyle)}
+            style={{
+                display: 'flex',
+                ...props.containerStyle,
+            }}
         >
             {isHere && <div style={styles.hereIndicator} />}
             <h4
                 className="router-link"
-                style={Object.assign(
-                    {},
-                    styles.link,
-                    active && { color: 'red' }
-                )}
+                style={{
+                    ...styles.link,
+                    ...(active && { color: 'red' }),
+                }}
             >
                 {props.text}
             </h4>

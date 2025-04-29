@@ -1,12 +1,4 @@
 import React, { useState } from 'react';
-// @ts-ignore
-import house from '../../../assets/audio/house_master.mp3';
-// @ts-ignore
-import edge from '../../../assets/audio/edge_unmastered.mp3';
-// @ts-ignore
-import dnb from '../../../assets/audio/break.mp3';
-// @ts-ignore
-import dnbDrums from '../../../assets/audio/dnb_drop_drums.mp3';
 import houseProject from '../../../assets/pictures/projects/audio/houseProject.png';
 import dnbDrumsProject from '../../../assets/pictures/projects/audio/dnbDrumsProject.png';
 import { MusicPlayer } from '../../general';
@@ -62,7 +54,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             <br />
 
             <MusicPlayer
-                src={house}
+                src="/audio/house_master.mp3"
                 title="Timeless"
                 subtitle="Henry Heffernan - 2022"
                 currentSong={currentSong}
@@ -110,7 +102,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             </p>
             <br />
             <MusicPlayer
-                src={edge}
+                src="/audio/edge_unmastered.mp3"
                 title="Edge [W.I.P.]"
                 subtitle="Henry Heffernan - 2021"
                 currentSong={currentSong}
@@ -148,7 +140,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             </p>
             <br />
             <MusicPlayer
-                src={dnb}
+                src="/audio/break.mp3"
                 title="Break [Demo]"
                 subtitle="Henry Heffernan - 2019/2022"
                 currentSong={currentSong}
@@ -166,7 +158,7 @@ const MusicProjects: React.FC<MusicProjectsProps> = (props) => {
             </p>
             <br />
             <MusicPlayer
-                src={dnbDrums}
+                src="/audio/dnb_drop_drums.mp3"
                 title="Break [Drums and Sub]"
                 subtitle="Henry Heffernan - 2019/2022"
                 currentSong={currentSong}

@@ -1,10 +1,4 @@
 import React from 'react';
-// @ts-ignore
-import saga from '../../../assets/pictures/projects/software/saga.mp4';
-// @ts-ignore
-import computer from '../../../assets/pictures/projects/software/computer.mp4';
-// @ts-ignore
-import scroll from '../../../assets/pictures/projects/software/scroll.mp4';
 import ResumeDownload from '../ResumeDownload';
 import VideoAsset from '../../general/VideoAsset';
 
@@ -39,7 +33,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <VideoAsset src={computer} />
+                    <VideoAsset src="https://rawcdn.githack.com/henryjeff/portfolio-inner-site/23cf84acd5c76d2c719e1d04c3d976dc4b0b49f8/src/assets/pictures/projects/software/computer.mp4" />
                     <p style={styles.caption}>
                         <sub>
                             <b>Figure 1:</b> Blender Scene of the 3D website.
@@ -142,7 +136,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <VideoAsset src={saga} />
+                    <VideoAsset src="https://rawcdn.githack.com/henryjeff/portfolio-inner-site/23cf84acd5c76d2c719e1d04c3d976dc4b0b49f8/src/assets/pictures/projects/software/saga.mp4" />
                     <div style={styles.caption}>
                         <p>
                             <sub>
@@ -220,7 +214,7 @@ const SoftwareProjects: React.FC<SoftwareProjectsProps> = (props) => {
                 </p>
                 <br />
                 <div className="captioned-image">
-                    <VideoAsset src={scroll} />
+                    <VideoAsset src="https://rawcdn.githack.com/henryjeff/portfolio-inner-site/23cf84acd5c76d2c719e1d04c3d976dc4b0b49f8/src/assets/pictures/projects/software/scroll.mp4" />
                     <p style={styles.caption}>
                         <sub>
                             <b>Figure 3:</b> Skip the Scroll in action, finding

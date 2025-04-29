@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from '../general';
 import forHire from '../../assets/pictures/forHireGif.gif';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export interface VerticalNavbarProps {}
 
