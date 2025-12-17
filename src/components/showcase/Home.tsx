@@ -15,7 +15,7 @@ const Home: React.FC<HomeProps> = (props) => {
     return (
         <div style={styles.page}>
             <div style={styles.header}>
-                <h1 style={styles.name}>Henry Heffernan</h1>
+                <h1 style={styles.name}>Luca Dante</h1>
                 <h2>Software Engineer</h2>
             </div>
             <div style={styles.buttons}>
