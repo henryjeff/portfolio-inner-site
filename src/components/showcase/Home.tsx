@@ -26,9 +26,6 @@ const Home: React.FC<HomeProps> = (props) => {
                     text="ARTICOLI"
                 />
             </div>
-            <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                {/* <img src={forhire} alt="" /> */}
-            </div>
         </div>
     );
 };
