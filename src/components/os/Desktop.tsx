@@ -32,7 +32,7 @@ const APPLICATIONS: {
     // },
     showcase: {
         key: 'showcase',
-        name: 'My Showcase',
+        name: 'Portfolio',
         shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
     },
