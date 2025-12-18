@@ -25,11 +25,6 @@ const Home: React.FC<HomeProps> = (props) => {
                     to="experience"
                     text="ARTICOLI"
                 />
-                <Link
-                    containerStyle={styles.link}
-                    to="projects"
-                    text="PROGETTI"
-                />
             </div>
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
                 {/* <img src={forhire} alt="" /> */}
