@@ -111,7 +111,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                                     icon="computerBig"
                                 />
                                 <p style={styles.startMenuText}>
-                                    Sh<u>u</u>t down...
+                                    Sp<u>e</u>gni...
                                 </p>
                             </div>
                         </div>
