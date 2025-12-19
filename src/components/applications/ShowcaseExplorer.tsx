@@ -23,7 +23,7 @@ const ShowcaseExplorer: React.FC<ShowcaseExplorerProps> = (props) => {
             left={56}
             width={initWidth}
             height={initHeight}
-            windowTitle="Henry Heffernan - Showcase 2022"
+            windowTitle="chiomao.in"
             windowBarIcon="windowExplorerIcon"
             closeWindow={props.onClose}
             onInteract={props.onInteract}

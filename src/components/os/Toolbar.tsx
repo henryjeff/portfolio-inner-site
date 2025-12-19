@@ -17,15 +17,11 @@ const Toolbar: React.FC<ToolbarProps> = ({
     shutdown,
 }) => {
     const getTime = () => {
-        const date = new Date();
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let amPm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        let mins = minutes < 10 ? '0' + minutes : minutes;
-        const strTime = hours + ':' + mins + ' ' + amPm;
-        return strTime;
+        return new Date().toLocaleTimeString('it-IT', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        });
     };
 
     const [startWindowOpen, setStartWindowOpen] = useState(false);
@@ -47,16 +43,14 @@ const Toolbar: React.FC<ToolbarProps> = ({
 
     const [time, setTime] = useState(getTime());
 
-    const updateTime = () => {
-        setTime(getTime());
-        setTimeout(() => {
-            updateTime();
-        }, 5000);
-    };
-
     useEffect(() => {
+        const updateTime = () => setTime(getTime());
+
         updateTime();
-    });
+        const interval = setInterval(updateTime, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const onCheckClick = () => {
         if (lastClickInside.current) {
@@ -96,7 +90,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                 >
                     <div style={styles.startWindowInner}>
                         <div style={styles.verticalStartContainer}>
-                            <p style={styles.verticalText}>HeffernanOS</p>
+                            <p style={styles.verticalText}>Portfolio</p>
                         </div>
                         <div style={styles.startWindowContent}>
                             <div style={styles.startMenuSpace} />
@@ -111,7 +105,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                                     icon="computerBig"
                                 />
                                 <p style={styles.startMenuText}>
-                                    Sh<u>u</u>t down...
+                                    Sp<u>e</u>gni...
                                 </p>
                             </div>
                         </div>
