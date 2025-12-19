@@ -29,7 +29,7 @@ const APPLICATIONS: {
     showcase: {
         key: 'showcase',
         name: 'Portfolio',
-        shortcutIcon: 'windowExplorerIcon',
+        shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
     },
     credits: {
