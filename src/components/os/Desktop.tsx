@@ -105,7 +105,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
         });
 
         newShortcuts.forEach((shortcut) => {
-            if (shortcut.shortcutName === 'My Showcase') {
+            if (shortcut.shortcutName === 'Portfolio') {
                 shortcut.onOpen();
             }
         });
