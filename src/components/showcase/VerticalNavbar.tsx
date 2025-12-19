@@ -36,13 +36,6 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                 <h3 style={styles.headerShowcase}>Showcase '22</h3>
             </div>
             <div style={styles.links}>
-                <Link containerStyle={styles.link} to="" text="HOME" />
-                <Link containerStyle={styles.link} to="about" text="ABOUT" />
-                <Link
-                    containerStyle={styles.link}
-                    to="experience"
-                    text="EXPERIENCE"
-                />
                 <Link
                     containerStyle={Object.assign(
                         {},
@@ -74,11 +67,6 @@ const VerticalNavbar: React.FC<VerticalNavbarProps> = (props) => {
                         </div>
                     )
                 }
-                <Link
-                    containerStyle={styles.link}
-                    to="contact"
-                    text="CONTACT"
-                />
             </div>
             <div style={styles.spacer} />
             <div style={styles.forHireContainer} onMouseDown={goToContact}>
