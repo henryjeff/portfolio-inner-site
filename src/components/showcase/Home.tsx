@@ -19,12 +19,6 @@ const Home: React.FC<HomeProps> = (props) => {
                 <h2>aspirante graphic designer</h2>
             </div>
             <div style={styles.buttons}>
-                <Link containerStyle={styles.link} to="about" text="ABOUT" />
-                <Link
-                    containerStyle={styles.link}
-                    to="experience"
-                    text="ARTICOLI"
-                />
                 <Link
                     containerStyle={styles.link}
                     to="projects"
