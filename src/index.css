@@ -266,10 +266,6 @@ input:active {
     overflow-y: scroll;
 }
 
-.router-link:visited {
-    color: purple;
-}
-
 .loading::after {
     display: inline-block;
     animation: dotty steps(1, end) 1s infinite;

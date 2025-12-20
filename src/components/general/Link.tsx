@@ -60,6 +60,7 @@ const Link: React.FC<LinkProps> = (props) => {
                 style={Object.assign(
                     {},
                     styles.link,
+                    isHere && styles.activeLink,
                     active && { color: 'red' }
                 )}
             >
@@ -74,6 +75,9 @@ const styles: StyleSheetCSS = {
         cursor: 'pointer',
         fontWeight: 'bolder',
         textDecoration: 'underline',
+    },
+    activeLink: {
+        color: 'rgb(85, 26, 139)',
     },
     hereIndicator: {
         width: 4,
