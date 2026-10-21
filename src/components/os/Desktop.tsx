@@ -160,7 +160,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                 },
             }));
         },
-        [getHighestZIndex]
+        []
     );
 
     return !shutdown ? (
