@@ -63,22 +63,22 @@ const Window: React.FC<WindowProps> = (props) => {
     const startResize = (event: any) => {
         event.preventDefault();
         setIsResizing(true);
-        window.addEventListener('mousemove', onResize, false);
-        window.addEventListener('mouseup', stopResize, false);
     };
 
     const onResize = ({ clientX, clientY }: any) => {
         const curWidth = clientX - left;
         const curHeight = clientY - top;
-        if (curWidth > 520) resizeRef.current.style.width = `${curWidth}px`;
-        if (curHeight > 220) resizeRef.current.style.height = `${curHeight}px`;
+        const availableWidth = Math.max(1, window.innerWidth - left);
+        const availableHeight = Math.max(1, window.innerHeight - 32 - top);
+        resizeRef.current.style.width = `${Math.min(availableWidth, Math.max(Math.min(320, availableWidth), curWidth))}px`;
+        resizeRef.current.style.height = `${Math.min(availableHeight, Math.max(Math.min(220, availableHeight), curHeight))}px`;
         resizeRef.current.style.opacity = 1;
     };
 
     const stopResize = () => {
         setIsResizing(false);
-        setWidth(resizeRef.current.style.width);
-        setHeight(resizeRef.current.style.height);
+        setWidth(parseFloat(resizeRef.current.style.width) || width);
+        setHeight(parseFloat(resizeRef.current.style.height) || height);
         resizeRef.current.style.opacity = 0;
         window.removeEventListener('mousemove', onResize, false);
         window.removeEventListener('mouseup', stopResize, false);
@@ -92,8 +92,6 @@ const Window: React.FC<WindowProps> = (props) => {
             dragStartX: clientX,
             dragStartY: clientY,
         };
-        window.addEventListener('mousemove', onDrag, false);
-        window.addEventListener('mouseup', stopDrag, false);
     };
 
     const onDrag = ({ clientX, clientY }: any) => {
@@ -122,7 +120,10 @@ const Window: React.FC<WindowProps> = (props) => {
         const x = clientX - dragStartX + left;
         const y = clientY - dragStartY + top;
 
-        return { x, y };
+        return {
+            x: Math.max(0, Math.min(x, window.innerWidth - width)),
+            y: Math.max(0, Math.min(y, window.innerHeight - 32 - height)),
+        };
     };
 
     useEffect(() => {
@@ -144,6 +145,39 @@ const Window: React.FC<WindowProps> = (props) => {
     useEffect(() => {
         setContentHeight(contentRef.current.getBoundingClientRect().height);
     }, [height]);
+
+    useEffect(() => {
+        const fitViewport = () => {
+            const maxWidth = Math.max(1, window.innerWidth);
+            const maxHeight = Math.max(1, window.innerHeight - 32);
+            const fittedWidth = isMaximized ? maxWidth : Math.min(width, maxWidth);
+            const fittedHeight = isMaximized ? maxHeight : Math.min(height, maxHeight);
+            setWidth(fittedWidth);
+            setHeight(fittedHeight);
+            setLeft(isMaximized ? 0 : Math.max(0, Math.min(left, maxWidth - fittedWidth)));
+            setTop(isMaximized ? 0 : Math.max(0, Math.min(top, maxHeight - fittedHeight)));
+        };
+        fitViewport();
+        window.addEventListener('resize', fitViewport);
+        return () => window.removeEventListener('resize', fitViewport);
+    }, [width, height, left, top, isMaximized]);
+
+    useEffect(() => {
+        if (isDragging) {
+            window.addEventListener('mousemove', onDrag);
+            window.addEventListener('mouseup', stopDrag);
+        }
+        if (isResizing) {
+            window.addEventListener('mousemove', onResize);
+            window.addEventListener('mouseup', stopResize);
+        }
+        return () => {
+            window.removeEventListener('mousemove', onDrag);
+            window.removeEventListener('mouseup', stopDrag);
+            window.removeEventListener('mousemove', onResize);
+            window.removeEventListener('mouseup', stopResize);
+        };
+    });
 
     const maximize = () => {
         if (isMaximized) {
@@ -437,9 +471,11 @@ const styles: StyleSheetCSS = {
         flex: 1,
 
         position: 'relative',
+        minWidth: 0,
+        minHeight: 0,
         // overflow: 'scroll',
         overflowX: 'hidden',
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.turquoise,
     },
     bottomBar: {
         flexShrink: 1,
@@ -470,6 +506,8 @@ const styles: StyleSheetCSS = {
     },
     windowHeader: {
         flex: 1,
+        minWidth: 0,
+        overflow: 'hidden',
         // justifyContent: 'center',
         // alignItems: 'center',
     },

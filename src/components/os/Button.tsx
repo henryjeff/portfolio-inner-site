@@ -44,6 +44,8 @@ const Button: React.FC<ButtonProps> = ({ icon, text, onClick }) => {
             onMouseLeave={handleMouseLeave}
             style={outerBorderStyle}
             onMouseDown={click}
+            role="button" tabIndex={0} aria-label={text || (icon === 'close' ? 'Close window' : icon === 'minimize' ? 'Minimize window' : icon === 'maximize' ? 'Maximize or restore window' : icon)}
+            onKeyDown={event => { if (!event.repeat && (event.key === 'Enter' || event.key === ' ')) click(event); }}
         >
             <div
                 style={Object.assign(

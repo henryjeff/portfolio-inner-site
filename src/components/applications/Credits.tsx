@@ -7,8 +7,8 @@ export interface CreditsProps extends WindowAppProps {}
 
 const CREDITS = [
     {
-        title: 'Engineering & Design',
-        rows: [['Henry Heffernan', 'All']],
+        title: 'Original Portfolio Engineering & Design',
+        rows: [['Henry Heffernan', 'Original implementation']],
     },
     {
         title: 'Modeling & Texturing',
@@ -24,6 +24,13 @@ const CREDITS = [
             ['Henry Heffernan', 'Mixing, Composition, & Foley'],
             ['Sound Cassette', 'Office Ambience'],
             ['Windows 95 Startup Sound', 'Microsoft'],
+        ],
+    },
+    {
+        title: 'Original Applications',
+        rows: [
+            ['Henry Heffernan', 'Henordle and original portfolio content'],
+            ['Third-party works', 'Doom, Oregon Trail, Scrabble, and referenced media retain their respective ownership'],
         ],
     },
     {
@@ -78,7 +85,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
             closeWindow={props.onClose}
             onInteract={props.onInteract}
             minimizeWindow={props.onMinimize}
-            bottomLeftText={'© Copyright 2022 Henry Heffernan'}
+            bottomLeftText={'Original portfolio credits: Henry Heffernan and collaborators'}
         >
             <div
                 onMouseDown={nextSlide}
@@ -86,7 +93,7 @@ const Credits: React.FC<CreditsProps> = (props) => {
                 style={styles.credits}
             >
                 <h2>Credits</h2>
-                <p>henryheffernan.com, 2022</p>
+                <p>Original portfolio scene and assets are not authored by Om Kumar Mishra.</p>
                 <br />
                 <br />
                 <br />
@@ -132,12 +139,12 @@ const Credits: React.FC<CreditsProps> = (props) => {
 const styles: StyleSheetCSS = {
     credits: {
         width: '100%',
-        backgroundColor: 'black',
+        backgroundColor: 'var(--portfolio-bg)',
         paddingTop: 64,
         flexDirection: 'column',
         alignItems: 'center',
         paddingBottom: 64,
-        color: 'white',
+        color: 'var(--portfolio-text)',
         overflow: 'hidden',
     },
     row: {

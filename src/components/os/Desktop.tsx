@@ -1,16 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Colors from '../../constants/colors';
 import ShowcaseExplorer from '../applications/ShowcaseExplorer';
-import Doom from '../applications/Doom';
-import OregonTrail from '../applications/OregonTrail';
 import ShutdownSequence from './ShutdownSequence';
 // import ThisComputer from '../applications/ThisComputer';
-import Henordle from '../applications/Henordle';
 import Toolbar from './Toolbar';
 import DesktopShortcut, { DesktopShortcutProps } from './DesktopShortcut';
-import Scrabble from '../applications/Scrabble';
 import { IconName } from '../../assets/icons';
 import Credits from '../applications/Credits';
+import { portfolioSections } from '../../constants/portfolioContent';
 
 export interface DesktopProps {}
 
@@ -32,33 +29,9 @@ const APPLICATIONS: {
     // },
     showcase: {
         key: 'showcase',
-        name: 'My Showcase',
+        name: 'Portfolio',
         shortcutIcon: 'showcaseIcon',
         component: ShowcaseExplorer,
-    },
-    trail: {
-        key: 'trail',
-        name: 'The Oregon Trail',
-        shortcutIcon: 'trailIcon',
-        component: OregonTrail,
-    },
-    doom: {
-        key: 'doom',
-        name: 'Doom',
-        shortcutIcon: 'doomIcon',
-        component: Doom,
-    },
-    scrabble: {
-        key: 'scrabble',
-        name: 'Scrabble',
-        shortcutIcon: 'scrabbleIcon',
-        component: Scrabble,
-    },
-    henordle: {
-        key: 'henordle',
-        name: 'Henordle',
-        shortcutIcon: 'henordleIcon',
-        component: Henordle,
     },
     credits: {
         key: 'credits',
@@ -84,31 +57,20 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     }, [shutdown]);
 
     useEffect(() => {
-        const newShortcuts: DesktopShortcutProps[] = [];
-        Object.keys(APPLICATIONS).forEach((key) => {
-            const app = APPLICATIONS[key];
-            newShortcuts.push({
-                shortcutName: app.name,
-                icon: app.shortcutIcon,
-                onOpen: () => {
-                    addWindow(
-                        app.key,
-                        <app.component
-                            onInteract={() => onWindowInteract(app.key)}
-                            onMinimize={() => minimizeWindow(app.key)}
-                            onClose={() => removeWindow(app.key)}
-                            key={app.key}
-                        />
-                    );
-                },
-            });
-        });
-
-        newShortcuts.forEach((shortcut) => {
-            if (shortcut.shortcutName === 'My Showcase') {
-                shortcut.onOpen();
+        const openPortfolio = (path?: string) => {
+            if (path) {
+                window.history.pushState({}, '', path);
+                window.dispatchEvent(new PopStateEvent('popstate'));
             }
-        });
+            addWindow('showcase', <ShowcaseExplorer onInteract={() => onWindowInteract('showcase')}
+                onMinimize={() => minimizeWindow('showcase')} onClose={() => removeWindow('showcase')} />);
+        };
+        const newShortcuts: DesktopShortcutProps[] = portfolioSections.map(section => ({
+            shortcutName: section.label,
+            icon: 'showcaseIcon',
+            onOpen: () => openPortfolio(section.path),
+        }));
+        openPortfolio();
 
         setShortcuts(newShortcuts);
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -190,7 +152,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
             setWindows((prevState) => ({
                 ...prevState,
                 [key]: {
-                    zIndex: getHighestZIndex() + 1,
+                    zIndex: Math.max(0, ...Object.values(prevState).map(item => item.zIndex)) + 1,
                     minimized: false,
                     component: element,
                     name: APPLICATIONS[key].name,
@@ -202,7 +164,7 @@ const Desktop: React.FC<DesktopProps> = (props) => {
     );
 
     return !shutdown ? (
-        <div style={styles.desktop}>
+        <div className="portfolio-desktop" style={styles.desktop}>
             {/* For each window in windows, loop over and render  */}
             {Object.keys(windows).map((key) => {
                 const element = windows[key].component;
@@ -224,13 +186,11 @@ const Desktop: React.FC<DesktopProps> = (props) => {
                     </div>
                 );
             })}
-            <div style={styles.shortcuts}>
-                {shortcuts.map((shortcut, i) => {
+            <div className="desktop-shortcuts">
+                {shortcuts.map((shortcut) => {
                     return (
                         <div
-                            style={Object.assign({}, styles.shortcutContainer, {
-                                top: i * 104,
-                            })}
+                            style={styles.shortcutContainer}
                             key={shortcut.shortcutName}
                         >
                             <DesktopShortcut
@@ -268,7 +228,7 @@ const styles: StyleSheetCSS = {
         backgroundColor: '#1d2e2f',
     },
     shortcutContainer: {
-        position: 'absolute',
+        position: 'relative', width: 100, height: 100,
     },
     shortcuts: {
         position: 'absolute',
