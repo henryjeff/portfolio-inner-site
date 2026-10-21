@@ -1,25 +1,17 @@
 import React from 'react';
 import { Link } from '../general';
-
-import forhire from '../../assets/pictures/forHireGif.gif';
-import { useNavigate } from 'react-router';
+import portfolioContent from '../../constants/portfolioContent';
 
 export interface HomeProps {}
 
-const Home: React.FC<HomeProps> = (props) => {
-    const navigate = useNavigate();
-
-    const goToContact = () => {
-        navigate('/contact');
-    };
-
+const Home: React.FC<HomeProps> = () => {
     return (
-        <div style={styles.page}>
+        <div className="showcase-home" style={styles.page}>
             <div style={styles.header}>
-                <h1 style={styles.name}>Henry Heffernan</h1>
-                <h2>Software Engineer</h2>
+                <h1 style={styles.name}>{portfolioContent.name}</h1>
+                <h2>{portfolioContent.title}</h2>
             </div>
-            <div style={styles.buttons}>
+            <div className="showcase-home-links" style={styles.buttons}>
                 <Link containerStyle={styles.link} to="about" text="ABOUT" />
                 <Link
                     containerStyle={styles.link}
@@ -37,9 +29,14 @@ const Home: React.FC<HomeProps> = (props) => {
                     text="CONTACT"
                 />
             </div>
-            <div style={styles.forHireContainer} onMouseDown={goToContact}>
-                {/* <img src={forhire} alt="" /> */}
-            </div>
+            <a
+                className="repository-link"
+                href={portfolioContent.repository}
+                target="_blank"
+                rel="noreferrer"
+            >
+                Portfolio repository
+            </a>
         </div>
     );
 };
@@ -67,22 +64,8 @@ const styles: StyleSheetCSS = {
     buttons: {
         justifyContent: 'space-between',
     },
-    image: {
-        width: 800,
-    },
     link: {
         padding: 16,
-    },
-    nowHiring: {
-        backgroundColor: 'red',
-        padding: 16,
-    },
-    forHireContainer: {
-        marginTop: 64,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        cursor: 'pointer',
     },
     name: {
         fontSize: 72,

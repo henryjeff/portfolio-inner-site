@@ -47,16 +47,10 @@ const Toolbar: React.FC<ToolbarProps> = ({
 
     const [time, setTime] = useState(getTime());
 
-    const updateTime = () => {
-        setTime(getTime());
-        setTimeout(() => {
-            updateTime();
-        }, 5000);
-    };
-
     useEffect(() => {
-        updateTime();
-    });
+        const timer = setInterval(() => setTime(getTime()), 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     const onCheckClick = () => {
         if (lastClickInside.current) {
@@ -96,7 +90,7 @@ const Toolbar: React.FC<ToolbarProps> = ({
                 >
                     <div style={styles.startWindowInner}>
                         <div style={styles.verticalStartContainer}>
-                            <p style={styles.verticalText}>HeffernanOS</p>
+                            <p style={styles.verticalText}>PORTFOLIO OS</p>
                         </div>
                         <div style={styles.startWindowContent}>
                             <div style={styles.startMenuSpace} />
@@ -156,6 +150,8 @@ const Toolbar: React.FC<ToolbarProps> = ({
                                             styles.activeTabOuter
                                     )}
                                     onMouseDown={() => toggleMinimize(key)}
+                                    role="button" tabIndex={0} aria-label={`Restore or minimize ${windows[key].name}`}
+                                    onKeyDown={event => { if (!event.repeat && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); toggleMinimize(key); } }}
                                 >
                                     <div
                                         style={Object.assign(

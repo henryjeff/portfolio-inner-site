@@ -1,15 +1,9 @@
 {
-    "short_name": "Henry Heffernan",
-    "name": "Henry Heffernan Portfolio Showcase 2022",
-    "icons": [
-        {
-            "src": "favicon.ico",
-            "sizes": "64x64 32x32 24x24 16x16",
-            "type": "image/x-icon"
-        }
-    ],
+    "short_name": "Om Kumar Mishra",
+    "name": "Om Kumar Mishra | Software Engineer",
+    "icons": [],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
-    "background_color": "#ffffff"
+    "theme_color": "#080B14",
+    "background_color": "#080B14"
 }

@@ -60,7 +60,7 @@ const Link: React.FC<LinkProps> = (props) => {
                 style={Object.assign(
                     {},
                     styles.link,
-                    active && { color: 'red' }
+                    active && { color: 'var(--portfolio-magenta)' }
                 )}
             >
                 {props.text}
@@ -80,7 +80,7 @@ const styles: StyleSheetCSS = {
         height: 4,
         borderWidth: 3,
         borderStyle: 'solid',
-        borderColor: 'rgb(85, 26, 139)',
+        borderColor: 'var(--portfolio-cyan)',
         alignSelf: 'center',
         borderRadius: '50%',
         marginRight: 6,

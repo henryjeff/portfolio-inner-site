@@ -94,6 +94,12 @@ const DesktopShortcut: React.FC<DesktopShortcutProps> = ({
             style={Object.assign({}, styles.appShortcut, scaledStyle)}
             onMouseDown={handleClickShortcut}
             ref={containerRef}
+            role="button" tabIndex={0} aria-label={shortcutName}
+            onKeyDown={event => {
+                if (!event.repeat && (event.key === 'Enter' || event.key === ' ')) {
+                    event.preventDefault(); onOpen();
+                }
+            }}
         >
             <div id={`${shortcutId}`} style={styles.iconContainer}>
                 <div
@@ -150,7 +156,7 @@ const styles: StyleSheetCSS = {
         cursor: 'pointer',
         textOverflow: 'wrap',
         fontFamily: 'MSSerif',
-        color: 'white',
+        color: colors.white,
         fontSize: 8,
         paddingRight: 2,
         paddingLeft: 2,
